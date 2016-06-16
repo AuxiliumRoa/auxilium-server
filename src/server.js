@@ -1,6 +1,11 @@
+
+import dotenv from 'dotenv'
 import http from 'http'
 import express from 'express'
 import session from 'express-session'
+import configurePassport from './passport'
+
+dotenv.config()
 
 const app = express()
 const server = http.createServer(app)
@@ -12,9 +17,16 @@ app.use(session({
   resave: true
 }))
 
+configurePassport(app)
+
 app.get('/api/actions', (req, res) => {
 	console.log('GET /api/actions')
 	res.json({ actions: 'actions' })
+})
+
+app.get('/', (req, res) => {
+	console.log('GET /')
+	res.json({ hello: 'Hello', passport: req.session.passport })
 })
 
 export default function startServer() {
