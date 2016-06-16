@@ -1,4 +1,4 @@
-# auxilium-server
+# Auxilium
 
 Project Description
 -------------------
