@@ -10,7 +10,11 @@ export default function configurePassport (app) {
       callbackURL: 'http://localhost:3000/auth/twitter/cb'
     }, (token, tokenSecret, profile, callback) => {
       console.log('TwitterStrategy callback', profile)
-      return callback(null, profile)
+      return callback(null, {
+        oauthID: profile.id,
+        oauthProvider: 'twitter',
+        name: profile.displayName
+      })
     })
   )
 
@@ -20,13 +24,17 @@ export default function configurePassport (app) {
       callbackURL: 'http://localhost:3000/auth/facebook/cb'
     }, (accessToken, refreshToken, profile, callback) => {
       console.log('FaceBookStrategy callback', profile)
-      return callback(null, profile)
+      return callback(null, {
+        oauthID: profile.id,
+        oauthProvider: 'facebook',
+        name: profile.displayName
+      })
     })
   )
 
   passport.serializeUser((user, callback) => {
     console.log('serializeUser', user)
-    callback(null, { facebookId: user.id, name: user.displayName })
+    callback(null, user)
   })
 
   passport.deserializeUser((obj, callback) => {
