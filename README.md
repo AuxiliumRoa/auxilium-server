@@ -21,25 +21,11 @@ Github workflow
 Team Roles / Accountabilities
 -----------------------------
 
-
-
 [Learning Objectives](learningObjectives.md)
 ---------------------
 
 [User Stories](userStories.md)
 ------------  
  
-[MVP](MVP.md)
------
-
 [Wireframes](wireframes.md)
-------------
-
-[Stretches](stretches.md)
------------
-
-[Pitch Subjects](pitchSubjects.md)
-----------------
-
-[Team Rules](rules.md)
 ------------
