@@ -9,8 +9,7 @@ const port = 3000
 app.use(session({
 	secret: 'Auxilium Roa',
   saveUninitialized: true,
-  resave: true,
-  store: store
+  resave: true
 }))
 
 app.get('/api/actions', (req, res) => {
