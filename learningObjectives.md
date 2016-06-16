@@ -2,31 +2,31 @@ Learning Objectives
 -------------------
 
 ### Uili's Objectives
-  * **Testing**
-  * **Sass**
+  * Testing
+  * Sass
   * React
 
 ### Pearl's Objectives
-  * **React**
+  * React
   * Sockets
   * TDD
   * Sass
 
 ### Broc's Objectives
-  * **TDD**
-  * **Postgres**
+  * TDD
+  * Postgres
   * Deployment
   * Increased volume of code
   * User stories
 
 ### Surya's Objectives
-  * **React**
-  * **Sass**
+  * React
+  * Sass
   * Sockets
 
 ### Nick's Objectives
  * Databases
- * **Project Management**
+ * Project Management
  * UI/UX
  * Sass
  * Agile/workflow
