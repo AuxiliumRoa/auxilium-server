@@ -33,9 +33,12 @@ app.get('/api/actions', (req, res) => {
 		})
 })
 
-app.get('/', (req, res) => {
-	console.log('GET /')
-	res.json({ hello: 'Hello', passport: req.session.passport })
+app.get('/api/user', (req, res) => {
+	console.log('GET /api/user')
+	let user = (req.session.passport && req.session.passport.user)
+		? { name: req.session.passport.user.name }
+		: null
+	res.json({ user: user })
 })
 
 export default function startServer() {

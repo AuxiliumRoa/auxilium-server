@@ -53,7 +53,7 @@ export default function configurePassport (app) {
     app.get('/auth/' + strategy + '/cb',
       passport.authenticate(strategy, { failureRedirect: '/auth/' + strategy }),
       (req, res) => {
-        res.redirect('/')
+        res.redirect('/api/user')
       })
     
   })
