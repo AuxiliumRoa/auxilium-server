@@ -21,11 +21,15 @@ Github workflow
 Team Roles / Accountabilities
 -----------------------------
 
+* Product Owner: Nick
+* Gitmaster: rotate
+* Funmaster: rotate
+
 [Learning Objectives](learningObjectives.md)
 ---------------------
 
 [User Stories](userStories.md)
 ------------  
  
-[Wireframes](wireframes.md)
+Wireframes
 ------------
