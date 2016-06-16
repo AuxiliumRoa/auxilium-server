@@ -1,9 +1,5 @@
 # auxilium-server
 
-Planning  
-========
-Project overview, user stories, learning objectives... 
-
 Project Description
 -------------------
 Auxilium is an app that helps connect people who want to offer their help as a volunteer to those organisations that need volunteers to get things done. Volunteers can search through different causes and actions, either select or discard each, and then engage with someone from the organisation via chat in order to organise further. 
