@@ -4,14 +4,10 @@ import FaceBookStrategy from 'passport-facebook'
 
 export default function configurePassport (app) {
 
-  const rootURL = (environment === 'production')
-    ? 'https://auxiliumroa.herokuapp.com'
-    : 'http://localhost:3000'  
-
   passport.use(new TwitterStrategy({
       consumerKey: process.env.TWITTER_CONSUMER_KEY,
       consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
-      callbackURL: rootURL + '/auth/twitter/cb'
+      callbackURL: process.env.ROOT_URL + '/auth/twitter/cb'
     }, (token, tokenSecret, profile, callback) => {
       console.log('TwitterStrategy callback', profile)
       return callback(null, {
@@ -25,7 +21,7 @@ export default function configurePassport (app) {
   passport.use(new FaceBookStrategy({
       clientID: process.env.FACEBOOK_APP_ID,
       clientSecret: process.env.FACEBOOK_APP_SECRET,
-      callbackURL: rootURL + '/auth/facebook/cb'
+      callbackURL: process.env.ROOT_URL + '/auth/facebook/cb'
     }, (accessToken, refreshToken, profile, callback) => {
       console.log('FaceBookStrategy callback', profile)
       return callback(null, {
