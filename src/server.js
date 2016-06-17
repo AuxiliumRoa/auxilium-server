@@ -1,7 +1,12 @@
+
+import dotenv from 'dotenv'
 import http from 'http'
 import express from 'express'
 import session from 'express-session'
 import Model from './model'
+import configurePassport from './passport'
+
+dotenv.config()
 
 const app = express()
 const server = http.createServer(app)
@@ -14,6 +19,8 @@ app.use(session({
   resave: true
 }))
 
+configurePassport(app)
+
 app.get('/api/actions', (req, res) => {
 	console.log('GET /api/actions')
 	model.getActions()
@@ -24,6 +31,14 @@ app.get('/api/actions', (req, res) => {
 			console.log('Error during model.getActions():', error)
 			res.json({ error: 'Server error.' })
 		})
+})
+
+app.get('/api/user', (req, res) => {
+	console.log('GET /api/user')
+	let user = (req.session.passport && req.session.passport.user)
+		? { name: req.session.passport.user.name }
+		: null
+	res.json({ user: user })
 })
 
 export default function startServer() {
