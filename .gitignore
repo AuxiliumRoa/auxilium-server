@@ -38,3 +38,6 @@ jspm_packages
 
 # Environment variables
 .env
+
+#dev-database
+dev.sqlite3
