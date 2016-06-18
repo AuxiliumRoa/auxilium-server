@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import * as actionCreators from '../../redux/action-creators'
+import { connect } from 'react-redux'
 import JoinedContainer from './joined-container.jsx'
 import IconBox from '../icon-box.jsx'
 
@@ -16,4 +18,14 @@ class JoinedPage extends Component {
   }
 }
 
-export default JoinedPage
+function mapStateToProps(state) {
+  return {
+    userName: state.user ? state.user.name : 'Guest',
+    actions: state.actions
+  }
+}
+
+export const JoinedPageContainer = connect(
+  mapStateToProps,
+  actionCreators
+)(JoinedPage)

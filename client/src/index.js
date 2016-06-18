@@ -1,37 +1,39 @@
 import React from 'react'
-import { render } from 'react-dom'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+import { render } from 'react-dom'
 import { Provider } from 'react-redux'
+import { setUser, populateActions } from './redux/action-creators'
 import configureReduxStore from './redux/configure-store'
-import { AppContainer } from './components/app.jsx'
-import { login } from './redux/action-creators'
+import App from './components/app.jsx' 
 import LoginPage from './components/login/login-page.jsx'
-import MainPage from './components/main/main-page.jsx'
-import JoinedPage from './components/joined_actions/joined-page.jsx'
+import { MainPageContainer } from './components/main/main-page.jsx'
+import { JoinedPageContainer } from './components/joined_actions/joined-page.jsx'
 
 const store = configureReduxStore()
 
-console.log(store.getState())
+console.log('store', store.getState())
 
 store.subscribe(() => {
-	console.log(store.getState())
+	console.log('store', store.getState())
 })
 
-store.dispatch(login())
+store.dispatch(setUser())
+store.dispatch(populateActions())
 
-// const router = (
-//   <Router history={browserHistory}>
-//     <Route path='/' component={App}>
-//       <IndexRoute component={LoginPage}></IndexRoute>
-//       <Route path='/main' component={MainPage}></Route>
-//       <Route path='/joined-actions' component={JoinedMain}></Route>
-//     </Route>
-//   </Router>
-// )
+// const history = syncHistoryWithStore(browserHistory, store)
+const router = (
+  <Router history={ browserHistory }>    
+    <Route path='/' component={ App }>
+      <IndexRoute component={ LoginPage } />
+      <Route path='/main' component={ MainPageContainer } />
+      <Route path='/joined-actions' component={ JoinedPageContainer } />
+    </Route>
+  </Router>
+)
 
 render(
   <Provider store={store}>
-    <AppContainer />
+    { router }
   </Provider>,
   document.getElementById('app')
 )
