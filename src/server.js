@@ -46,7 +46,12 @@ app.get('/api/user', (req, res) => {
 })
 
 app.get('*', (req, res) => {
-	res.sendFile(path.join(__dirname, '../public/index.html'))
+	if (req.session.passport && req.session.passport.user) {
+		res.sendFile(path.join(__dirname, '../public/index.html'))
+	} else {
+		res.sendFile(path.join(__dirname, '../public/login.html'))
+	}
+		 
 })
 
 export default function startServer() {
