@@ -3,9 +3,9 @@ import { expect } from 'chai';
 import { shallow, mount, render } from 'enzyme';
 
 
-import ActionChat from '../src/components/actionsInfoChat/action-chat.jsx'
-import Image from '../src/components/image.jsx'
-import ChatContent from '../src/components/actionsInfoChat/chat-content.jsx'
+import ActionChat from '../../src/components/actionsInfoChat/action-chat.jsx'
+import Image from '../../src/components/image.jsx'
+import ChatContent from '../../src/components/actionsInfoChat/chat-content.jsx'
 
 describe("<ActionChat />", () => {
 

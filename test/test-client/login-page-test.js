@@ -1,9 +1,10 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow, mount, render } from 'enzyme';
-import LoginPage from '../src/components/login/login-page.jsx'
-import Hero from '../src/components/login/hero.jsx'
-import LoginContainer from '../src/components/login/login-container.jsx'
+
+import LoginPage from '../../src/components/login/login-page.jsx'
+import Hero from '../../src/components/login/hero.jsx'
+import LoginContainer from '../../src/components/login/login-container.jsx'
 
 describe("<LoginPage />", () => {
 
