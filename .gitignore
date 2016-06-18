@@ -39,5 +39,12 @@ jspm_packages
 # Environment variables
 .env
 
-#dev-database
+# dev-database
 dev.sqlite3
+
+# Script built client files
+public/bundle.js
+public/css/main.css
+
+# DS_Store
+.DS_Store

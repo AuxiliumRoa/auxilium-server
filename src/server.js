@@ -13,6 +13,8 @@ const server = http.createServer(app)
 const port = process.env.PORT || 3000
 const model = Model(process.env.NODE_ENV)
 
+app.use(express.static('public'))
+
 app.use(session({
 	secret: 'Auxilium Roa',
   saveUninitialized: true,
@@ -20,6 +22,10 @@ app.use(session({
 }))
 
 configurePassport(app)
+
+app.get('/', (req, res) => {
+	res.sendfile(__dirname + '/public/index.html')
+})
 
 app.get('/api/actions', (req, res) => {
 	console.log('GET /api/actions')
@@ -35,6 +41,7 @@ app.get('/api/actions', (req, res) => {
 
 app.get('/api/user', (req, res) => {
 	console.log('GET /api/user')
+	console.log('SESSION', req.session)
 	let user = (req.session.passport && req.session.passport.user)
 		? { name: req.session.passport.user.name }
 		: null
