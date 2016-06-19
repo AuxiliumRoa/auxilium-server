@@ -1,48 +1,83 @@
+@import 'variables';
+@import 'mixins';
+
+html {
+  height: 100%;
+}
+
 body {
-  background-color: #9ac6c0;
-  text-align: center;
-  color: #fff;
-  font-family: sans-serif;
-}
-
-h1 {
-  padding: 10px;
-  font-size: 3rem;
-}
-
-#icons {
+  background-image: url('https://picjumbo.imgix.net/HNCK3420.jpg?q=40&w=1650&sharp=30');
+  min-height: 100%;
   display: flex;
-  justify-content: space-around;
+  align-items: center;
+  justify-content: center;
+}
+
+#app {
+  height: 100%; 
+}
+
+.loginRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #logo {
   margin: auto;
-  background-image: url('aux-img-white.png');
-  background-size: cover;
-  width: 200px;
-  height: 200px;
-}
-
-#login-container {
-  padding: 10px;
-}
-
-.action-box {
-  border: 1px solid white;
-  border-radius: 4px;
-  margin: 10px;
+  max-width: 200px;
+  max-height: 200px;
   display: flex;
+  align-self: center;
+
+  h1 {
+    text-align: center;
+  }
 }
 
-.small-action {
-  width: 80px;
-  height: 80px;
-  background-color: #dcdcdc;
-  margin: 5px;
+#login-page {
+  background-color: rgba(91, 60, 85,1);
+  padding: 4em;
+  border-radius: 3px;
+  box-shadow: 0 0 20px #000;
+  
+  #login-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  
+  h2 {
+    color: white;
+    font-family: 'Lalezar', cursive;
+    font-size: 2.2em;
+    }
+  }
 }
 
-.main-image {
-  width: 250px;
-  height: 250px;
-  border: 1px solid white;
+.loginCol {
+  display: flex;
+  justify-content: center;
+}
+
+.loginRow {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.heroCol {
+  display: flex;
+  justify-content: center;
+}
+
+#login-icons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.heroTitle {
+  font-family: 'Lalezar', cursive;
+  h1 { 
+    color: white; 
+  }
 }

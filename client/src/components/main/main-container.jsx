@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+
 import SmallTitle from '../small-title.jsx'
 import Image from '../image.jsx'
 import Description from '../description.jsx'
