@@ -7,11 +7,7 @@ export default function APIRoutes (model) {
 	router.get('/user', (req, res) => {
 		console.log('GET /api/user')
 		if (loggedIn(req, res)) {
-			res.json({
-				user: {
-					name: req.session.passport.user.name
-				}
-			})
+			res.json({ user: req.session.passport.user })
 		}
 	})
 
@@ -64,7 +60,7 @@ export default function APIRoutes (model) {
 	}
 
 	function handleError (req, res, err) {
-		console.log('Server error:', error)
+		console.log('Server error:', err)
 		res.json({ error: 'Internal server error.' })
 	}
 

@@ -4,10 +4,9 @@ export default function Actions (knex) {
 
     getNotJoined: (userID) => {
       return knex('actions')
-        .join('users_actions_index', 'actions.id', 'users_actions_index.action_id')
-        .whereNot('users_actions_index.user_id', userID)
-        .select('actions.*')
+        .whereNotIn('id', knex.select('action_id').from('users_actions_index').where('user_id', userID))
         .then((rows) => {
+          console.log('actions.getNotJoined returning rows', rows)
           return { actions: rows }
         })
     },
@@ -19,6 +18,7 @@ export default function Actions (knex) {
     		.select('actions.*')
         .then(addCommentsToActions)
         .then((rows) => {
+          console.log('actions.getJoined returning rows', rows)
           return { joinedActions: rows }
         })
     },
@@ -34,6 +34,7 @@ export default function Actions (knex) {
             .where('id', actionID)
             .then(addCommentsToActions)
             .then((rows) => {
+              console.log('actions.joinAction returning rows', rows)
               return { joinedAction: rows[0] }
             })
         })
@@ -42,13 +43,21 @@ export default function Actions (knex) {
   }
 
   function addCommentsToActions (actions) {
-    return Promise.all(actions.map((action) => knex('comments').where('action_id', action.id)))
+    return Promise.all(actions.map((action) => selectComments(action.id)))
       .then((comments) => {
+        console.log('actions.addCommentsToActions found comments', comments)
         for (let i = 0; i < actions.length; i++) {
           actions[i].comments = comments[i]
         }
         return actions
       })
+  }
+
+  function selectComments (actionID) {
+    return knex('comments')
+      .where('action_id', actionID)
+      .join('users', 'comments.user_id', 'users.id')
+      .select('users.id as user_id', 'users.name as user_name', 'comments.comment', 'comments.created_at')
   }
 
 }
