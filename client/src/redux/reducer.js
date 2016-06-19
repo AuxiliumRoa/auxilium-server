@@ -2,7 +2,9 @@ import clone from 'clone'
 
 const INITIAL_STATE = { 
   user: null,
-  actions: []
+  actions: [],
+  displayedAction: 0,
+  fetchedActions: false
 }
 
 export default function reducer (state = INITIAL_STATE, action) {
@@ -10,10 +12,17 @@ export default function reducer (state = INITIAL_STATE, action) {
   switch (action.type) {
     case 'SET_USER' : 
       newState.user = action.user
+      // if user and actions set ready to true
       break
     case 'POPULATE_ACTIONS' :
       newState.actions = action.actions
+      // if user and actions set ready to true
       break
+    case 'SET_INITIAL_DISPLAY' :
+      newState.displayedAction = action.displayedAction
+      break
+    case 'SET_NEW_DISPLAY_ACTION' :
+      newState.displayedAction = action.displayedAction
   }
   return newState
 }

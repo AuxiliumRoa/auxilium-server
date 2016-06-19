@@ -9,12 +9,20 @@ import LikeNoLike from './like-nolike.jsx'
 const iconsArray = [1, 2, 3]
 
 class MainPage extends Component {
+  constructor(props) {
+    super(props)
+  }
+
+  incrementDisplayIndex() {
+    actionCreators.incrementDisplayIndex()
+  }
+
   render() {
     return (
       <div>
         <IconBox id='main-nav' icons={ iconsArray } />
-        <MainContainer />
-        <LikeNoLike />
+        <MainContainer title='This is the title of ALL the actions' action={ this.props.actions[this.props.displayedAction] }/>
+        <LikeNoLike incrementDisplayIndex={ this.incrementDisplayIndex.bind(this) } />
       </div>
       )
   }
@@ -23,7 +31,9 @@ class MainPage extends Component {
 function mapStateToProps(state) {
   return {
     userName: state.user ? state.user.name : 'Guest',
-    actions: state.actions
+    actions: state.actions,
+    fetchedActions: false,
+    displayedAction: state.displayedAction
   }
 }
 

@@ -4,6 +4,7 @@ class Button extends Component {
 
   handleClick() {
     console.log('The ', this.props.label, ' has been clicked')
+    this.props.incrementIndex()
   }
   render() {
     return (
