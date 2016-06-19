@@ -10,17 +10,17 @@ import Spinner from '../spinner.jsx'
 const iconArray = [
   {
     icon: 'fa fa-cog fa-3x',
-    provider: 'settings',
+    key: 'settings',
     link: '/settings'
   },
   {
     icon: 'fa fa-sign-language fa-3x',
-    provider: 'logo',
+    key: 'logo',
     link: '/'
   },
   {
     icon: 'fa fa-list fa-3x',
-    provider: 'joined',
+    key: 'joined',
     link: '/joined-actions'
   }
 ]
@@ -35,13 +35,15 @@ class MainPage extends Component {
   }
 
   render() {
+    console.log('MAIN PAGE THIS.PROPS.ACTIONS[0]', this.props.actions)
+    let action = this.props.actions[0]
     return (
       <div>
         <IconBox id='main-nav' icons={ iconArray } />
         {
           this.props.fetchedActions ? 
           <div>
-            <MainContainer title='This is the title of ALL the actions' action={ this.props.actions[this.props.displayedAction] }/>
+            <MainContainer title='This is the title of ALL the actions' action={ action }/>
             <LikeNoLike incrementDisplayIndex={ this.incrementDisplayIndex.bind(this) } />
           </div> :
           <Spinner />
@@ -52,6 +54,7 @@ class MainPage extends Component {
 }
 
 function mapStateToProps(state) {
+  console.log('MAIN PAGE mapStateToProps state', state)
   return {
     userName: state.user ? state.user.name : 'Guest',
     actions: state.actions,

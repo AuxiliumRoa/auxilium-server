@@ -13,14 +13,14 @@ export default function reducer (state = INITIAL_STATE, action) {
     case 'SET_USER' : 
       newState.user = action.user
       // if user and actions set ready to true
-      if (newState.user && newState.actions) {
+      if (newState.user && newState.actions.length > 0) {
         newState.fetchedActions = true
       }
       break
     case 'POPULATE_ACTIONS' :
       newState.actions = action.actions
       // if user and actions set ready to true
-      if (newState.user && newState.actions) {
+      if (newState.user && newState.actions.length > 0) {
         newState.fetchedActions = true
       }
       break
