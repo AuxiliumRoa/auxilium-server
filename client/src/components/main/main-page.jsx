@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import MainContainer from './main-container.jsx'
 import IconBox from '../icon-box.jsx'
 import LikeNoLike from './like-nolike.jsx'
+import Spinner from '../spinner.jsx'
 
 const iconArray = [
   {
@@ -37,8 +38,14 @@ class MainPage extends Component {
     return (
       <div>
         <IconBox id='main-nav' icons={ iconArray } />
-        <MainContainer title='This is the title of ALL the actions' action={ this.props.actions[this.props.displayedAction] }/>
-        <LikeNoLike incrementDisplayIndex={ this.incrementDisplayIndex.bind(this) } />
+        {
+          this.props.fetchedActions ? 
+          <div>
+            <MainContainer title='This is the title of ALL the actions' action={ this.props.actions[this.props.displayedAction] }/>
+            <LikeNoLike incrementDisplayIndex={ this.incrementDisplayIndex.bind(this) } />
+          </div> :
+          <Spinner />
+        }
       </div>
       )
   }
@@ -48,7 +55,7 @@ function mapStateToProps(state) {
   return {
     userName: state.user ? state.user.name : 'Guest',
     actions: state.actions,
-    fetchedActions: false,
+    fetchedActions: state.fetchedActions,
     displayedAction: state.displayedAction
   }
 }

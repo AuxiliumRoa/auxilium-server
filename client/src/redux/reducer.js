@@ -13,10 +13,16 @@ export default function reducer (state = INITIAL_STATE, action) {
     case 'SET_USER' : 
       newState.user = action.user
       // if user and actions set ready to true
+      if (newState.user && newState.actions) {
+        newState.fetchedActions = true
+      }
       break
     case 'POPULATE_ACTIONS' :
       newState.actions = action.actions
       // if user and actions set ready to true
+      if (newState.user && newState.actions) {
+        newState.fetchedActions = true
+      }
       break
     case 'SET_INITIAL_DISPLAY' :
       newState.displayedAction = action.displayedAction
