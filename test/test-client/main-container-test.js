@@ -2,10 +2,10 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow, mount, render } from 'enzyme';
 
-import MainContainer from '../../src/components/main/main-container.jsx'
-import SmallTitle from '../../src/components/small-title.jsx'
-import Image from '../../src/components/image.jsx'
-import Description from '../../src/components/description.jsx'
+import MainContainer from '../../client/src/components/main/main-container.jsx'
+import SmallTitle from '../../client/src/components/small-title.jsx'
+import Image from '../../client/src/components/image.jsx'
+import Description from '../../client/src/components/description.jsx'
 
 describe("<MainContainer />", () => {
 

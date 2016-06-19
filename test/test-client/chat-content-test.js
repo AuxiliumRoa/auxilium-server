@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { shallow, mount, render } from 'enzyme';
 
 
-import ChatContent from '../../src/components/actionsInfoChat/action-chat.jsx'
+import ChatContent from '../../client/src/components/actions_info_chat/action-chat.jsx'
 
 
 describe("<ChatContent />", () => {

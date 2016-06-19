@@ -2,9 +2,9 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow, mount, render } from 'enzyme';
 
-import ActionChatContainer from '../../src/components/actionsInfoChat/action-chat-container.jsx'
-import SmallTitle from '../../src/components/small-title.jsx'
-import ActionChat from '../../src/components/actionsInfoChat/action-chat.jsx'
+import ActionChatContainer from '../../client/src/components/actions_info_chat/action-chat-container.jsx'
+import SmallTitle from '../../client/src/components/small-title.jsx'
+import ActionChat from '../../client/src/components/actions_info_chat/action-chat.jsx'
 
 describe("<ActionChatContainer />", () => {
 
