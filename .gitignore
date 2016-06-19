@@ -43,10 +43,10 @@ jspm_packages
 dev.sqlite3
 
 # Script built client files
-public/bundle.js
-public/bundle-login.js
-public/css/main.css
-public/css/login.css
+#public/bundle.js
+#public/bundle-login.js
+#public/css/main.css
+#public/css/login.css
 
 # DS_Store
 .DS_Store
