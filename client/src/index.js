@@ -1,6 +1,5 @@
 import React from 'react'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
-// import { syncHistoryWithStore } from 'react-router-redux'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { setUser, populateActions } from './redux/action-creators'
@@ -21,8 +20,6 @@ store.subscribe(() => {
 
 store.dispatch(setUser())
 store.dispatch(populateActions())
-
-// const history = syncHistoryWithStore(browserHistory, store)
 
 const router = (
   <Router history={ browserHistory }>    
