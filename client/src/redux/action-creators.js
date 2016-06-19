@@ -27,3 +27,12 @@ export function populateActions (provider) {
 		})
 	}
 }
+
+export function setInitialDisplay(action) {
+	return (dispatch) => {
+		dispatch({
+			type: 'SET_INITIAL_DISPLAY',
+			displayedAction: action
+		})
+	}
+}

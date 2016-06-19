@@ -1,11 +1,11 @@
-../import React from 'react';
+import React from 'react';
 import { expect } from 'chai';
 import { shallow, mount, render } from 'enzyme';
 
-import IconBox from '../../src/components/icon-box.jsx'
-import ActionsPage from '../../src/components/actionsInfoChat/actions-page.jsx'
-import MainContainer from '../../src/components/main/main-container.jsx'
-import ActionChatContainer from '../../src/components/actionsInfoChat/action-chat-container.jsx'
+import IconBox from '../../client/src/components/icon-box.jsx'
+import ActionsPage from '../../client/src/components/actions_info_chat/actions-page.jsx'
+import MainContainer from '../../client/src/components/main/main-container.jsx'
+import ActionChatContainer from '../../client/src/components/actions_info_chat/action-chat-container.jsx'
 
 describe("<ActionsPage />", () => {
 

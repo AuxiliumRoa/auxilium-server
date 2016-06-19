@@ -8,7 +8,7 @@ class MainContainer extends Component {
   render() {
     return (
       <div className='main-container'>
-        <SmallTitle title={this.props.action}/>
+        <SmallTitle title={ this.props.title } />
         <Image className='main-image' src={ this.props.src } />
         <Description text='This action is eating ice cream.' />
       </div>

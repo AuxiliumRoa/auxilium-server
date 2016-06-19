@@ -2,10 +2,10 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow, mount, render } from 'enzyme';
 
-import MainPage from '../../src/components/main/main-page.jsx'
-import IconBox from '../../src/components/icon-box.jsx'
-import MainContainer from '../../src/components/main/main-container.jsx'
-import LikeNoLike from '../../src/components/main/like-nolike.jsx'
+import MainPage from '../../client/src/components/main/main-page.jsx'
+import IconBox from '../../client/src/components/icon-box.jsx'
+import MainContainer from '../../client/src/components/main/main-container.jsx'
+import LikeNoLike from '../../client/src/components/main/like-nolike.jsx'
 
 describe("<MainPage />", () => {
 

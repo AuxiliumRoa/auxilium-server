@@ -5,15 +5,18 @@ import SmallTitle from '../small-title.jsx'
 const iconArray = [
   {
     icon: 'fa fa-facebook-square fa-3x',
-    provider: 'facebook'
+    provider: 'facebook',
+    link: "/auth/facebook"
   },
   {
     icon: 'fa fa-twitter-square fa-3x',
-    provider: 'twitter'
+    provider: 'twitter',
+    link: "/auth/twitter"
   },
   {
     icon: 'fa fa-google-plus-square fa-3x',
-    provider: 'google'
+    provider: 'google',
+    link: "/auth/google"
   }
 ]
 

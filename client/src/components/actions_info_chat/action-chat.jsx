@@ -6,8 +6,8 @@ class ActionChat extends Component {
 	render () {
 		return (
 			<div>
-				<Image />
-				<ChatContent />
+				<Image src={ this.props.src }/>
+				<ChatContent message={ this.props.message }/>
 			</div>
 		)
 	}

@@ -1,19 +1,47 @@
 import React, { Component } from 'react'
+<<<<<<< HEAD
+=======
+
+>>>>>>> d118703398404c0b00f85466f790970b23e53910
 import * as actionCreators from '../../redux/action-creators'
 import { connect } from 'react-redux'
 import MainContainer from './main-container.jsx'
 import IconBox from '../icon-box.jsx'
 import LikeNoLike from './like-nolike.jsx'
 
-const iconsArray = [1, 2, 3]
+const iconArray = [
+  {
+    icon: 'fa fa-cog fa-3x',
+    provider: 'settings',
+    link: '/settings'
+  },
+  {
+    icon: 'fa fa-sign-language fa-3x',
+    provider: 'logo',
+    link: '/'
+  },
+  {
+    icon: 'fa fa-list fa-3x',
+    provider: 'joined',
+    link: '/joined-actions'
+  }
+]
 
 class MainPage extends Component {
+  constructor(props) {
+    super(props)
+  }
+
+  incrementDisplayIndex() {
+    actionCreators.incrementDisplayIndex()
+  }
+
   render() {
     return (
       <div>
-        <IconBox id='main-nav' icons={ iconsArray } />
-        <MainContainer />
-        <LikeNoLike />
+        <IconBox id='main-nav' icons={ iconArray } />
+        <MainContainer title='This is the title of ALL the actions' action={ this.props.actions[this.props.displayedAction] }/>
+        <LikeNoLike incrementDisplayIndex={ this.incrementDisplayIndex.bind(this) } />
       </div>
       )
   }
@@ -22,7 +50,9 @@ class MainPage extends Component {
 function mapStateToProps(state) {
   return {
     userName: state.user ? state.user.name : 'Guest',
-    actions: state.actions
+    actions: state.actions,
+    fetchedActions: false,
+    displayedAction: state.displayedAction
   }
 }
 
