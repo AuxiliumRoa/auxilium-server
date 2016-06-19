@@ -8,12 +8,16 @@
   },
   "scripts": {
     "start": "babel-node index.js",
+    "build": "npm run build-css; npm run build-css-login; npm run build-bundle; npm run build-bundle-login",
     "test": "npm run test-server; npm run test-client",
     "test-client": "tput setaf 5; echo \"  -----  TESTING THE AUXILIUM CLIENT SIDE  -----  \"; tput setaf 7; mocha test/test-client --compilers js:babel-core/register --require ./test/test-client/test-helper.js --recursive",
     "test-server": "tput setaf 5; echo \"  -----  TESTING THE AUXILIUM SERVER SIDE  -----  \"; tput setaf 7; mocha test/test-server --compilers js:babel-core/register --require ./test/test-server/test-helper.js --recursive",
     "build-css": "node-sass --include-path client/scss client/scss/main.scss public/css/main.css",
     "build-css-login": "node-sass --include-path client/scss client/scss/login.scss public/css/login.css",
+    "build-bundle": "browserify client/src/index.js -o public/bundle.js -dv",
+    "build-bundle-login": "browserify client/src/login.js -o public/bundle-login.js -dv",
     "watch-css": "nodemon -e scss -x \"npm run build-css\"",
+    "watch-css-login": "nodemon -e scss -x \"npm run build-css-login\"",
     "watch-bundle": "watchify client/src/index.js -o public/bundle.js -dv",
     "watch-bundle-login": "watchify client/src/login.js -o public/bundle-login.js -dv"
   },
@@ -65,6 +69,7 @@
   "devDependencies": {
     "babel-preset-react": "^6.5.0",
     "babelify": "^7.3.0",
+    "browserify": "^13.0.1",
     "chai": "^3.5.0",
     "enzyme": "^2.3.0",
     "jsdom": "^9.2.1",
