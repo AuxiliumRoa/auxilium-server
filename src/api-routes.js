@@ -21,7 +21,7 @@ export default function APIRoutes (model) {
 		let user = (req.session.passport && req.session.passport.user)
 			? { name: req.session.passport.user.name }
 			: null
-		res.json({ user: user })
+		res.json({ user: { name: user.name } })
 	})
 
 	return router
