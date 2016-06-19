@@ -24,7 +24,7 @@ export default function Users (knex) {
   }
 
   function getUser(oAuthProvider, oAuthID) {
-    return select('id', 'name')
+    return knex.select('id', 'name')
       .from('users')
       .where({
         oauth_provider: oAuthProvider,

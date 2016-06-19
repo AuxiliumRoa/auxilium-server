@@ -33,7 +33,7 @@ export default function configurePassport (app, model) {
   )
 
   passport.serializeUser((oAuthUser, callback) => {
-    console.log('serializeUser', user)
+    console.log('serializeUser', oAuthUser)
     model.users.getOrCreate(oAuthUser.oAuthProvider, oAuthUser.oAuthID, oAuthUser.oAuthName)
       .then((user) => {
         callback(null, user)
