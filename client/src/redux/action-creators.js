@@ -14,7 +14,7 @@ export function setUser () {
 	}
 }
 
-export function populateActions (provider) {
+export function populateActions () {
 	return (dispatch) => {
 		request({
 			method: 'GET',
@@ -28,11 +28,36 @@ export function populateActions (provider) {
 	}
 }
 
-export function setInitialDisplay(action) {
+export function populateJoinedActions () {
 	return (dispatch) => {
-		dispatch({
-			type: 'SET_INITIAL_DISPLAY',
-			displayedAction: action
+		request({
+			method: 'GET',
+			url: '/api/joined-actions'
+		}, (err, res, body) => {
+		  dispatch({
+		    type: 'POPULATE_JOINED_ACTIONS',
+		    joinedActions: JSON.parse(body).actions
+		  })
+		})
+	}
+}
+
+export function incrementDisplayedAction () {
+	return {
+		type: 'INCREMENT_DISPLAYED_ACTION'
+	}
+}
+
+export function joinAction (actionID) {
+	return (dispatch) => {
+		request({
+			method: 'GET',
+			url: '/api/join-action?id=' + actionID
+		}, (err, res, body) => {
+			dispatch({
+				type: 'ADD_JOINED_ACTION',
+				action: JSON.parse(body).action
+			})
 		})
 	}
 }

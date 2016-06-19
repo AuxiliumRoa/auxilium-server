@@ -10,17 +10,17 @@ import Spinner from '../spinner.jsx'
 const iconArray = [
   {
     icon: 'fa fa-cog fa-3x',
-    provider: 'settings',
+    key: 'settings',
     link: '/settings'
   },
   {
     icon: 'fa fa-sign-language fa-3x',
-    provider: 'logo',
+    key: 'logo',
     link: '/'
   },
   {
     icon: 'fa fa-list fa-3x',
-    provider: 'joined',
+    key: 'joined',
     link: '/joined-actions'
   }
 ]
@@ -30,8 +30,9 @@ class MainPage extends Component {
     super(props)
   }
 
-  incrementDisplayIndex() {
-    actionCreators.incrementDisplayIndex()
+  joinDisplayedAction () {
+    this.props.joinAction(this.props.actions[this.props.displayedAction].id)
+    this.props.incrementDisplayedAction()
   }
 
   render() {
@@ -42,7 +43,7 @@ class MainPage extends Component {
           this.props.fetchedActions ? 
           <div>
             <MainContainer title='This is the title of ALL the actions' action={ this.props.actions[this.props.displayedAction] }/>
-            <LikeNoLike incrementDisplayIndex={ this.incrementDisplayIndex.bind(this) } />
+            <LikeNoLike like={ this.joinDisplayedAction.bind(this) } nolike={this.props.incrementDisplayedAction} />
           </div> :
           <Spinner />
         }

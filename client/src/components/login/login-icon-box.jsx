@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import Icon from './icon.jsx'
+import LoginIcon from './login-icon.jsx'
 
-class IconBox extends Component {
+class LoginIconBox extends Component {
   constructor(props) {
     super(props)
   }
@@ -11,7 +11,7 @@ class IconBox extends Component {
       <div id={ this.props.id }>
       {
         this.props.icons.map((icon) => {
-          return <Icon key={ icon.key + '-icon' } icon={ icon.icon } link={ icon.link } />
+          return <LoginIcon key={ icon.key + '-icon' } icon={ icon.icon } link={ icon.link } />
         })
       }
       </div>
@@ -20,4 +20,4 @@ class IconBox extends Component {
 
 }
 
-export default IconBox
+export default LoginIconBox

@@ -5,8 +5,8 @@ class LikeNoLike extends Component {
   render() {
     return (
     	<div>
-	      <Button label='No Like' incrementIndex={ this.props.incrementDisplayIndex } />
-        <Button label='Like' incrementIndex={ this.props.incrementDisplayIndex } />
+	      <Button label='No Like' handleClick={ this.props.nolike } />
+        <Button label='Like' handleClick={ this.props.like } />
       </div>
       )
   }

@@ -40,6 +40,22 @@ export default function APIRoutes (model) {
 		}
 	})
 
+	router.get('/join-action', (req, res) => {
+		console.log('GET /api/join-action')
+		if (req.session.passport && req.session.passport.user) {
+			model.actions.joinAction(req.query.id, req.session.passport.user.id)
+				.then((joinedAction) => {
+					res.json(joinedAction)
+				})
+				.catch((error) => {
+					console.log('Error during model.actions.joinAction():', error)
+					res.json({ error: 'Server error.' })
+				})
+		} else {
+			res.json({ error: 'Server error: Not logged in.' })
+		}
+	})
+
 	return router
 
 }
