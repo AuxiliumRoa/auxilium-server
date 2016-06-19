@@ -12,12 +12,16 @@ class MainPage extends Component {
     super(props)
   }
 
+  incrementDisplayIndex() {
+    actionCreators.incrementDisplayIndex()
+  }
+
   render() {
     return (
       <div>
         <IconBox id='main-nav' icons={ iconsArray } />
         <MainContainer title='This is the title of ALL the actions' action={ this.props.actions[this.props.displayedAction] }/>
-        <LikeNoLike />
+        <LikeNoLike incrementDisplayIndex={ this.incrementDisplayIndex.bind(this) } />
       </div>
       )
   }
