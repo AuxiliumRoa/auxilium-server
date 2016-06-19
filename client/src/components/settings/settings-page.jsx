@@ -1,8 +1,25 @@
 import React, { Component } from 'react'
 import * as actionCreators from '../../redux/action-creators'
 import { connect } from 'react-redux'
+import IconBox from '../icon-box.jsx'
 
-const iconsArray = [1, 2, 3]
+const iconArray = [
+  {
+    icon: 'fa fa-home fa-3x',
+    provider: 'home',
+    link: '/'
+  },
+  {
+    icon: '',
+    provider: 'one',
+    link: ''
+  },
+  {
+    icon: '',
+    provider: 'two',
+    link: ''
+  }
+]
 
 class SettingsPage extends Component {
   constructor(props) {
@@ -12,6 +29,7 @@ class SettingsPage extends Component {
   render() {
     return (
       <div>
+        <IconBox id='settings-nav' icons={ iconArray } />
         <h1>Settings</h1>
       </div>
       )
