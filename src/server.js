@@ -22,11 +22,11 @@ app.use(session({
   resave: true
 }))
 
-configurePassport(app)
+configurePassport(app, model)
 
 app.get('/api/actions', (req, res) => {
 	console.log('GET /api/actions')
-	model.getActions()
+	model.actions.getAll()
 		.then((actions) => {
 			res.json(actions)
 		})

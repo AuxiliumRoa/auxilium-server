@@ -2,7 +2,7 @@ export default function Users (knex) {
 
   return {
 
-    getOrCreateUser: (oAuthProvider, oAuthID, oAuthName) => {
+    getOrCreate: (oAuthProvider, oAuthID, oAuthName) => {
       return getUser(oAuthProvider, oAuthID)
         .then((rows) => {
           if (rows.length > 0) {
