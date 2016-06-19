@@ -46,6 +46,7 @@ dev.sqlite3
 public/bundle.js
 public/bundle-login.js
 public/css/main.css
+public/css/login.css
 
 # DS_Store
 .DS_Store
