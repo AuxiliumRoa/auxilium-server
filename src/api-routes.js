@@ -6,55 +6,67 @@ export default function APIRoutes (model) {
 
 	router.get('/user', (req, res) => {
 		console.log('GET /api/user')
-		let user = (req.session.passport && req.session.passport.user)
-			? { name: req.session.passport.user.name }
-			: null
-		res.json({ user: { name: user.name } })
+		if (loggedIn(req, res)) {
+			res.json({
+				user: {
+					name: req.session.passport.user.name
+				}
+			})
+		}
 	})
 
 	router.get('/actions', (req, res) => {
 		console.log('GET /api/actions')
-		model.actions.getAll()
-			.then((actions) => {
-				res.json(actions)
-			})
-			.catch((error) => {
-				console.log('Error during model.actions.getAll():', error)
-				res.json({ error: 'Server error.' })
-			})
+		if (loggedIn(req, res)) {
+			model.actions.getNotJoined(req.session.passport.user.id)
+				.then((actions) => {
+					res.json(actions)
+				})
+				.catch((error) => {
+					handleError(req, res, error)
+				})
+		}
 	})
 
 	router.get('/joined-actions', (req, res) => {
 		console.log('GET /api/joined-actions')
-		if (req.session.passport && req.session.passport.user) {
+		if (loggedIn(req, res)) {
 			model.actions.getJoined(req.session.passport.user.id)
 				.then((joinedActions) => {
 					res.json(joinedActions)
 				})
 				.catch((error) => {
-					console.log('Error during model.actions.getJoined():', error)
-					res.json({ error: 'Server error.' })
+					handleError(req, res, error)
 				})
-		} else {
-			res.json({ error: 'Server error: Not logged in.' })
 		}
 	})
 
 	router.get('/join-action', (req, res) => {
 		console.log('GET /api/join-action')
-		if (req.session.passport && req.session.passport.user) {
-			model.actions.joinAction(req.query.id, req.session.passport.user.id)
+		if (loggedIn(req, res)) {
+			model.actions.joinAction(req.session.passport.user.id, req.query.id)
 				.then((joinedAction) => {
 					res.json(joinedAction)
 				})
 				.catch((error) => {
-					console.log('Error during model.actions.joinAction():', error)
-					res.json({ error: 'Server error.' })
+					handleError(req, res, error)
 				})
-		} else {
-			res.json({ error: 'Server error: Not logged in.' })
 		}
 	})
+
+	function loggedIn (req, res) {
+		if (req.session.passport && req.session.passport.user) {
+			return true
+		} else {
+			res.json({ error: 'You must be logged in to access this endpoint.' })
+			return false
+		}
+	}
+
+	function handleError (req, res, err) {
+		console.log('Server error:', error)
+		res.json({ error: 'Internal server error.' })
+	}
 
 	return router
 

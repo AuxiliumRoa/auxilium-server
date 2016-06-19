@@ -20,7 +20,7 @@ store.subscribe(() => {
 
 store.dispatch(setUser())
 store.dispatch(populateActions())
-// store.dispatch(populateJoinedActions())
+store.dispatch(populateJoinedActions())
 
 const router = (
   <Router history={ browserHistory }>    
