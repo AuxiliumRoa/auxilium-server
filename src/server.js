@@ -1,5 +1,6 @@
 
 import dotenv from 'dotenv'
+import path from 'path'
 import http from 'http'
 import express from 'express'
 import session from 'express-session'
@@ -13,7 +14,7 @@ const server = http.createServer(app)
 const port = process.env.PORT || 3000
 const model = Model(process.env.NODE_ENV)
 
-app.use(express.static('public'))
+app.use(express.static(path.join(__dirname, '../public')))
 
 app.use(session({
 	secret: 'Auxilium Roa',
@@ -22,10 +23,6 @@ app.use(session({
 }))
 
 configurePassport(app)
-
-app.get('/', (req, res) => {
-	res.sendfile(__dirname + '/public/index.html')
-})
 
 app.get('/api/actions', (req, res) => {
 	console.log('GET /api/actions')
@@ -46,6 +43,15 @@ app.get('/api/user', (req, res) => {
 		? { name: req.session.passport.user.name }
 		: null
 	res.json({ user: user })
+})
+
+app.get('*', (req, res) => {
+	if (req.session.passport && req.session.passport.user) {
+		res.sendFile(path.join(__dirname, '../public/index.html'))
+	} else {
+		res.sendFile(path.join(__dirname, '../public/login.html'))
+	}
+		 
 })
 
 export default function startServer() {

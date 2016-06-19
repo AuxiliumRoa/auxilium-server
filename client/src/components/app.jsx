@@ -1,41 +1,36 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import LoginPage from './login/login-page.jsx'
-import JoinedPage from './joined_actions/joined-page.jsx'
-import MainPage from './main/main-page.jsx'
 import * as actionCreators from '../redux/action-creators'
+import LoginPage from './login/login-page.jsx'
+import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+import { MainPageContainer } from './main/main-page.jsx'
+import { JoinedPageContainer } from './joined_actions/joined-page.jsx'
+
+const router = (
+  <Router history={ browserHistory }>    
+    <Route path='/' component={ MainPageContainer } />
+    <Route path='/joined-actions' component={ JoinedPageContainer } />
+  </Router>
+)
 
 class App extends Component {
   constructor(props) {
     super(props)
   }
 
-  login(provider) {
-    console.log(provider, 'has been clicked')
-    this.props.login()
-  }
-
-  // render() {
-  //   return (
-  //     <LoginPage id={ this.props.userName } login={ this.login.bind(this) }/>
-  //   )
-  // }
-
-  // render() {
-  //   return (
-  //     <JoinedPage />
-  //   )
-  // }
   render() {
+    console.log('rendering App, user:', this.props.user)
     return (
-      <MainPage />
-      )
+      <div>
+        { this.props.user ? router : <LoginPage /> }
+      </div>
+    )
   }
 }
 
 function mapStateToProps(state) {
   return {
-    userName: state.user ? state.user.name : 'John Doe'
+    user: state.user
   }
 }
 

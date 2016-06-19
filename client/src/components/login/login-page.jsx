@@ -9,9 +9,9 @@ class LoginPage extends Component {
 
   render() {
     return (
-      <div id={ this.props.id }>
+      <div id='login-page'>
         <Hero />
-        <LoginContainer login={ this.props.login }/>
+        <LoginContainer />
       </div>
       )
   }
