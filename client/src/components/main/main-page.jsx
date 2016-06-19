@@ -5,6 +5,7 @@ import MainContainer from './main-container.jsx'
 import IconBox from '../icon-box.jsx'
 import LikeNoLike from './like-nolike.jsx'
 import Spinner from '../spinner.jsx'
+import { Row } from 'react-bootstrap'
 
 const iconArray = [
   {
@@ -36,7 +37,8 @@ class MainPage extends Component {
 
   render() {
     return (
-      <div>
+      <Row className='navRow'>
+      <div className='navContainer'>
         <IconBox id='main-nav' icons={ iconArray } />
         {
           this.props.fetchedActions ? 
@@ -47,6 +49,7 @@ class MainPage extends Component {
           <Spinner />
         }
       </div>
+      </Row>
       )
   }
 }
