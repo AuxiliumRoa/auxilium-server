@@ -12,7 +12,8 @@
     "test-server": "mocha --compilers js:babel-core/register --require ./test/test-helper.js --recursive",
     "build-css": "node-sass --include-path client/scss client/scss/main.scss public/css/main.css",
     "watch-css": "nodemon -e scss -x \"npm run build-css\"",
-    "watch-bundle": "watchify client/src/index.js -o public/bundle.js -dv"
+    "watch-bundle": "watchify client/src/index.js -o public/bundle.js -dv",
+    "watch-bundle-login": "watchify client/src/login.js -o public/bundle-login.js -dv"
   },
   "repository": {
     "type": "git",

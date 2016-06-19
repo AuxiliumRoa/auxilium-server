@@ -9,7 +9,7 @@ export default function configurePassport (app) {
       consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
       callbackURL: process.env.ROOT_URL + '/auth/twitter/cb'
     }, (token, tokenSecret, profile, callback) => {
-      console.log('TwitterStrategy callback', profile)
+      // console.log('TwitterStrategy callback', profile)
       return callback(null, {
         oauthID: profile.id,
         oauthProvider: 'twitter',
@@ -23,7 +23,7 @@ export default function configurePassport (app) {
       clientSecret: process.env.FACEBOOK_APP_SECRET,
       callbackURL: process.env.ROOT_URL + '/auth/facebook/cb'
     }, (accessToken, refreshToken, profile, callback) => {
-      console.log('FaceBookStrategy callback', profile)
+      // console.log('FaceBookStrategy callback', profile)
       return callback(null, {
         oauthID: profile.id,
         oauthProvider: 'facebook',
@@ -33,12 +33,12 @@ export default function configurePassport (app) {
   )
 
   passport.serializeUser((user, callback) => {
-    console.log('serializeUser', user)
+    // console.log('serializeUser', user)
     callback(null, user)
   })
 
   passport.deserializeUser((obj, callback) => {
-    console.log('deserializeUser', obj)
+    // console.log('deserializeUser', obj)
     callback(null, obj)
   })
 
