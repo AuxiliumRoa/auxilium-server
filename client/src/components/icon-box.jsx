@@ -7,17 +7,17 @@ class IconBox extends Component {
   }
 
   render() {
-    let login = this.props.login
     return (
       <div id={ this.props.id }>
       {
-        this.props.icons.map(function(e) {
-          return <Icon icon={ e.icon } login={ login } provider={ e.provider }/>
+        this.props.icons.map((icon) => {
+          return <Icon key={ icon.provider + '-icon' } icon={ icon.icon } provider={ icon.provider }/>
         })
       }
       </div>
-      )
+    )
   }
+
 }
 
 export default IconBox
