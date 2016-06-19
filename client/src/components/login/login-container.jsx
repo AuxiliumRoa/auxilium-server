@@ -1,4 +1,4 @@
-import { Component } from 'react'
+import React, { Component } from 'react'
 import IconBox from '../icon-box.jsx'
 import SmallTitle from '../small-title.jsx'
 

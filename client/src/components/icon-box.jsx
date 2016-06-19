@@ -1,4 +1,4 @@
-import { Component } from 'react'
+import React, { Component } from 'react'
 import Icon from './icon.jsx'
 
 class IconBox extends Component {
@@ -11,7 +11,7 @@ class IconBox extends Component {
       <div id={ this.props.id }>
       {
         this.props.icons.map((icon) => {
-          return <Icon icon={ icon.icon } provider={ icon.provider }/>
+          return <Icon key={ icon.provider + '-icon' } icon={ icon.icon } provider={ icon.provider }/>
         })
       }
       </div>

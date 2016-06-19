@@ -1,4 +1,4 @@
-import { Component } from 'react'
+import React, { Component } from 'react'
 
 class Icon extends Component {
   constructor(props) {
@@ -6,6 +6,7 @@ class Icon extends Component {
   }
 
   render() {
+    console.log('ICON RENDERING')
   	return (
   		<a href={ "/auth/" + this.props.provider }>
 	  		<i className={ this.props.icon } aria-hidden="true"></i>

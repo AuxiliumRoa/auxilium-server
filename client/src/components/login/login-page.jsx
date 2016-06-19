@@ -1,4 +1,4 @@
-import { Component } from 'react'
+import React, { Component } from 'react'
 import Hero from './hero.jsx'
 import LoginContainer from './login-container.jsx'
 
