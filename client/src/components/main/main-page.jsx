@@ -8,11 +8,15 @@ import LikeNoLike from './like-nolike.jsx'
 const iconsArray = [1, 2, 3]
 
 class MainPage extends Component {
+  constructor(props) {
+    super(props)
+  }
+
   render() {
     return (
       <div>
         <IconBox id='main-nav' icons={ iconsArray } />
-        <MainContainer />
+        <MainContainer action={ displayedAction }/>
         <LikeNoLike />
       </div>
       )
@@ -22,7 +26,8 @@ class MainPage extends Component {
 function mapStateToProps(state) {
   return {
     userName: state.user ? state.user.name : 'Guest',
-    actions: state.actions
+    actions: state.actions,
+    displayedAction: state.displayedAction
   }
 }
 
