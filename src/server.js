@@ -1,3 +1,4 @@
+import dotenv from 'dotenv'
 import path from 'path'
 import http from 'http'
 import express from 'express'
@@ -5,6 +6,8 @@ import session from 'express-session'
 import Model from './model'
 import configurePassport from './passport'
 import APIRoutes from './api-routes'
+
+dotenv.config()
 
 const app = express()
 const server = http.createServer(app)
