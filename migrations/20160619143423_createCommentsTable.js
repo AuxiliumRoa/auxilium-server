@@ -1,4 +1,4 @@
-knexports.up = function(knex, Promise) {
+exports.up = function(knex, Promise) {
   return knex.schema.createTableIfNotExists('comments', function (table) {
   	table.increments('id')
   	table.integer('action_id')
