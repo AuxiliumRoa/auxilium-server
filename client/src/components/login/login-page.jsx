@@ -1,11 +1,8 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
 import Hero from './hero.jsx'
 import LoginContainer from './login-container.jsx'
 
 class LoginPage extends Component {
-  constructor(props) {
-    super(props)
-  }
 
   render() {
     return (
@@ -13,8 +10,9 @@ class LoginPage extends Component {
         <Hero />
         <LoginContainer />
       </div>
-      )
+    )
   }
+
 }
 
 export default LoginPage

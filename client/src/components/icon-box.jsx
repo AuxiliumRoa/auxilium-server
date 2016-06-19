@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
 import Icon from './icon.jsx'
 
 class IconBox extends Component {
@@ -7,17 +7,17 @@ class IconBox extends Component {
   }
 
   render() {
-    let login = this.props.login
     return (
       <div id={ this.props.id }>
       {
-        this.props.icons.map(function(e) {
-          return <Icon icon={ e.icon } login={ login } provider={ e.provider }/>
+        this.props.icons.map((icon) => {
+          return <Icon icon={ icon.icon } provider={ icon.provider }/>
         })
       }
       </div>
-      )
+    )
   }
+
 }
 
 export default IconBox

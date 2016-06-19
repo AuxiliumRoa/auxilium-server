@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
 import IconBox from '../icon-box.jsx'
 import SmallTitle from '../small-title.jsx'
 
@@ -18,18 +18,16 @@ const iconArray = [
 ]
 
 class LoginContainer extends Component {
-  constructor(props) {
-      super(props)
-    }
 
   render() {
     return (
       <div id='login-container'>
         <SmallTitle title='Login with:' />
-        <IconBox id='login-icons' icons={ iconArray } login={ this.props.login } />
+        <IconBox id='login-icons' icons={ iconArray } />
       </div>
-      )
+    )
   }
+
 }
 
 export default LoginContainer

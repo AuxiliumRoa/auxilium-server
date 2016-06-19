@@ -1,24 +1,18 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
 
 class Icon extends Component {
-
-  handleClick() {
-    this.props.login()
+  constructor(props) {
+    super(props)
   }
 
   render() {
-  	if (this.props.provider === 'facebook') {
-	    return (
-	    	<a href="/auth/facebook">
-	      	<i className={ this.props.icon } aria-hidden="true"></i>
-	      </a>
-	     )
-	  } else {
-	  	return (
-	      <i className={ this.props.icon } aria-hidden="true" onClick={this.handleClick.bind(this)} ></i>
-	  	)
-	  }
+  	return (
+  		<a href={ "/auth/" + this.props.provider }>
+	  		<i className={ this.props.icon } aria-hidden="true"></i>
+  		</a>
+  	)
   }
+
 }
 
 export default Icon
