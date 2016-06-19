@@ -43,7 +43,7 @@ class MainPage extends Component {
           this.props.fetchedActions ? 
           <div>
             <MainContainer title='This is the title of ALL the actions' action={ this.props.actions[this.props.displayedAction] }/>
-            <LikeNoLike like={ this.joinDisplayedAction } nolike={this.props.incrementDisplayedAction} />
+            <LikeNoLike like={ this.joinDisplayedAction.bind(this) } nolike={this.props.incrementDisplayedAction} />
           </div> :
           <Spinner />
         }

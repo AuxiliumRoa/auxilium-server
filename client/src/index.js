@@ -2,7 +2,7 @@ import React from 'react'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
-import { setUser, populateActions } from './redux/action-creators'
+import { setUser, populateActions, populateJoinedActions } from './redux/action-creators'
 import configureReduxStore from './redux/configure-store'
 import App from './components/app.jsx' 
 import { MainPageContainer } from './components/main/main-page.jsx'
@@ -20,7 +20,7 @@ store.subscribe(() => {
 
 store.dispatch(setUser())
 store.dispatch(populateActions())
-store.dispatch(populateJoinedActions())
+// store.dispatch(populateJoinedActions())
 
 const router = (
   <Router history={ browserHistory }>    
