@@ -1,8 +1,4 @@
 import React, { Component } from 'react'
-<<<<<<< HEAD
-=======
-
->>>>>>> d118703398404c0b00f85466f790970b23e53910
 import * as actionCreators from '../../redux/action-creators'
 import { connect } from 'react-redux'
 import MainContainer from './main-container.jsx'

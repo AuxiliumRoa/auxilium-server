@@ -24,8 +24,8 @@ class LoginContainer extends Component {
 
   render() {
     return (
-      <div id='login-container'>
-        <SmallTitle title='Login with:' />
+      <div id='login-container' class=''>
+        <SmallTitle title='LOGIN WITH:' />
         <IconBox id='login-icons' icons={ iconArray } />
       </div>
     )
