@@ -6,18 +6,8 @@ import IconBox from '../icon-box.jsx'
 const iconArray = [
   {
     icon: 'fa fa-home fa-3x',
-    provider: 'home',
+    key: 'home',
     link: '/'
-  },
-  {
-    icon: '',
-    provider: 'one',
-    link: ''
-  },
-  {
-    icon: '',
-    provider: 'two',
-    link: ''
   }
 ]
 
