@@ -16,7 +16,7 @@ class MainPage extends Component {
     return (
       <div>
         <IconBox id='main-nav' icons={ iconsArray } />
-        <MainContainer action={ displayedAction }/>
+        <MainContainer title='This is the title of ALL the actions' action={ this.props.actions[this.props.displayedAction] }/>
         <LikeNoLike />
       </div>
       )
@@ -27,6 +27,7 @@ function mapStateToProps(state) {
   return {
     userName: state.user ? state.user.name : 'Guest',
     actions: state.actions,
+    fetchedActions: false,
     displayedAction: state.displayedAction
   }
 }

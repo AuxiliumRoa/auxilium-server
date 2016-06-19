@@ -8,6 +8,7 @@ import configureReduxStore from './redux/configure-store'
 import App from './components/app.jsx' 
 import { MainPageContainer } from './components/main/main-page.jsx'
 import { JoinedPageContainer } from './components/joined_actions/joined-page.jsx'
+import { ActionChatPageContainer } from './components/actions_info_chat/action-chat-page.jsx'
 
 const store = configureReduxStore()
 
@@ -27,6 +28,7 @@ const router = (
     <Route path='/' component={ App }>
       <IndexRoute component={ MainPageContainer } />
       <Route path='/joined-actions' component={ JoinedPageContainer } />
+      <Route path='/single-action' component={ ActionChatPageContainer } />
     </Route>
   </Router>
 )
