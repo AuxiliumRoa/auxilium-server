@@ -18,18 +18,16 @@ const iconArray = [
 ]
 
 class LoginContainer extends Component {
-  constructor(props) {
-      super(props)
-    }
 
   render() {
     return (
       <div id='login-container'>
         <SmallTitle title='Login with:' />
-        <IconBox id='login-icons' icons={ iconArray } login={ this.props.login } />
+        <IconBox id='login-icons' icons={ iconArray } />
       </div>
-      )
+    )
   }
+
 }
 
 export default LoginContainer

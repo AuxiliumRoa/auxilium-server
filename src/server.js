@@ -38,7 +38,6 @@ app.get('/api/actions', (req, res) => {
 
 app.get('/api/user', (req, res) => {
 	console.log('GET /api/user')
-	console.log('SESSION', req.session)
 	let user = (req.session.passport && req.session.passport.user)
 		? { name: req.session.passport.user.name }
 		: null
@@ -47,11 +46,12 @@ app.get('/api/user', (req, res) => {
 
 app.get('*', (req, res) => {
 	if (req.session.passport && req.session.passport.user) {
-		res.sendFile(path.join(__dirname, '../public/index.html'))
+		console.log('GET * serving main.html')
+		res.sendFile(path.join(__dirname, '../public/main.html'))
 	} else {
+		console.log('GET * serving login.html')
 		res.sendFile(path.join(__dirname, '../public/login.html'))
 	}
-		 
 })
 
 export default function startServer() {

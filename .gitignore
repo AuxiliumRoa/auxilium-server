@@ -44,6 +44,7 @@ dev.sqlite3
 
 # Script built client files
 public/bundle.js
+public/bundle-login.js
 public/css/main.css
 
 # DS_Store
