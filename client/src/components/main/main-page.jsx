@@ -30,21 +30,15 @@ class MainPage extends Component {
     super(props)
   }
 
-  incrementDisplayIndex() {
-    actionCreators.incrementDisplayIndex()
-  }
-
   render() {
-    console.log('MAIN PAGE THIS.PROPS.ACTIONS[0]', this.props.actions)
-    let action = this.props.actions[0]
     return (
       <div>
         <IconBox id='main-nav' icons={ iconArray } />
         {
           this.props.fetchedActions ? 
           <div>
-            <MainContainer title='This is the title of ALL the actions' action={ action }/>
-            <LikeNoLike incrementDisplayIndex={ this.incrementDisplayIndex.bind(this) } />
+            <MainContainer title='This is the title of ALL the actions' action={ this.props.actions[this.props.displayedAction] }/>
+            <LikeNoLike incrementDisplayedAction={ this.props.incrementDisplayedAction } />
           </div> :
           <Spinner />
         }
@@ -54,7 +48,6 @@ class MainPage extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log('MAIN PAGE mapStateToProps state', state)
   return {
     userName: state.user ? state.user.name : 'Guest',
     actions: state.actions,

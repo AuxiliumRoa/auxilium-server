@@ -24,11 +24,9 @@ export default function reducer (state = INITIAL_STATE, action) {
         newState.fetchedActions = true
       }
       break
-    case 'SET_INITIAL_DISPLAY' :
-      newState.displayedAction = action.displayedAction
+    case 'INCREMENT_DISPLAYED_ACTION' :
+      newState.displayedAction = (state.displayedAction + 1) % state.actions.length
       break
-    case 'SET_NEW_DISPLAY_ACTION' :
-      newState.displayedAction = action.displayedAction
   }
   return newState
 }

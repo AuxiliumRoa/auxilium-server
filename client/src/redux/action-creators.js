@@ -28,11 +28,8 @@ export function populateActions (provider) {
 	}
 }
 
-export function setInitialDisplay(action) {
-	return (dispatch) => {
-		dispatch({
-			type: 'SET_INITIAL_DISPLAY',
-			displayedAction: action
-		})
+export function incrementDisplayedAction () {
+	return {
+		type: 'INCREMENT_DISPLAYED_ACTION'
 	}
 }
