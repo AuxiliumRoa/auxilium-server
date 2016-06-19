@@ -5,7 +5,23 @@ import { connect } from 'react-redux'
 import IconBox from '../icon-box.jsx'
 import JoinedContainer from './joined-container.jsx'
 
-const iconArray = [1, 2, 3]
+const iconArray = [
+  {
+    icon: 'fa fa-angle-left fa-3x',
+    provider: 'back',
+    link: '/'
+  },
+  {
+    icon: 'fa fa-sign-language fa-3x',
+    provider: 'logo',
+    link: ''
+  },
+  {
+    icon: '',
+    provider: 'none',
+    link: ''
+  }
+]
 const joinedActionsArray = ['Planting trees', 'Eating icecream', 'sleeping']
 
 class JoinedPage extends Component {

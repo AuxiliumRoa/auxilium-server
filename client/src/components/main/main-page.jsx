@@ -6,7 +6,23 @@ import MainContainer from './main-container.jsx'
 import IconBox from '../icon-box.jsx'
 import LikeNoLike from './like-nolike.jsx'
 
-const iconsArray = [1, 2, 3]
+const iconArray = [
+  {
+    icon: 'fa fa-cog fa-3x',
+    provider: 'settings',
+    link: '/settings'
+  },
+  {
+    icon: 'fa fa-sign-language fa-3x',
+    provider: 'logo',
+    link: '/'
+  },
+  {
+    icon: 'fa fa-list fa-3x',
+    provider: 'joined',
+    link: '/joined-actions'
+  }
+]
 
 class MainPage extends Component {
   constructor(props) {
@@ -20,7 +36,7 @@ class MainPage extends Component {
   render() {
     return (
       <div>
-        <IconBox id='main-nav' icons={ iconsArray } />
+        <IconBox id='main-nav' icons={ iconArray } />
         <MainContainer title='This is the title of ALL the actions' action={ this.props.actions[this.props.displayedAction] }/>
         <LikeNoLike incrementDisplayIndex={ this.incrementDisplayIndex.bind(this) } />
       </div>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router'
 
 class Icon extends Component {
   constructor(props) {
@@ -7,9 +8,9 @@ class Icon extends Component {
 
   render() {
   	return (
-  		<a href={ "/auth/" + this.props.provider }>
+  		<Link to={ this.props.link }>
 	  		<i className={ this.props.icon } aria-hidden="true"></i>
-  		</a>
+  		</Link>
   	)
   }
 
