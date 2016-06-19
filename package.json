@@ -8,8 +8,8 @@
   },
   "scripts": {
     "start": "babel-node index.js",
-    "test-client": "mocha --require test/setup.js --compilers js:babel-core/register --require ./test/test-helper.js --recursive",
-    "test-server": "mocha --compilers js:babel-core/register --require ./test/test-helper.js --recursive",
+    "test-client": "mocha --require test/test-client/setup.js --compilers js:babel-core/register --require ./test/test-client/test-helper.js --recursive",
+    "test-server": "mocha --compilers js:babel-core/register --require ./test/test-server/test-helper.js --recursive",
     "build-css": "node-sass --include-path client/scss client/scss/main.scss public/css/main.css",
     "watch-css": "nodemon -e scss -x \"npm run build-css\"",
     "watch-bundle": "watchify client/src/index.js -o public/bundle.js -dv",
