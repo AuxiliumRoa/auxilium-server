@@ -23,7 +23,7 @@ app.use(session({
   resave: true
 }))
 
-configurePassport(app)
+configurePassport(app, model)
 
 app.use('/api', APIRoutes(model))
 
