@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
+import { NavItem } from 'react-bootstrap'
 
 class Icon extends Component {
   constructor(props) {
@@ -8,9 +9,11 @@ class Icon extends Component {
 
   render() {
   	return (
-  		<Link to={ this.props.link }>
-	  		<i className={ this.props.icon } aria-hidden="true"></i>
-  		</Link>
+	  	<NavItem>
+        <Link to={ this.props.link }>
+          <i className={ this.props.icon } aria-hidden="true"></i>
+        </Link>
+      </NavItem>
   	)
   }
 
