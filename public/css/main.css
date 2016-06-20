@@ -1,0 +1,63 @@
+html {
+  height: 100%; }
+
+body {
+  background-color: whitesmoke;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+#app {
+  height: 100%; }
+
+h1 {
+  font-family: "Lalezar", cursive;
+  margin-bottom: 4em; }
+
+p {
+  font-size: 14pt; }
+
+.navRow {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.navContainer {
+  background-color: white;
+  padding: 2em;
+  border-radius: 2px; }
+
+div#main-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column; }
+  .main-container h2 {
+    color: black;
+    font-family: "Lalezar", cursive; }
+  .main-container p {
+    margin-top: 1em; }
+  .main-container img {
+    align-items: center;
+    align-content: stretch;
+    margin-bottom: 2em; }
+    .main-container img .main-image {
+      display: flex;
+      align-self: left; }
+
+.fa-list {
+  text-align: right; }
+
+.btnRow {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .btnRow .btn {
+    margin-right: 1em;
+    margin-top: 2em;
+    width: 40%; }
