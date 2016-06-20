@@ -22,14 +22,13 @@ const iconArray = [
     link: ''
   }
 ]
-const joinedActionsArray = ['Planting trees', 'Eating icecream', 'sleeping']
 
 class JoinedPage extends Component {
   render() {
     return (
       <div>
         <IconBox id='joined-nav' icons={ iconArray }/>
-        <JoinedContainer actions={ joinedActionsArray }/>
+        <JoinedContainer actions={ this.props.joinedActions }/>
       </div>
     )
   }
@@ -38,7 +37,7 @@ class JoinedPage extends Component {
 function mapStateToProps(state) {
   return {
     userName: state.user ? state.user.name : 'Guest',
-    actions: state.actions
+    joinedActions: state.joinedActions
   }
 }
 

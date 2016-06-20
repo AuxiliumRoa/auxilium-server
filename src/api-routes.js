@@ -50,6 +50,19 @@ export default function APIRoutes (model) {
 		}
 	})
 
+	router.get('/unjoin-action', (req, res) => {
+		console.log('GET /api/unjoin-action')
+		if (loggedIn(req, res)) {
+			model.actions.unjoinAction(req.session.passport.user.id, req.query.id)
+				.then(() => {
+					res.json({ status: 'OK' })
+				})
+				.catch((error) => {
+					handleError(req, res, error)
+				})
+		}
+	})
+
 	function loggedIn (req, res) {
 		if (req.session.passport && req.session.passport.user) {
 			return true
