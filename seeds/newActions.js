@@ -55,6 +55,6 @@ exports.seed = function(knex, Promise) {
       when: '12 August 2016, 11am.',
       why: 'We like feeding people.',
       image_url: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcS4fQpR1ULTyqDU71c-tSIMLYJ6pzqJxNBFL_n7K5_3yUYlnppJ8Q'
-    }),
+    })
   );
 };
