@@ -14,6 +14,7 @@ export default function APIRoutes (model) {
 	router.get('/actions', (req, res) => {
 		console.log('GET /api/actions')
 		if (loggedIn(req, res)) {
+			console.log('model.actions.getNotJoined(req.session.passport.user.id)', req.session.passport.user.id)
 			model.actions.getNotJoined(req.session.passport.user.id)
 				.then((actions) => {
 					res.json(actions)
@@ -27,6 +28,7 @@ export default function APIRoutes (model) {
 	router.get('/joined-actions', (req, res) => {
 		console.log('GET /api/joined-actions')
 		if (loggedIn(req, res)) {
+			console.log('model.actions.getJoined(req.session.passport.user.id)', req.session.passport.user.id)
 			model.actions.getJoined(req.session.passport.user.id)
 				.then((joinedActions) => {
 					res.json(joinedActions)
