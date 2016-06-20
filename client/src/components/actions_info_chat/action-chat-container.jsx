@@ -13,7 +13,7 @@ class ActionChatContainer extends Component {
 			<div>
         <SmallTitle title='ChatBox'/>
         {
-          (this.props.action.fetchedComments)
+          (this.props.action.fetchedComments && (this.props.action.comments.length > 0))
             ? <div>
               {
                 this.props.action.comments.map((e) => {
