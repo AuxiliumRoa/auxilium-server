@@ -32,12 +32,16 @@ export default function reducer (state = INITIAL_STATE, reduxAction) {
     case 'POPULATE_JOINED_ACTIONS' :
       reduxAction.joinedActions.forEach((action) => {
         newState.joinedActions[action.id] = action
+        newState.joinedActions[action.id].currentComment = ''
+        newState.joinedActions[action.id].fetchedComments = true
       })
       newState.fetchedJoinedActions = true
       break
 
     case 'INCREMENT_DISPLAYED_ACTION' :
-      newState.displayedAction = (state.displayedAction + 1) % Object.keys(state.actions).length
+      newState.displayedActionIndex = (Object.keys(state.actions).length > 0)
+        ? (state.displayedActionIndex + 1) % Object.keys(state.actions).length
+        : 0
       break
 
     case 'JOIN_ACTION' :
@@ -45,7 +49,7 @@ export default function reducer (state = INITIAL_STATE, reduxAction) {
       newState.joinedActions[reduxAction.action.id].currentComment = ''
       newState.joinedActions[reduxAction.action.id].fetchedComments = false
       delete newState.actions[reduxAction.action.id]
-      newState.displayedAction = state.displayedAction % Object.keys(newState.actions).length
+      newState.displayedActionIndex = state.displayedActionIndex % Object.keys(newState.actions).length
       break
 
     case 'POPULATE_COMMENTS' :

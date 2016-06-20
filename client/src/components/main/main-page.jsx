@@ -35,7 +35,6 @@ class MainPage extends Component {
     if (Object.keys(this.props.actions) > 0) {
       let index = Object.keys(this.props.actions)[this.props.displayedActionIndex]
       this.props.joinAction(this.props.actions[index].id)
-      this.props.incrementDisplayedAction()
     } else {
       console.log('Sorry, nothing to join here!')
     }

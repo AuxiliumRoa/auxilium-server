@@ -1,10 +1,16 @@
 import React, { Component } from 'react'
 import Image from '../image.jsx'
+import { Link } from 'react-router'
 
 class ActionBox extends Component {
+
+  handleClick() {
+    this.props.setDisplay(this.props.id)
+  }
+
   render() {
     return (
-      <div className='action-box'>
+      <Link to='/single-action' className='action-box' onClick={ this.handleClick.bind(this)}>
         <Image className='small-action' src={this.props.src}/>
         <div>
           <h4>{ this.props.title }</h4>
@@ -13,7 +19,7 @@ class ActionBox extends Component {
           <p>{ this.props.when }</p>
           <p>{ this.props.what }</p>
         </div>
-      </div>
+      </Link>
       )
   }
 }
