@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="1"
+            failures="0"
+            tests="1">
+
+  <testsuite name="google-int-test"
+    errors="1" failures="0" hostname="" id="" package="google-int-test" skipped="0"
+    tests="1" time="0.03400" timestamp="Mon, 20 Jun 2016 05:00:14 GMT">
+  
+    <testcase name="Demo test Google" time="0.03400" assertions="0">
+    </testcase>
+      <system-err>
+          Error while running [Google Int Test / Demo test Google]:
+
+  TypeError: browser.url is not a function
+    at Object.module.exports.Demo test Google (/Users/uilifecteau/Documents/coding/auxilium-server/test/test-integration/google-int-test.js:6:8)
+    at Object.&lt;anonymous&gt; (/Users/uilifecteau/.nvm/versions/node/v5.11.1/lib/node_modules/nightwatch/lib/util/utils.js:34:8)
+    at Module.callAsync (/Users/uilifecteau/.nvm/versions/node/v5.11.1/lib/node_modules/nightwatch/lib/runner/module.js:75:18)
+    at /Users/uilifecteau/.nvm/versions/node/v5.11.1/lib/node_modules/nightwatch/lib/runner/testcase.js:77:43
+    at _fulfilled (/Users/uilifecteau/.nvm/versions/node/v5.11.1/lib/node_modules/nightwatch/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/Users/uilifecteau/.nvm/versions/node/v5.11.1/lib/node_modules/nightwatch/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/Users/uilifecteau/.nvm/versions/node/v5.11.1/lib/node_modules/nightwatch/node_modules/q/q.js:796:13)
+    at /Users/uilifecteau/.nvm/versions/node/v5.11.1/lib/node_modules/nightwatch/node_modules/q/q.js:556:49
+    at runSingle (/Users/uilifecteau/.nvm/versions/node/v5.11.1/lib/node_modules/nightwatch/node_modules/q/q.js:137:13)
+    at flush (/Users/uilifecteau/.nvm/versions/node/v5.11.1/lib/node_modules/nightwatch/node_modules/q/q.js:125:13)
+      </system-err>
+  
+  
+  </testsuite>
+</testsuites>
