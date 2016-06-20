@@ -16,7 +16,7 @@ const iconArray = [
   {
     icon: 'fa fa-google-plus-square fa-3x',
     key: 'google',
-    link: "/auth/google"
+    link: "/auth/linkedin"
   }
 ]
 

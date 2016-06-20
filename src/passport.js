@@ -1,6 +1,7 @@
 import passport from 'passport'
 import TwitterStrategy from 'passport-twitter'
 import FaceBookStrategy from 'passport-facebook'
+import LinkedInStrategy from 'passport-linkedin'
 
 export default function configurePassport (app, model) {
 
@@ -32,6 +33,20 @@ export default function configurePassport (app, model) {
     })
   )
 
+  passport.use(new LinkedInStrategy({
+      consumerKey: process.env.LINKEDIN_API_KEY,
+      consumerSecret: process.env.LINKEDIN_SECRET_KEY,
+      callbackURL: process.env.ROOT_URL + '/auth/linkedin/cb'
+    }, (token, tokenSecret, profile, callback) => {
+      console.log('LinkedInStrategy callback', profile)
+      return callback(null, {
+        oAuthProvider: 'linkedin',
+        oAuthID: profile.id,
+        oAuthName: profile.displayName
+      })
+    })
+  )
+
   passport.serializeUser((oAuthUser, callback) => {
     // console.log('serializeUser', oAuthUser)
     model.users.getOrCreate(oAuthUser.oAuthProvider, oAuthUser.oAuthID, oAuthUser.oAuthName)
@@ -48,7 +63,7 @@ export default function configurePassport (app, model) {
   app.use(passport.initialize())
   app.use(passport.session())
 
-  ;['twitter', 'facebook'].forEach((strategy) => {
+  ;['twitter', 'facebook' , 'linkedin'].forEach((strategy) => {
 
     app.get('/auth/' + strategy,
       passport.authenticate(strategy))
