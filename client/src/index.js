@@ -2,7 +2,7 @@ import React from 'react'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
-import { setUser, populateActions, populateJoinedActions } from './redux/action-creators'
+import { populateUser, populateActions, populateJoinedActions } from './redux/action-creators'
 import configureReduxStore from './redux/configure-store'
 import App from './components/app.jsx' 
 import { MainPageContainer } from './components/main/main-page.jsx'
@@ -18,7 +18,7 @@ store.subscribe(() => {
 	console.log('store', store.getState())
 })
 
-store.dispatch(setUser())
+store.dispatch(populateUser())
 store.dispatch(populateActions())
 store.dispatch(populateJoinedActions())
 
