@@ -1,11 +1,10 @@
 
 exports.seed = function(knex, Promise) {
   return Promise.join(
-    knex('actions').del(),
     knex('actions').insert({
       title: 'Samoan Sossage Sizzle',
       who: 'Rata Street School',
-      what: 'We need help running a BBQ for fundraising for our school Samoan hockey team.'
+      what: 'We need help running a BBQ for fundraising for our school Samoan hockey team.',
       where: 'Fraser Park Hockey Stadium, Lower Hutt',
       when: 'Saturday 2nd of July 2016, 8am',
       why: 'Because we love sossages, Samoans and hockey!',
