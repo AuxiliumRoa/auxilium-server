@@ -6,7 +6,7 @@ import IconBox from '../icon-box.jsx'
 import LikeNoLike from './like-nolike.jsx'
 import NoneContainer from './none-container.jsx'
 import Spinner from '../spinner.jsx'
-import { Row } from 'react-bootstrap'
+import { Row, Panel, Button } from 'react-bootstrap'
 
 const iconArray = [
   {
@@ -44,23 +44,26 @@ class MainPage extends Component {
     let action = this.props.actions[Object.keys(this.props.actions)[this.props.displayedActionIndex]]
     console.log('ACTIONS', this.props.actions)
     return (
-      <Row className='navRow'>
+      <Panel>
       <div className='navContainer'>
         <IconBox id='main-nav' icons={ iconArray } />
         {
-          this.props.fetchedActions ? 
-          <div>
-          {
-            (Object.keys(this.props.actions).length > 0)
-              ? <MainContainer title='This is the title of ALL the actions' action={ action }/>
-              : <NoneContainer />
-          } 
-          </div> :
-          <Spinner />
+          (this.props.fetchedActions)
+            ? <div>
+              {
+                (Object.keys(this.props.actions).length > 0)
+                  ? <MainContainer title='This is the title of ALL the actions' action={ action }/>
+                  : <NoneContainer />
+              }
+              </div>
+            : <Spinner />
         }
-        <LikeNoLike like={ this.joinDisplayedAction.bind(this) } nolike={ this.props.incrementDisplayedAction } />
+        <Row className='btnRow'>
+          <Button className='btn btn-default' like={ this.joinDisplayedAction.bind(this) }>PASS</Button> 
+          <Button className='btn btn-default' nolike={this.props.incrementDisplayedAction}>PARTICIPATE</Button>
+        </Row>
       </div>
-      </Row>
+      </Panel>
       )
   }
 }

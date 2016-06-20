@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import * as actionCreators from '../../redux/action-creators'
 import { connect } from 'react-redux'
 import IconBox from '../icon-box.jsx'
+import { Button, Row, Col } from 'react-bootstrap'
+import { Link } from 'react-router'
 
 const iconArray = [
   {
@@ -18,10 +20,15 @@ class SettingsPage extends Component {
 
   render() {
     return (
-      <div>
-        <IconBox id='settings-nav' icons={ iconArray } />
-        <h1>Settings</h1>
-      </div>
+      <Row className=''>
+        <Col sm={12}>
+          <IconBox id='settings-nav' icons={ iconArray } />
+          <h1>Settings</h1>
+          <Link to={ '/addAction' }>
+            <Button>Add Action</Button>
+          </Link>
+        </Col>
+      </Row>
       )
   }
 }
