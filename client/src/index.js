@@ -9,6 +9,7 @@ import { MainPageContainer } from './components/main/main-page.jsx'
 import { JoinedPageContainer } from './components/joined_actions/joined-page.jsx'
 import { ActionChatPageContainer } from './components/actions_info_chat/action-chat-page.jsx'
 import { SettingsPageContainer } from './components/settings/settings-page.jsx'
+import io from 'socket.io-client'
 
 const store = configureReduxStore()
 
@@ -39,3 +40,8 @@ render(
   </Provider>,
   document.getElementById('app')
 )
+
+const socket = io()
+
+console.log('Cient about to emit hello down the socket')
+socket.emit('hello', { message: 'hello hello', array: [1, 2, 3] })
