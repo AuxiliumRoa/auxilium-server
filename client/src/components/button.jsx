@@ -4,7 +4,7 @@ class Button extends Component {
 
   render() {
     return (
-      <button onClick={ this.props.handleClick }>{ this.props.label }</button>
+      <a onClick={ this.props.handleClick }>{ this.props.label }</a>
       )
   }
 }

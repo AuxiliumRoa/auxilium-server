@@ -6,7 +6,7 @@ html {
 }
 
 body {
-  background-color: rgba(91, 60, 85,1);
+  background-color: $mainbackgroundcolor;
   min-height: 100%;
   display: flex;
   align-items: center;
@@ -15,6 +15,15 @@ body {
 
 #app {
   height: 100%; 
+}
+
+h1 {
+  font-family: $headerfont;
+  margin-bottom: 4em;
+}
+
+p {
+  font-size: 14pt;
 }
 
 .navRow {
@@ -27,13 +36,12 @@ body {
   background-color: white;
   padding: 2em;
   border-radius: 2px;
-  max-width: 65%;
 }
 
-.main-nav {
+div#main-nav {
   display: flex;
-  justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .main-container {
@@ -42,8 +50,8 @@ body {
   flex-direction: column;
 
   h2 {
-    color: rgba(91, 60, 85,1);
-    font-family: 'Lalezar', cursive;
+    color: $maincolor;
+    font-family: $headerfont;
   }
 
   p {
@@ -54,16 +62,26 @@ body {
     align-items: center;
     align-content: stretch;
     margin-bottom: 2em;
+    
+    .main-image {
+      display: flex;
+      align-self: left;
+    } 
   }
-}
-
-img.main-image {
-  max-width: 500px;
-  max-height: 500px;
-  display: flex;
-  align-self: left;
 }
 
 .fa-list {
   text-align: right;
+}
+
+.btnRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  .btn {
+    margin-right: 1em;
+    margin-top: 2em;
+    width: 40%;
+  }
 }
