@@ -9,6 +9,23 @@ const INITIAL_STATE = {
   fetchedUser: false,
   fetchedActions: false,
   fetchedJoinedActions: false,
+  displayedIcons: [
+  {
+    icon: 'fa fa-cog fa-3x',
+    key: 'settings',
+    link: '/settings'
+  },
+  {
+    icon: 'fa fa-sign-language fa-3x',
+    key: 'logo',
+    link: '/'
+  },
+  {
+    icon: 'fa fa-list fa-3x',
+    key: 'joined',
+    link: '/joined-actions'
+  }
+]
 }
 
 export default function reducer (state = INITIAL_STATE, reduxAction) {
