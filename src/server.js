@@ -5,6 +5,7 @@ import express from 'express'
 import session from 'express-session'
 import Model from './model'
 import configurePassport from './passport'
+import configureSocketAPI from './socket-api'
 import APIRoutes from './api-routes'
 
 dotenv.config()
@@ -23,6 +24,7 @@ app.use(session({
 }))
 
 configurePassport(app, model)
+configureSocketAPI(server, model)
 
 app.use('/api', APIRoutes(model))
 
