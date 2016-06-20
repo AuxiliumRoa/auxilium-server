@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import MainContainer from '../main/main-container.jsx'
 import ActionChatContainer from './action-chat-container.jsx'
 import IconBox from '../icon-box.jsx'
+import Spinner from '../spinner.jsx'
 
 const iconArray = [
   {
@@ -25,11 +26,21 @@ const iconArray = [
 
 class ActionChatPage extends Component {
 		render() {
+      let action = this.props.joinedActions[this.props.displayedJoinedAction]
 			return(
 				<div>
 					<IconBox id='action-chat-nav' icons={ iconArray }/>
-					<MainContainer title='This is the title of the action'/>
-					<ActionChatContainer />
+          {
+            (action) 
+             ? <div>
+      					<MainContainer title='This is the title of the action' action={ action } />
+      					<ActionChatContainer 
+                  action={ action } 
+                  setCurrentComment={ this.props.setCurrentComment } 
+                  addComment={ this.props.addCommentFromClient } />
+              </div>
+            : <Spinner />
+          }
 				</div>
 			)
 		}
@@ -37,10 +48,8 @@ class ActionChatPage extends Component {
 
 function mapStateToProps(state) {
   return {
-    userName: state.user ? state.user.name : 'Guest',
-    actions: state.actions,
-    fetchedActions: false,
-    displayedAction: state.displayedAction
+    joinedActions: state.joinedActions,
+    displayedJoinedAction: state.displayedJoinedAction
   }
 }
 

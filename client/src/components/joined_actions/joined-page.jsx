@@ -28,7 +28,7 @@ class JoinedPage extends Component {
     return (
       <div>
         <IconBox id='joined-nav' icons={ iconArray }/>
-        <JoinedContainer actions={ this.props.joinedActions }/>
+        <JoinedContainer actions={ this.props.joinedActions } setDisplay={ this.props.setDisplayedJoinedAction }/>
       </div>
     )
   }
