@@ -69,7 +69,13 @@ export default function reducer (state = INITIAL_STATE, reduxAction) {
       delete newState.actions[reduxAction.action.id].fetchedComments
       break
 
-    case 'ADD_COMMENT' :
+    case 'ADD_COMMENT_FROM_CLIENT' :
+      reduxAction.comment.user_id = state.user.id
+      reduxAction.comment.user_name = state.user.name
+      newState.joinedActions[reduxAction.action.id].comments.push(reduxAction.comment)
+      break
+
+    case 'ADD_COMMENT_FROM_SERVER' :
       newState.joinedActions[reduxAction.action.id].comments.push(reduxAction.comment)
       break
 

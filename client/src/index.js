@@ -12,7 +12,8 @@ import { SettingsPageContainer } from './components/settings/settings_page.jsx'
 import AddAction from './components/settings/add_action.jsx'
 import io from 'socket.io-client'
 
-const store = configureReduxStore()
+const socket = io()
+const store = configureReduxStore(socket)
 
 console.log('store', store.getState())
 
@@ -42,8 +43,3 @@ render(
   </Provider>,
   document.getElementById('app')
 )
-
-const socket = io()
-
-console.log('Cient about to emit hello down the socket')
-socket.emit('hello', { message: 'hello hello', array: [1, 2, 3] })
