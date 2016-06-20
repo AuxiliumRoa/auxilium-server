@@ -8,7 +8,7 @@ export function setUser () {
 		}, (err, res, body) => {
 			if (noError(err)) {
 				dispatch({
-					type: 'SET_USER',
+					type: 'POPULATE_USER',
 					user: JSON.parse(body).user
 				})
 			}
@@ -56,7 +56,7 @@ export function joinAction (actionID) {
 		}, (err, res, body) => {
 			if (noError(err)) {
 				dispatch({
-					type: 'ADD_JOINED_ACTION',
+					type: 'JOIN_ACTION',
 					action: JSON.parse(body).joinedAction
 				})
 			}
