@@ -2,13 +2,14 @@ import React from 'react'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
-import { setUser, populateActions, populateJoinedActions } from './redux/action-creators'
+import { populateUser, populateActions, populateJoinedActions } from './redux/action-creators'
 import configureReduxStore from './redux/configure-store'
 import App from './components/app.jsx' 
 import { MainPageContainer } from './components/main/main-page.jsx'
 import { JoinedPageContainer } from './components/joined_actions/joined-page.jsx'
 import { ActionChatPageContainer } from './components/actions_info_chat/action-chat-page.jsx'
 import { SettingsPageContainer } from './components/settings/settings-page.jsx'
+import io from 'socket.io-client'
 
 const store = configureReduxStore()
 
@@ -18,7 +19,7 @@ store.subscribe(() => {
 	console.log('store', store.getState())
 })
 
-store.dispatch(setUser())
+store.dispatch(populateUser())
 store.dispatch(populateActions())
 store.dispatch(populateJoinedActions())
 
@@ -39,3 +40,8 @@ render(
   </Provider>,
   document.getElementById('app')
 )
+
+const socket = io()
+
+console.log('Cient about to emit hello down the socket')
+socket.emit('hello', { message: 'hello hello', array: [1, 2, 3] })
