@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import MainContainer from './main-container.jsx'
 import IconBox from '../icon-box.jsx'
 import LikeNoLike from './like-nolike.jsx'
+import NoneContainer from './none-container.jsx'
 import Spinner from '../spinner.jsx'
 import { Row, Panel, Button } from 'react-bootstrap'
 
@@ -31,26 +32,36 @@ class MainPage extends Component {
   }
 
   joinDisplayedAction () {
-    this.props.joinAction(this.props.actions[this.props.displayedAction].id)
-    this.props.incrementDisplayedAction()
+    if (Object.keys(this.props.actions) > 0) {
+      let index = Object.keys(this.props.actions)[this.props.displayedActionIndex]
+      this.props.joinAction(this.props.actions[index].id)
+    } else {
+      console.log('Sorry, nothing to join here!')
+    }
   }
 
   render() {
+    let action = this.props.actions[Object.keys(this.props.actions)[this.props.displayedActionIndex]]
+    console.log('ACTIONS', this.props.actions)
     return (
       <Panel>
       <div className='navContainer'>
         <IconBox id='main-nav' icons={ iconArray } />
         {
-          this.props.fetchedActions ? 
-          <div>
-            <MainContainer title='This is the title of ALL the actions' action={ this.props.actions[this.props.displayedAction] }/>            
-          </div> :
-          <Spinner />
+          (this.props.fetchedActions)
+            ? <div>
+              {
+                (Object.keys(this.props.actions).length > 0)
+                  ? <MainContainer title='This is the title of ALL the actions' action={ action }/>
+                  : <NoneContainer />
+              }
+              </div>
+            : <Spinner />
         }
         <Row className='btnRow'>
-        <Button className='btn btn-default' like={ this.joinDisplayedAction.bind(this) }>PASS</Button> 
-        <Button className='btn btn-default' nolike={this.props.incrementDisplayedAction}>PARTICIPATE</Button>
-      </Row>
+          <Button className='btn btn-default' like={ this.joinDisplayedAction.bind(this) }>PASS</Button> 
+          <Button className='btn btn-default' nolike={this.props.incrementDisplayedAction}>PARTICIPATE</Button>
+        </Row>
       </div>
       </Panel>
       )
@@ -62,7 +73,7 @@ function mapStateToProps(state) {
     userName: state.user ? state.user.name : 'Guest',
     actions: state.actions,
     fetchedActions: state.fetchedActions,
-    displayedAction: state.displayedAction
+    displayedActionIndex: state.displayedActionIndex
   }
 }
 
