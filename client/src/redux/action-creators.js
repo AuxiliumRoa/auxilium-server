@@ -67,7 +67,7 @@ export function joinAction (actionID) {
 			if (noError(err)) {
 				dispatch({
 			    type: 'POPULATE_COMMENTS',
-			    action: JSON.parse(body).action
+			    action: JSON.parse(body).joinedAction
 			  })
 			}
 		})
@@ -105,6 +105,7 @@ export function addCommentFromClient (actionID, commentText) {
 		})
 		dispatch({
 			type: 'ADD_COMMENT_FROM_CLIENT',
+			sendToServerOverSocket: true,
 			action: { id: actionID },
 			comment: { comment: commentText }
 		})

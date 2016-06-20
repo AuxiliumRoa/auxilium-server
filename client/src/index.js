@@ -25,6 +25,10 @@ store.dispatch(populateUser())
 store.dispatch(populateActions())
 store.dispatch(populateJoinedActions())
 
+socket.on('action', (action) => {
+  store.dispatch(action)
+})
+
 const router = (
   <Router history={ browserHistory }>    
     <Route path='/' component={ App }>

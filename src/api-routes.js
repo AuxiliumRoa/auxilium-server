@@ -42,6 +42,7 @@ export default function APIRoutes (model) {
 		if (loggedIn(req, res)) {
 			model.actions.joinAction(req.session.passport.user.id, req.query.id)
 				.then((joinedAction) => {
+					console.log('joinedAction', joinedAction)
 					res.json(joinedAction)
 				})
 				.catch((error) => {

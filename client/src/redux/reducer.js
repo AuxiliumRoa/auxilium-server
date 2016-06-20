@@ -76,7 +76,9 @@ export default function reducer (state = INITIAL_STATE, reduxAction) {
       break
 
     case 'ADD_COMMENT_FROM_SERVER' :
-      newState.joinedActions[reduxAction.action.id].comments.push(reduxAction.comment)
+      if (newState.joinedActions.hasOwnProperty(reduxAction.action.id)) {
+        newState.joinedActions[reduxAction.action.id].comments.push(reduxAction.comment)
+      }
       break
 
     case 'SET_CURRENT_COMMENT' :
