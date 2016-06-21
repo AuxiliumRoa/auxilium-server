@@ -37,7 +37,7 @@ class SettingsPage extends Component {
           </Link>
             </Col>
           </Row>
-          <Link to={ '/auth/logout'    git push --set-upstream origin cleanup}>
+          <Link to={ '/auth/logout' }>
             <Button>Logout</Button>
           </Link>
         </Panel>
