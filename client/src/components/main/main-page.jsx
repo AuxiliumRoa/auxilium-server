@@ -25,7 +25,6 @@ class MainPage extends Component {
 
   render() {
     let action = this.props.actions[Object.keys(this.props.actions)[this.props.displayedActionIndex]]
-    console.log('ACTIONS', this.props.actions)
     return (
       <RouteTransition
             pathname={this.props.location.pathname}
