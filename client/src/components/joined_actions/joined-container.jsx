@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import ActionBox from './action-box.jsx'
 import SmallTitle from '../small-title.jsx'
+import { Panel } from 'react-bootstrap'
 
 class JoinedContainer extends Component {
 
@@ -9,6 +10,7 @@ class JoinedContainer extends Component {
     console.log('JOINED ACTIONS', this.props.actions)
     return (
       <div>
+      <Panel>
         <SmallTitle title='Actions you have joined:' />
         {
           (Object.keys(this.props.actions).length > 0)
@@ -27,7 +29,8 @@ class JoinedContainer extends Component {
                 unjoinAction={ this.props.unjoinAction } />
             })
             : <h1>You haven't joined any actions yet. Get to it!</h1>
-        }
+          }
+        </Panel>
       </div>
       )
   }

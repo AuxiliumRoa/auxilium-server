@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import * as actionCreators from '../../redux/action-creators'
 import { connect } from 'react-redux'
 import JoinedContainer from './joined-container.jsx'
+import { Row, Col, Button } from 'react-bootstrap'
 
 // const iconArray = [
 //   {
@@ -24,11 +25,15 @@ import JoinedContainer from './joined-container.jsx'
 class JoinedPage extends Component {
   render() {
     return (
-      <JoinedContainer 
-        actions={ this.props.joinedActions } 
-        setDisplay={ this.props.setDisplayedJoinedAction }
-        setNav={ this.props.setNavIcons }
-        unjoinAction={ this.props.unjoinAction } />
+      <Row>
+        <Col sm={12}>
+          <JoinedContainer 
+            actions={ this.props.joinedActions } 
+            setDisplay={ this.props.setDisplayedJoinedAction }
+            setNav={ this.props.setNavIcons }
+            unjoinAction={ this.props.unjoinAction } />
+        </Col>
+      </Row>
     )
   }
 }

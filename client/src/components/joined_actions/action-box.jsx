@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Image from '../image.jsx'
 import { Link } from 'react-router'
+import { Button } from 'react-bootstrap'
 
 class ActionBox extends Component {
 
@@ -26,7 +27,7 @@ class ActionBox extends Component {
             <p>{ this.props.what }</p>
           </div>
         </Link>
-        <div onClick={ this.handleUnjoin.bind(this) } ><h3>X</h3></div>
+        <div onClick={ this.handleUnjoin.bind(this) } ><Button bsStyle="danger">Delete Action</Button></div>
       </div>
       )
   }
