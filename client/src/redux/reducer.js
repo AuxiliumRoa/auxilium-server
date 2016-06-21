@@ -96,6 +96,7 @@ export default function reducer (state = INITIAL_STATE, reduxAction) {
       break
 
     case 'ADD_ACTION_FROM_CLIENT' :
+      newState.fetchedActions = false
       break
 
     case 'ADD_ACTION_FROM_SERVER' :
