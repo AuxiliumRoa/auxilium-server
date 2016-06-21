@@ -38,7 +38,7 @@ export default function configurePassport (app, model) {
       consumerSecret: process.env.LINKEDIN_SECRET_KEY,
       callbackURL: process.env.ROOT_URL + '/auth/linkedin/cb'
     }, (token, tokenSecret, profile, callback) => {
-      console.log('LinkedInStrategy callback', profile)
+      // console.log('LinkedInStrategy callback', profile)
       return callback(null, {
         oAuthProvider: 'linkedin',
         oAuthID: profile.id,
