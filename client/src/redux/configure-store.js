@@ -1,10 +1,9 @@
 import { createStore, applyMiddleware } from 'redux'
-import thunk from 'redux-thunk'
 import reducer from './reducer'
 import clone from 'clone'
 
 export default function configureReduxStore (socket) {
-	return createStore(reducer, applyMiddleware(thunk, customSocketMiddleware(socket)))
+	return createStore(reducer, applyMiddleware(customSocketMiddleware(socket)))
 }
 
 const customSocketMiddleware = socket => store => next => action => {
