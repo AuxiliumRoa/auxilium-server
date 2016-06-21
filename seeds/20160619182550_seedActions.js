@@ -1,7 +1,6 @@
 
 exports.seed = function(knex, Promise) {
   return Promise.join(
-    knex('actions').del(),
     knex('actions').insert({
       title: 'Samoan Sossage Sizzle',
       who: 'Rata Street School',

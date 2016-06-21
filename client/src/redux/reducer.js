@@ -9,6 +9,23 @@ const INITIAL_STATE = {
   fetchedUser: false,
   fetchedActions: false,
   fetchedJoinedActions: false,
+  displayedIcons: [
+  {
+    icon: 'fa fa-cog fa-3x',
+    key: 'settings',
+    link: '/settings'
+  },
+  {
+    icon: 'fa fa-sign-language fa-3x',
+    key: 'logo',
+    link: '/'
+  },
+  {
+    icon: 'fa fa-list fa-3x',
+    key: 'joined',
+    link: '/joined-actions'
+  }
+]
 }
 
 export default function reducer (state = INITIAL_STATE, reduxAction) {
@@ -69,8 +86,16 @@ export default function reducer (state = INITIAL_STATE, reduxAction) {
       delete newState.actions[reduxAction.action.id].fetchedComments
       break
 
-    case 'ADD_COMMENT' :
+    case 'ADD_COMMENT_FROM_CLIENT' :
+      reduxAction.comment.user_id = state.user.id
+      reduxAction.comment.user_name = state.user.name
       newState.joinedActions[reduxAction.action.id].comments.push(reduxAction.comment)
+      break
+
+    case 'ADD_COMMENT_FROM_SERVER' :
+      if (newState.joinedActions.hasOwnProperty(reduxAction.action.id)) {
+        newState.joinedActions[reduxAction.action.id].comments.push(reduxAction.comment)
+      }
       break
 
     case 'SET_CURRENT_COMMENT' :
