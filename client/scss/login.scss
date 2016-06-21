@@ -6,7 +6,7 @@ html {
 }
 
 body {
-  background-image: url('https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=8a0e79dbae57861876506106675ba8a8');
+  background-image: url('http://images.wisegeek.com/dirty-wheelbarrow-construction.jpg');
   background-size: cover;
   min-height: 100%;
   display: flex;
@@ -37,10 +37,10 @@ body {
 }
 
 #login-page {
-  background-color: rgba(0,0,0, .5);
+  background-color: rgba(0,0,0, .4);
   padding: 4em;
   border-radius: 3px;
-  box-shadow: 0 0 20px #000;
+  /*box-shadow: 0 0 20px #000;*/
   
   #login-container {
     display: flex;
