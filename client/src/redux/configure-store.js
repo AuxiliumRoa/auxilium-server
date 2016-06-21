@@ -9,9 +9,7 @@ export default function configureReduxStore (socket) {
 
 const customSocketMiddleware = socket => store => next => action => {
   if (action.sendToServerOverSocket) {
-    let serverBoundAction = clone(action)
-    serverBoundAction.user = store.getState().user
-    socket.emit('action', serverBoundAction)
+    socket.emit('action', action)
   }
   return next(action)
 }

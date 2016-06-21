@@ -5,10 +5,6 @@ export default function Actions (knex) {
     getNotJoined: (userID) => {
       return knex('actions')
         .whereNotIn('id', knex.select('action_id').from('users_actions_index').where('user_id', userID))
-        .then((rows) => {
-          // console.log('actions.getNotJoined returning rows', rows)
-          return { actions: rows }
-        })
     },
 
     getJoined: (userID) => {
@@ -17,10 +13,6 @@ export default function Actions (knex) {
     		.where('users_actions_index.user_id', userID)
     		.select('actions.*')
         .then(addCommentsToActions)
-        .then((rows) => {
-          // console.log('actions.getJoined returning rows', rows)
-          return { joinedActions: rows }
-        })
     },
 
     joinAction: (userID, actionID) => {
@@ -33,10 +25,7 @@ export default function Actions (knex) {
           return addCommentsToActions([{
               id: actionID
             }])
-            .then((rows) => {
-              // console.log('actions.joinAction returning rows', rows)
-              return { joinedAction: rows[0] }
-            })
+            .then((rows) => rows[0])
         })
     },
 

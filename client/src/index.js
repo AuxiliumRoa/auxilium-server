@@ -21,9 +21,13 @@ store.subscribe(() => {
 	console.log('store', store.getState())
 })
 
-store.dispatch(populateUser())
-store.dispatch(populateActions())
-store.dispatch(populateJoinedActions())
+socket.emit('request-user', {})
+socket.emit('request-actions', {})
+socket.emit('request-joined-actions', {})
+
+// store.dispatch(populateUser())
+// store.dispatch(populateActions())
+// store.dispatch(populateJoinedActions())
 
 socket.on('action', (action) => {
   store.dispatch(action)
