@@ -5,25 +5,8 @@ import MainContainer from './main-container.jsx'
 import NoneContainer from './none-container.jsx'
 import Spinner from '../spinner.jsx'
 import { Row, Panel, Button, Navbar } from 'react-bootstrap'
-// import Button from '../button.jsx'
-
-// const iconArray = [
-//   {
-//     icon: 'fa fa-cog fa-3x',
-//     key: 'settings',
-//     link: '/settings'
-//   },
-//   {
-//     icon: 'fa fa-sign-language fa-3x',
-//     key: 'logo',
-//     link: '/'
-//   },
-//   {
-//     icon: 'fa fa-list fa-3x',
-//     key: 'joined',
-//     link: '/joined-actions'
-//   }
-// ]
+import { Row, Panel, Button } from 'react-bootstrap'
+import { RouteTransition } from 'react-router-transition'
 
 class MainPage extends Component {
   constructor(props) {
@@ -42,37 +25,44 @@ class MainPage extends Component {
 
   render() {
     let action = this.props.actions[Object.keys(this.props.actions)[this.props.displayedActionIndex]]
-    console.log('ACTIONS', this.props.actions)
     return (
-      <div className='paddingtopbottom'>
-        <Panel>
-          <div>
-            {
-              (this.props.fetchedActions)
-                ? <div>
-                  {
-                    (Object.keys(this.props.actions).length > 0)
-                      ? <MainContainer 
-                          title='This is the title of ALL the actions' 
-                          action={ action }
-                          handleLeftSwipe={ this.props.incrementDisplayedAction }
-                          handleRightSwipe={ this.joinDisplayedAction.bind(this) } />
-                      : <NoneContainer />
-                  }
-                  </div>
-                : <Spinner />
-            }
-          </div>
-        </Panel>
-          <div>
-            <Navbar fixedBottom clear>
-              <Row className='btnRow'>
-                <Button bsStyle="warning" className='btn btn-default' onClick={ this.props.incrementDisplayedAction }>PASS</Button> 
-                <Button bsStyle="success" className='btn btn-default' onClick={ this.joinDisplayedAction.bind(this) }>JOIN</Button>
-              </Row>
-            </Navbar>  
-          </div>
-      </div>
+      <RouteTransition
+            pathname={this.props.location.pathname}
+            atEnter={{ translateX: 100 }}
+            atLeave={{ translateX: -100 }}
+            atActive={{ translateX: 0 }}
+            mapStyles={styles => ({ transform: `translateX(${styles.translateX}%)` })}
+            >
+        <div className='paddingtopbottom'>
+          <Panel>
+            <div>
+              {
+                (this.props.fetchedActions)
+                  ? <div>
+                    {
+                      (Object.keys(this.props.actions).length > 0)
+                        ? <MainContainer 
+                            title='This is the title of ALL the actions' 
+                            action={ action }
+                            handleLeftSwipe={ this.props.incrementDisplayedAction }
+                            handleRightSwipe={ this.joinDisplayedAction.bind(this) } />
+                        : <NoneContainer />
+                    }
+                    </div>
+                  : <Spinner />
+              }
+            </div>
+          </Panel>
+            <div>
+              <Navbar fixedBottom clear>
+                <Row className='btnRow'>
+                  <Button bsStyle="warning" className='btn btn-default' onClick={ this.props.incrementDisplayedAction }>PASS</Button> 
+                  <Button bsStyle="success" className='btn btn-default' onClick={ this.joinDisplayedAction.bind(this) }>JOIN</Button>
+                </Row>
+              </Navbar>  
+            </div>
+        </div>
+      </RouteTransition>
       )
   }
 }

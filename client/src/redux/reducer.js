@@ -54,6 +54,7 @@ export default function reducer (state = INITIAL_STATE, reduxAction) {
 
     case 'JOIN_ACTION' :
       newState.joinedActions[reduxAction.action.id] = state.actions[reduxAction.action.id]
+      newState.joinedActions[reduxAction.action.id].comments = []
       newState.joinedActions[reduxAction.action.id].currentComment = ''
       newState.joinedActions[reduxAction.action.id].fetchedComments = false
       delete newState.actions[reduxAction.action.id]
@@ -63,6 +64,7 @@ export default function reducer (state = INITIAL_STATE, reduxAction) {
       break
 
     case 'POPULATE_COMMENTS' :
+      console.log('POPULATE COMMENTS IN REDUCER', reduxAction)
       newState.joinedActions[reduxAction.action.id].comments = reduxAction.action.comments
       newState.joinedActions[reduxAction.action.id].fetchedComments = true
       break
@@ -80,6 +82,7 @@ export default function reducer (state = INITIAL_STATE, reduxAction) {
       break
 
     case 'ADD_COMMENT_FROM_CLIENT' :
+      newState.joinedActions[reduxAction.action.id].currentComment = ''
       reduxAction.comment.user_id = state.user.id
       reduxAction.comment.user_name = state.user.name
       newState.joinedActions[reduxAction.action.id].comments.push(reduxAction.comment)
@@ -95,7 +98,11 @@ export default function reducer (state = INITIAL_STATE, reduxAction) {
       newState.joinedActions[reduxAction.action.id].currentComment = reduxAction.currentComment
       break
 
-    case 'ADD_ACTION' :
+    case 'ADD_ACTION_FROM_CLIENT' :
+      newState.fetchedActions = false
+      break
+
+    case 'ADD_ACTION_FROM_SERVER' :
       newState.actions[reduxAction.action.id] = reduxAction.action
       break
 

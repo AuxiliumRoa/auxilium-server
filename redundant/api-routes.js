@@ -16,7 +16,7 @@ export default function APIRoutes (model) {
 		if (loggedIn(req, res)) {
 			model.actions.getNotJoined(req.session.passport.user.id)
 				.then((actions) => {
-					res.json(actions)
+					res.json({ actions: actions })
 				})
 				.catch((error) => {
 					handleError(req, res, error)
@@ -29,7 +29,7 @@ export default function APIRoutes (model) {
 		if (loggedIn(req, res)) {
 			model.actions.getJoined(req.session.passport.user.id)
 				.then((joinedActions) => {
-					res.json(joinedActions)
+					res.json({ joinedActions: joinedActions })
 				})
 				.catch((error) => {
 					handleError(req, res, error)
@@ -42,8 +42,7 @@ export default function APIRoutes (model) {
 		if (loggedIn(req, res)) {
 			model.actions.joinAction(req.session.passport.user.id, req.query.id)
 				.then((joinedAction) => {
-					console.log('joinedAction', joinedAction)
-					res.json(joinedAction)
+					res.json({ joinedAction: joinedAction })
 				})
 				.catch((error) => {
 					handleError(req, res, error)

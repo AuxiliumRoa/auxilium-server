@@ -9,25 +9,25 @@ import { MainPageContainer } from './components/main/main-page.jsx'
 import { JoinedPageContainer } from './components/joined_actions/joined-page.jsx'
 import { ActionChatPageContainer } from './components/actions_info_chat/action-chat-page.jsx'
 import { SettingsPageContainer } from './components/settings/settings_page.jsx'
-import AddAction from './components/settings/add_action.jsx'
+import { AddActionContainer } from './components/settings/add_action.jsx'
 import io from 'socket.io-client'
 
 const socket = io()
 const store = configureReduxStore(socket)
 
-console.log('store', store.getState())
+// console.log('store', store.getState())
 
-store.subscribe(() => {
-	console.log('store', store.getState())
-})
-
-store.dispatch(populateUser())
-store.dispatch(populateActions())
-store.dispatch(populateJoinedActions())
+// store.subscribe(() => {
+// 	console.log('store', store.getState())
+// })
 
 socket.on('action', (action) => {
   store.dispatch(action)
 })
+
+socket.emit('request-user', {})
+socket.emit('request-actions', {})
+socket.emit('request-joined-actions', {})
 
 const router = (
   <Router history={ browserHistory }>    
@@ -36,7 +36,7 @@ const router = (
       <Route path='/joined-actions' component={ JoinedPageContainer } />
       <Route path='/single-action' component={ ActionChatPageContainer } />
       <Route path='/settings' component={ SettingsPageContainer } />
-      <Route path='/addaction' component={ AddAction } />
+      <Route path='/add-action' component={ AddActionContainer } />
     </Route>
   </Router>
 )
