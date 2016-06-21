@@ -1,5 +1,12 @@
 import request from 'browser-request'
 
+export function setNavIcons (left, right) {
+	return {
+		type: 'SET_NAV_ICONS',
+		icons: { left, right }
+	}
+}
+
 export function populateUser () {
 	return (dispatch) => {
 		request({
@@ -67,7 +74,7 @@ export function joinAction (actionID) {
 			if (noError(err)) {
 				dispatch({
 			    type: 'POPULATE_COMMENTS',
-			    action: JSON.parse(body).action
+			    action: JSON.parse(body).joinedAction
 			  })
 			}
 		})
@@ -96,7 +103,7 @@ export function unjoinAction (actionID) {
 	}
 }
 
-export function addCommentFromClient (actionID, comment) {
+export function addCommentFromClient (actionID, commentText) {
 	return (dispatch) => {
 		dispatch({
 			type: 'SET_CURRENT_COMMENT',
@@ -104,9 +111,10 @@ export function addCommentFromClient (actionID, comment) {
 			currentComment: ''
 		})
 		dispatch({
-			type: 'ADD_COMMENT',
+			type: 'ADD_COMMENT_FROM_CLIENT',
+			sendToServerOverSocket: true,
 			action: { id: actionID },
-			comment: comment
+			comment: { comment: commentText }
 		})
 		// SOCKET NEEDED HERE!!!!!!!!!!!!!!!!!!!!!
 	}
@@ -114,17 +122,17 @@ export function addCommentFromClient (actionID, comment) {
 
 export function addCommentFromServer (actionID, comment) {
 	return {
-		type: 'ADD_COMMENT',
+		type: 'ADD_COMMENT_FROM_SERVER',
 		action: { id: actionID },
 		comment: comment
 	}
 }
 
-export function setCurrentComment (actionID, currentComment) {
+export function setCurrentComment (actionID, currentCommentText) {
 	return {
 		type: 'SET_CURRENT_COMMENT',
 		action: { id: actionID },
-		currentComment: currentComment
+		currentComment: currentCommentText
 	}
 }
 

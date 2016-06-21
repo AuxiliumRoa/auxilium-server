@@ -1,6 +1,7 @@
 
 exports.seed = function(knex, Promise) {
   return Promise.join(
+    knex('actions').del(),
     knex('actions').insert({
     	title: 'Clean Lyall Bay',
     	who: 'Lyall Bay Surf Club',

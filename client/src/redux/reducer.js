@@ -9,6 +9,10 @@ const INITIAL_STATE = {
   fetchedUser: false,
   fetchedActions: false,
   fetchedJoinedActions: false,
+  navIcons: {
+    left: 'settings',
+    right: 'joinedList'
+  }
 }
 
 export default function reducer (state = INITIAL_STATE, reduxAction) {
@@ -16,6 +20,10 @@ export default function reducer (state = INITIAL_STATE, reduxAction) {
   let newState = clone (state)
 
   switch (reduxAction.type) {
+
+    case 'SET_NAV_ICONS' :
+      newState.navIcons = reduxAction.icons
+      break
 
     case 'POPULATE_USER' : 
       newState.user = reduxAction.user
@@ -49,7 +57,9 @@ export default function reducer (state = INITIAL_STATE, reduxAction) {
       newState.joinedActions[reduxAction.action.id].currentComment = ''
       newState.joinedActions[reduxAction.action.id].fetchedComments = false
       delete newState.actions[reduxAction.action.id]
-      newState.displayedActionIndex = state.displayedActionIndex % Object.keys(newState.actions).length
+      newState.displayedActionIndex = (Object.keys(newState.actions).length > 0)
+        ? state.displayedActionIndex % Object.keys(newState.actions).length
+        : 0
       break
 
     case 'POPULATE_COMMENTS' :
@@ -69,8 +79,16 @@ export default function reducer (state = INITIAL_STATE, reduxAction) {
       delete newState.actions[reduxAction.action.id].fetchedComments
       break
 
-    case 'ADD_COMMENT' :
+    case 'ADD_COMMENT_FROM_CLIENT' :
+      reduxAction.comment.user_id = state.user.id
+      reduxAction.comment.user_name = state.user.name
       newState.joinedActions[reduxAction.action.id].comments.push(reduxAction.comment)
+      break
+
+    case 'ADD_COMMENT_FROM_SERVER' :
+      if (newState.joinedActions.hasOwnProperty(reduxAction.action.id)) {
+        newState.joinedActions[reduxAction.action.id].comments.push(reduxAction.comment)
+      }
       break
 
     case 'SET_CURRENT_COMMENT' :
