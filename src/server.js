@@ -7,7 +7,6 @@ import IO from 'socket.io'
 import Model from './model'
 import configurePassport from './passport'
 import configureSocketAPI from './socket-api'
-// import APIRoutes from './api-routes'
 
 dotenv.config()
 
@@ -33,8 +32,6 @@ app.use(session)
 
 configurePassport(app, model)
 configureSocketAPI(io, model)
-
-// app.use('/api', APIRoutes(model))
 
 app.get('*', (req, res, next) => {
 	if (req.session.passport && req.session.passport.user) {
