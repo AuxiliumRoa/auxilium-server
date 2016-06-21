@@ -3,14 +3,7 @@ import * as actionCreators from '../../redux/action-creators'
 import { connect } from 'react-redux'
 import { Button, Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router'
-
-// const iconArray = [
-//   {
-//     icon: 'fa fa-home fa-3x',
-//     key: 'home',
-//     link: '/'
-//   }
-// ]
+import { RouteTransition } from 'react-router-transition'
 
 class SettingsPage extends Component {
   constructor(props) {
@@ -23,6 +16,13 @@ class SettingsPage extends Component {
 
   render() {
     return (
+      <RouteTransition
+            pathname={this.props.location.pathname}
+            atEnter={{ translateX: -100 }}
+            atLeave={{ translateX: 100 }}
+            atActive={{ translateX: 0 }}
+            mapStyles={styles => ({ transform: `translateX(${styles.translateX}%)` })}
+            >
       <Row className=''>
         <Col sm={12}>
           <h1>Settings</h1>
@@ -31,6 +31,7 @@ class SettingsPage extends Component {
           </Link>
         </Col>
       </Row>
+      </RouteTransition>
       )
   }
 }

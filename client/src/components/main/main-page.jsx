@@ -6,25 +6,7 @@ import LikeNoLike from './like-nolike.jsx'
 import NoneContainer from './none-container.jsx'
 import Spinner from '../spinner.jsx'
 import { Row, Panel, Button } from 'react-bootstrap'
-// import Button from '../button.jsx'
-
-// const iconArray = [
-//   {
-//     icon: 'fa fa-cog fa-3x',
-//     key: 'settings',
-//     link: '/settings'
-//   },
-//   {
-//     icon: 'fa fa-sign-language fa-3x',
-//     key: 'logo',
-//     link: '/'
-//   },
-//   {
-//     icon: 'fa fa-list fa-3x',
-//     key: 'joined',
-//     link: '/joined-actions'
-//   }
-// ]
+import { RouteTransition } from 'react-router-transition'
 
 class MainPage extends Component {
   constructor(props) {
@@ -45,6 +27,13 @@ class MainPage extends Component {
     let action = this.props.actions[Object.keys(this.props.actions)[this.props.displayedActionIndex]]
     console.log('ACTIONS', this.props.actions)
     return (
+      <RouteTransition
+            pathname={this.props.location.pathname}
+            atEnter={{ translateX: 100 }}
+            atLeave={{ translateX: -100 }}
+            atActive={{ translateX: 0 }}
+            mapStyles={styles => ({ transform: `translateX(${styles.translateX}%)` })}
+            >
       <Panel>
         <div>
           {
@@ -70,6 +59,7 @@ class MainPage extends Component {
           </Row>
         </div>
       </Panel>
+      </RouteTransition>
       )
   }
 }
