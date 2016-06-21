@@ -4,21 +4,14 @@ export default function Users (knex) {
 
     getOrCreate: (oAuthProvider, oAuthID, oAuthName) => {
       return getUser(oAuthProvider, oAuthID)
-        .then((rows) => {
-          if (rows.length > 0) {
-            return rows[0]
-          } else {
-            return knex('users')
-              .insert({
-                name: oAuthName,
-                oauth_provider: oAuthProvider,
-                oauth_id: oAuthID
-              })
-              .then(() => {
-                return getUser(oAuthProvider, oAuthID)
-              })
-          }
-        })
+        .then((user) => (user) ? user : knex('users')
+          .insert({
+            name: oAuthName,
+            oauth_provider: oAuthProvider,
+            oauth_id: oAuthID
+          })
+          .then(() => getUser(oAuthProvider, oAuthID))
+        )
     }
 
   }
@@ -30,6 +23,7 @@ export default function Users (knex) {
         oauth_provider: oAuthProvider,
         oauth_id: oAuthID
       })
+      .then((rows) => (rows.length > 0) ? rows[0] : null)
   }
 
 }
