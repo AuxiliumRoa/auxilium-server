@@ -14,10 +14,6 @@ class SettingsPage extends Component {
     this.props.setNavIcons(null, 'forwardSettings')
   }
 
-  handleLogout() {
-    console.log('User wants to logout')
-  }
-
   render() {
     return (
       <RouteTransition
@@ -30,6 +26,7 @@ class SettingsPage extends Component {
           <Row className=''>
             <Col sm={12}>
               <h1>Settings</h1>
+              <h4>Hi {this.props.userName}!</h4>
             </Col>
           </Row>
         <Panel>
@@ -40,8 +37,8 @@ class SettingsPage extends Component {
           </Link>
             </Col>
           </Row>
-          <Link to={ '/auth/logout'}>
-            <Button onClick={ this.handleLogout.bind(this) }>Logout</Button>
+          <Link to={ '/auth/logout'    git push --set-upstream origin cleanup}>
+            <Button>Logout</Button>
           </Link>
         </Panel>
       </RouteTransition>

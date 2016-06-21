@@ -34,7 +34,6 @@ class JoinedPage extends Component {
 
 function mapStateToProps(state) {
   return {
-    userName: state.user ? state.user.name : 'Guest',
     joinedActions: state.joinedActions
   }
 }

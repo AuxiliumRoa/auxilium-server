@@ -7,14 +7,14 @@ import { Panel, Media } from 'react-bootstrap'
 class JoinedContainer extends Component {
 
   render() {
-    console.log('JOINED ACTIONS', this.props.actions)
     return (
     <div>
           <SmallTitle title='Actions you have joined:' />
           {
             (Object.keys(this.props.actions).length > 0)
-              ? Object.keys(this.props.actions).map((key) => {
+              ? Object.keys(this.props.actions).map((key, i) => {
                 return <ActionBox 
+                  key={ i }
                   id={ this.props.actions[key].id }
                   src={ this.props.actions[key].image_url }
                   title={ this.props.actions[key].title }
@@ -23,7 +23,7 @@ class JoinedContainer extends Component {
                   setNav={ this.props.setNav }
                   unjoinAction={ this.props.unjoinAction } />
               })
-              : <h1>You haven't joined any actions yet. Get to it!</h1>
+              : <Panel><h1>You haven't joined any actions yet. Get to it!</h1></Panel>
             }
       </div>
       )
