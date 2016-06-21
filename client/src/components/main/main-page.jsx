@@ -13,13 +13,10 @@ class MainPage extends Component {
   }
 
   joinDisplayedAction () {
-    console.log('ACTIONS IN JOINDISPLAYED METHOD', this.props.actions)
     if (Object.keys(this.props.actions).length > 0) {
       let index = Object.keys(this.props.actions)[this.props.displayedActionIndex]
       this.props.joinAction(this.props.actions[index].id)
-    } else {
-      console.log('Sorry, nothing to join here!')
-    }
+    } else {return}
   }
 
   render() {
@@ -68,7 +65,6 @@ class MainPage extends Component {
 
 function mapStateToProps(state) {
   return {
-    userName: state.user ? state.user.name : 'Guest',
     actions: state.actions,
     fetchedActions: state.fetchedActions,
     displayedActionIndex: state.displayedActionIndex
