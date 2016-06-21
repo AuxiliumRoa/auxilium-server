@@ -57,7 +57,9 @@ export default function reducer (state = INITIAL_STATE, reduxAction) {
       newState.joinedActions[reduxAction.action.id].currentComment = ''
       newState.joinedActions[reduxAction.action.id].fetchedComments = false
       delete newState.actions[reduxAction.action.id]
-      newState.displayedActionIndex = state.displayedActionIndex % Object.keys(newState.actions).length
+      newState.displayedActionIndex = (Object.keys(newState.actions).length > 0)
+        ? state.displayedActionIndex % Object.keys(newState.actions).length
+        : 0
       break
 
     case 'POPULATE_COMMENTS' :
