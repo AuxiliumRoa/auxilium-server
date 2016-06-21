@@ -5,6 +5,7 @@ import MainContainer from '../main/main-container.jsx'
 import ActionChatContainer from './action-chat-container.jsx'
 import Spinner from '../spinner.jsx'
 import { RouteTransition } from 'react-router-transition'
+import { Panel, PanelGroup, Row } from 'react-bootstrap'
 
 class ActionChatPage extends Component {
 		render() {
@@ -20,12 +21,18 @@ class ActionChatPage extends Component {
           {
             (action) 
              ? <div>
-      					<MainContainer title='This is the title of the action' action={ action } />
-      					<ActionChatContainer 
-                  action={ action } 
-                  setCurrentComment={ this.props.setCurrentComment } 
-                  addComment={ this.props.addCommentFromClient } />
-              </div>
+                <PanelGroup defaultActiveKey='0' accordion>
+                  <Panel className='paddingtop' header={ action.title } eventKey='1'>
+          					<MainContainer action={ action } />
+                  </Panel>
+                </PanelGroup>
+                  <Panel header='Chat' >
+                    <ActionChatContainer 
+                    action={ action } 
+                    setCurrentComment={ this.props.setCurrentComment } 
+                    addComment={ this.props.addCommentFromClient } />
+                  </Panel>
+            </div>
             : <Spinner />
           }
 				</RouteTransition>

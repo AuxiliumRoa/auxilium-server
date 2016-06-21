@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Image from '../image.jsx'
 import { Link } from 'react-router'
+import { Button, Media, Panel, Image } from 'react-bootstrap'
 
 class ActionBox extends Component {
 
@@ -16,18 +16,25 @@ class ActionBox extends Component {
   render() {
     return (
       <div>
-        <Link to='/single-action' className='action-box' onClick={ this.handleClick.bind(this)}>
-          <Image className='small-action' src={this.props.src}/>
-          <div>
-            <h4>{ this.props.title }</h4>
-            <p>{ this.props.who }</p>
-            <p>{ this.props.where }</p>
-            <p>{ this.props.when }</p>
-            <p>{ this.props.what }</p>
-          </div>
-        </Link>
-        <div onClick={ this.handleUnjoin.bind(this) } ><h3>X</h3></div>
-      </div>
+        <Panel className='joinedIndAction'>
+          <div className='joinedcontainer'>
+            <Link to='/single-action' className='action-box' onClick={ this.handleClick.bind(this)}>
+                <Media>
+                  <Media.Left align='middle'>
+                    <Image className='small-action' width={64} height={64} src={ this.props.src } alt='Image' />
+                  </Media.Left>
+                  <Media.Body>
+                    <p>{ this.props.title }</p>
+                    <p>{ this.props.who }</p>
+                  </Media.Body>
+                </Media>
+              </Link>
+            </div>
+            <div className='unjoin-btn'>
+              <div onClick={ this.handleUnjoin.bind(this) } ><Button bsStyle="danger" bsSize="xsmall">x</Button></div>
+            </div>
+          </Panel>
+      </div>      
       )
   }
 }
