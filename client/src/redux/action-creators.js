@@ -116,17 +116,8 @@ export function addCommentFromClient (actionID, commentText) {
 			action: { id: actionID },
 			comment: { comment: commentText }
 		})
-		// SOCKET NEEDED HERE!!!!!!!!!!!!!!!!!!!!!
 	}
 }
-
-// export function addCommentFromServer (actionID, comment) {
-// 	return {
-// 		type: 'ADD_COMMENT_FROM_SERVER',
-// 		action: { id: actionID },
-// 		comment: comment
-// 	}
-// }
 
 export function setCurrentComment (actionID, currentCommentText) {
 	return {
@@ -137,22 +128,12 @@ export function setCurrentComment (actionID, currentCommentText) {
 }
 
 export function addActionFromClient (action) {
-	return (dispatch) => {
-		dispatch({
-			type: 'ADD_ACTION_FROM_CLIENT',
-			sendToServerOverSocket: true,
-			action: action
-		})
-		// SOCKET NEEDED HERE!!!!!!!!!!!!!!!!!!!!!
+	return {
+		type: 'ADD_ACTION_FROM_CLIENT',
+		sendToServerOverSocket: true,
+		action: action
 	}
 }
-
-// export function addActionFromServer (action) {
-// 	return {
-// 		type: 'ADD_ACTION',
-// 		action: action
-// 	}
-// }
 
 function noError (error) {
 	if (error) {
