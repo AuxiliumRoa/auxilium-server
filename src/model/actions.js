@@ -61,6 +61,7 @@ export default function Actions (knex) {
     addAction: (action) => {
       return knex('actions')
         .insert(action)
+        .then(() => knex('actions').max('id'))
     }
 
   }
