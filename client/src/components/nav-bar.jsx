@@ -58,7 +58,6 @@ class NavBar extends Component {
     let leftIcon = icons[this.props.icons.right].reset[0]
     let rightIcon = icons[this.props.icons.right].reset[1]
     this.props.setNavIcons(leftIcon, rightIcon)
-    console.log('ICONS: ', leftIcon, rightIcon)
   }
 
   render() {

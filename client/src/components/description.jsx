@@ -5,8 +5,8 @@ class Description extends Component {
     return (
     	<p>
         {
-          this.props.spans.map((span) => {
-            return <span className={ span.className }>{ span.text }</span>
+          this.props.spans.map((span, i) => {
+            return <span key={ i } className={ span.className }>{ span.text }</span>
           })
         }
       </p>
