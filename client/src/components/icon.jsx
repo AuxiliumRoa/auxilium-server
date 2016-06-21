@@ -11,7 +11,7 @@ class Icon extends Component {
   	return (
 	  	<NavItem>
         <Link to={ this.props.link }>
-          <i className={ this.props.icon } aria-hidden="true"></i>
+          <i className={ this.props.icon } aria-hidden="true" onClick={ this.props.handleClick } ></i>
         </Link>
       </NavItem>
   	)
