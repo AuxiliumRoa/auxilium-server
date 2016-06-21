@@ -26,7 +26,7 @@ class SettingsPage extends Component {
       <Row className=''>
         <Col sm={12}>
           <h1>Settings</h1>
-          <Link to={ '/addAction' }>
+          <Link to={ '/add-action' }>
             <Button onClick={ this.handleClick.bind(this) } >Add Action</Button>
           </Link>
         </Col>
