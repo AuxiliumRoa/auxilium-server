@@ -1,0 +1,63 @@
+html {
+  height: 100%; }
+
+body {
+  background-image: url("https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=8a0e79dbae57861876506106675ba8a8");
+  background-size: cover;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+#app {
+  height: 100%; }
+
+.loginRow {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+#logo {
+  margin: auto;
+  max-width: 200px;
+  max-height: 200px;
+  display: flex;
+  align-self: center; }
+  #logo h1 {
+    text-align: center; }
+
+#login-page {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 4em;
+  border-radius: 3px;
+  box-shadow: 0 0 20px #000; }
+  #login-page #login-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column; }
+    #login-page #login-container h2 {
+      color: white;
+      font-family: 'Patua One', cursive;
+      font-size: 2.2em; }
+
+.loginCol {
+  display: flex;
+  justify-content: center; }
+
+.loginRow {
+  display: flex;
+  justify-content: center;
+  flex-direction: column; }
+
+.heroCol {
+  display: flex;
+  justify-content: center; }
+
+#login-icons {
+  display: flex;
+  justify-content: space-around; }
+
+.heroTitle {
+  font-family: 'Patua One', cursive; }
+  .heroTitle h1 {
+    color: white; }

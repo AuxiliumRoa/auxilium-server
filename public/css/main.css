@@ -1,0 +1,92 @@
+html {
+  height: 100%; }
+
+body {
+  background-color: whitesmoke;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+#app {
+  height: 100%; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Lalezar", cursive;
+  color: #004035; }
+
+p {
+  line-height: 1.5; }
+
+.navRow {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.navContainer {
+  background-color: white;
+  padding: 2em;
+  border-radius: 2px; }
+
+div#main-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end; }
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column; }
+  .main-container h2 {
+    color: black;
+    font-family: "Lalezar", cursive; }
+  .main-container p {
+    margin-top: 1em; }
+  .main-container img {
+    align-items: center;
+    align-content: stretch;
+    margin-bottom: 2em; }
+    .main-container img .main-image {
+      display: flex;
+      align-self: left; }
+
+.fa-list {
+  text-align: right; }
+
+i.fa {
+  color: #004035; }
+
+.btnRow {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .btnRow .btn {
+    margin-right: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    width: 40%; }
+
+span.titleSpan {
+  font-weight: 700;
+  color: #004035; }
+
+ul.nav.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+
+.paddingtopbottom {
+  margin: 6em 0; }
+
+.paddingtop {
+  margin-top: 6em; }
+
+.joinedIndAction {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin: .8em 0; }
+
+.unjoin-btn {
+  display: inline-block;
+  float: right; }
