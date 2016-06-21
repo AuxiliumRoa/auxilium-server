@@ -27,7 +27,8 @@ class JoinedPage extends Component {
       <JoinedContainer 
         actions={ this.props.joinedActions } 
         setDisplay={ this.props.setDisplayedJoinedAction }
-        setNav={ this.props.setNavIcons } />
+        setNav={ this.props.setNavIcons }
+        unjoinAction={ this.props.unjoinAction } />
     )
   }
 }
