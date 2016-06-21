@@ -47,6 +47,20 @@ export default function Actions (knex) {
           action_id: actionID
         })
         .del()
+    },
+
+    addComment: (actionID, userID, comment) => {
+      return knex('comments')
+        .insert({
+          action_id: actionID,
+          user_id: userID,
+          comment: comment
+        })
+    },
+
+    addAction: (action) => {
+      return knex('actions')
+        .insert(action)
     }
 
   }
@@ -66,7 +80,7 @@ export default function Actions (knex) {
     return knex('comments')
       .where('action_id', actionID)
       .join('users', 'comments.user_id', 'users.id')
-      .select('users.id as user_id', 'users.name as user_name', 'comments.comment', 'comments.created_at')
+      .select('users.id as user_id', 'users.name as user_name', 'comments.comment')
   }
 
 }
