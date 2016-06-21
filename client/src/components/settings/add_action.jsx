@@ -31,6 +31,20 @@ class AddAction extends Component {
       why: ReactDOM.findDOMNode(this.refs['why']).value
     }
     this.props.addActionFromClient(formData)
+    this.clearForm()
+    this.context.router.push('/')
+    this.props.setNavIcons('settings', 'joinedList')
+
+  }
+
+  clearForm() {
+    ReactDOM.findDOMNode(this.refs['image_url']).value = '',
+    ReactDOM.findDOMNode(this.refs['title']).value = '',
+    ReactDOM.findDOMNode(this.refs['what']).value = '',
+    ReactDOM.findDOMNode(this.refs['when']).value = '',
+    ReactDOM.findDOMNode(this.refs['where']).value = '',
+    ReactDOM.findDOMNode(this.refs['who']).value = '',
+    ReactDOM.findDOMNode(this.refs['why']).value = ''
   }
 
   render() {
@@ -39,7 +53,7 @@ class AddAction extends Component {
         <Col sm={12}>
           <Panel>
             <h1>Add Action</h1>
-            <form onSubmit={ this.handleSubmit.bind(this)} >
+            <form onSubmit={ this.handleSubmit.bind(this)} action='/'>
               <FormGroup controlId="formControlsText">
                 <ControlLabel>Title</ControlLabel>
                 <FormControl type="text" placeholder="Please enter title" ref="title"/>
@@ -74,7 +88,7 @@ class AddAction extends Component {
               </FormGroup>
               <FormGroup controlId="formControlsSubmit">
                 <ControlLabel></ControlLabel>
-                <FormControl type="submit" />
+                <FormControl type="submit"/>
               </FormGroup>
             </form>
           </Panel>
@@ -82,6 +96,10 @@ class AddAction extends Component {
       </Row>
       )
   }
+}
+
+AddAction.contextTypes = {
+  router: React.PropTypes.object.isRequired
 }
 
 function mapStateToProps(state) {
