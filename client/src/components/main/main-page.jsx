@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import MainContainer from './main-container.jsx'
 import NoneContainer from './none-container.jsx'
 import Spinner from '../spinner.jsx'
-import { Row, Panel, Button, Navbar } from 'react-bootstrap'
+import { Row, Panel, Button, Navbar, Nav } from 'react-bootstrap'
 import { RouteTransition } from 'react-router-transition'
 
 class MainPage extends Component {
@@ -52,14 +52,14 @@ class MainPage extends Component {
               }
             </div>
           </Panel>
-            <div>
-              <Navbar fixedBottom clear>
-                <Row className='btnRow'>
-                  <Button bsStyle="warning" className='btn btn-default' onClick={ this.props.incrementDisplayedAction }>PASS</Button> 
-                  <Button bsStyle="success" className='btn btn-default' onClick={ this.joinDisplayedAction.bind(this) }>JOIN</Button>
-                </Row>
-              </Navbar>  
-            </div>
+          <Navbar className='likeNoLike'>
+            <Nav>
+              <Row className='btnRow'>
+                <Button bsStyle="warning" className='btn btn-default' onClick={ this.props.incrementDisplayedAction }>PASS</Button> 
+                <Button bsStyle="success" className='btn btn-default' onClick={ this.joinDisplayedAction.bind(this) }>JOIN</Button>
+              </Row>
+            </Nav>  
+          </Navbar>  
         </div>
       </RouteTransition>
       )
