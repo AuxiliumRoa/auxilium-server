@@ -1,5 +1,12 @@
 import request from 'browser-request'
 
+export function setNavIcons (left, right) {
+	return {
+		type: 'SET_NAV_ICONS',
+		icons: { left, right }
+	}
+}
+
 export function populateUser () {
 	return (dispatch) => {
 		request({

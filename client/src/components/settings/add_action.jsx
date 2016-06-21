@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import * as actionCreators from '../../redux/action-creators'
 import { connect } from 'react-redux'
-import IconBox from '../icon-box.jsx'
 import { Button, Row, Col, FormGroup, ControlLabel, FormControl, Panel } from 'react-bootstrap'
 import { Link } from 'react-router'
 
@@ -23,7 +22,6 @@ class AddAction extends Component {
       <Row className=''>
         <Col sm={12}>
           <Panel>
-            <IconBox id='settings-nav' icons={ iconArray } />
             <h1>Add Action</h1>
             <form>
               <FormGroup controlId="formControlsText">

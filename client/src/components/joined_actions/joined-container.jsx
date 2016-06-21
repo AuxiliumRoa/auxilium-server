@@ -21,7 +21,8 @@ class JoinedContainer extends Component {
               when={ this.props.actions[key].when }
               what={ this.props.actions[key].what} 
               comments={ this.props.actions[key].comments }
-              setDisplay={ this.props.setDisplay }/>
+              setDisplay={ this.props.setDisplay }
+              setNav={ this.props.setNav } />
           })
         }
       </div>

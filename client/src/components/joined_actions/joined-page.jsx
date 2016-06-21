@@ -24,7 +24,10 @@ import JoinedContainer from './joined-container.jsx'
 class JoinedPage extends Component {
   render() {
     return (
-      <JoinedContainer actions={ this.props.joinedActions } setDisplay={ this.props.setDisplayedJoinedAction }/>
+      <JoinedContainer 
+        actions={ this.props.joinedActions } 
+        setDisplay={ this.props.setDisplayedJoinedAction }
+        setNav={ this.props.setNavIcons } />
     )
   }
 }

@@ -9,23 +9,10 @@ const INITIAL_STATE = {
   fetchedUser: false,
   fetchedActions: false,
   fetchedJoinedActions: false,
-  displayedIcons: [
-  {
-    icon: 'fa fa-cog fa-3x',
-    key: 'settings',
-    link: '/settings'
-  },
-  {
-    icon: 'fa fa-sign-language fa-3x',
-    key: 'logo',
-    link: '/'
-  },
-  {
-    icon: 'fa fa-list fa-3x',
-    key: 'joined',
-    link: '/joined-actions'
+  navIcons: {
+    left: 'settings',
+    right: 'joinedList'
   }
-]
 }
 
 export default function reducer (state = INITIAL_STATE, reduxAction) {
@@ -33,6 +20,10 @@ export default function reducer (state = INITIAL_STATE, reduxAction) {
   let newState = clone (state)
 
   switch (reduxAction.type) {
+
+    case 'SET_NAV_ICONS' :
+      newState.navIcons = reduxAction.icons
+      break
 
     case 'POPULATE_USER' : 
       newState.user = reduxAction.user
