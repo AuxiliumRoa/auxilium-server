@@ -95,7 +95,8 @@ export default function reducer (state = INITIAL_STATE, reduxAction) {
       newState.joinedActions[reduxAction.action.id].currentComment = reduxAction.currentComment
       break
 
-    case 'ADD_ACTION' :
+    case 'ADD_ACTION_FROM_CLIENT' :
+    case 'ADD_ACTION_FROM_SERVER' :
       newState.actions[reduxAction.action.id] = reduxAction.action
       break
 
