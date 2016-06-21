@@ -2,10 +2,9 @@ import React, { Component } from 'react'
 import * as actionCreators from '../../redux/action-creators'
 import { connect } from 'react-redux'
 import MainContainer from './main-container.jsx'
-import LikeNoLike from './like-nolike.jsx'
 import NoneContainer from './none-container.jsx'
 import Spinner from '../spinner.jsx'
-import { Row, Panel, Button } from 'react-bootstrap'
+import { Row, Panel, Button, Navbar } from 'react-bootstrap'
 import { RouteTransition } from 'react-router-transition'
 
 class MainPage extends Component {
@@ -33,31 +32,35 @@ class MainPage extends Component {
             atActive={{ translateX: 0 }}
             mapStyles={styles => ({ transform: `translateX(${styles.translateX}%)` })}
             >
-      <Panel>
-        <div>
-          {
-            (this.props.fetchedActions)
-              ? <div>
-                {
-                  (Object.keys(this.props.actions).length > 0)
-                    ? <MainContainer 
-                        title='This is the title of ALL the actions' 
-                        action={ action }
-                        handleLeftSwipe={ this.props.incrementDisplayedAction }
-                        handleRightSwipe={ this.joinDisplayedAction.bind(this) } />
-                    : <NoneContainer />
-                }
-                </div>
-              : <Spinner />
-          }
+        <div className='paddingtopbottom'>
+          <Panel>
+            <div>
+              {
+                (this.props.fetchedActions)
+                  ? <div>
+                    {
+                      (Object.keys(this.props.actions).length > 0)
+                        ? <MainContainer 
+                            title='This is the title of ALL the actions' 
+                            action={ action }
+                            handleLeftSwipe={ this.props.incrementDisplayedAction }
+                            handleRightSwipe={ this.joinDisplayedAction.bind(this) } />
+                        : <NoneContainer />
+                    }
+                    </div>
+                  : <Spinner />
+              }
+            </div>
+          </Panel>
+            <div>
+              <Navbar fixedBottom clear>
+                <Row className='btnRow'>
+                  <Button bsStyle="warning" className='btn btn-default' onClick={ this.props.incrementDisplayedAction }>PASS</Button> 
+                  <Button bsStyle="success" className='btn btn-default' onClick={ this.joinDisplayedAction.bind(this) }>JOIN</Button>
+                </Row>
+              </Navbar>  
+            </div>
         </div>
-        <div>
-          <Row className='btnRow'>
-            <Button className='btn btn-default' onClick={ this.props.incrementDisplayedAction }>PASS</Button> 
-            <Button className='btn btn-default' onClick={ this.joinDisplayedAction.bind(this) }>PARTICIPATE</Button>
-          </Row>
-        </div>
-      </Panel>
       </RouteTransition>
       )
   }

@@ -11,24 +11,24 @@ class ActionChatContainer extends Component {
 	render () {
 		return (
 			<div>
-        <SmallTitle title='ChatBox'/>
-        {
-          (this.props.action.fetchedComments && (this.props.action.comments.length > 0))
-            ? <div>
-              {
-                this.props.action.comments.map((e) => {
-                  console.log('COMMENTS', this.props.action)
-                  return <ActionChat userName={ e.user_name } comment={ e.comment } />
-                })
-              }
-              </div>
-            : <Spinner />
-        }
-        <ChatInput 
-          currentComment={ this.props.action.currentComment } 
-          setCurrentComment={ this.props.setCurrentComment } 
-          addComment={ this.props.addComment } 
-          actionID={ this.props.action.id } />
+            <SmallTitle title='Talk to others involved:'/>
+            {
+              (this.props.action.fetchedComments && (this.props.action.comments.length > 0))
+                ? <div>
+                  {
+                    this.props.action.comments.map((e) => {
+                      console.log('COMMENTS', this.props.action)
+                      return <ActionChat userName={ e.user_name } comment={ e.comment } />
+                    })
+                  }
+                  </div>
+                : <Spinner />
+            }
+          <ChatInput 
+            currentComment={ this.props.action.currentComment } 
+            setCurrentComment={ this.props.setCurrentComment } 
+            addComment={ this.props.addComment } 
+            actionID={ this.props.action.id } />
       </div>
 		)
 	}

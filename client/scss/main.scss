@@ -7,6 +7,7 @@ html {
 
 body {
   background-color: $mainbackgroundcolor;
+  // background-image: url('https://s-media-cache-ak0.pinimg.com/736x/8c/37/2a/8c372a3ab8429583096bc996d25dcacb.jpg');
   min-height: 100%;
   display: flex;
   align-items: center;
@@ -17,13 +18,13 @@ body {
   height: 100%; 
 }
 
-h1 {
+h1, h2, h3, h4, h5, h6 {
   font-family: $headerfont;
-  margin-bottom: 4em;
+  color: $headerColor;
 }
 
 p {
-  font-size: 14pt;
+  line-height: 1.5;
 }
 
 .navRow {
@@ -41,7 +42,7 @@ p {
 div#main-nav {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 .main-container {
@@ -74,6 +75,10 @@ div#main-nav {
   text-align: right;
 }
 
+i.fa {
+  color: $headerColor;
+}
+
 .btnRow {
   display: flex;
   justify-content: center;
@@ -81,7 +86,42 @@ div#main-nav {
   
   .btn {
     margin-right: 1em;
-    margin-top: 2em;
+    margin-top: 1em;
+    margin-bottom: 1em;
     width: 40%;
   }
+}
+
+span.titleSpan {
+  font-weight: 700;
+  color: $headerColor;
+} 
+
+ul.nav.navbar-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.paddingtopbottom {
+  margin: 6em 0;
+}
+
+.paddingtop {
+  margin-top: 6em;
+}
+
+.joinedcontainer {
+}
+
+.joinedIndAction {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin: .8em 0;
+}
+
+.unjoin-btn {
+  display: inline-block;
+  float: right;
 }

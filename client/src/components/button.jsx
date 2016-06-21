@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class Button extends Component {
+class ButtonMain extends Component {
 
   render() {
     return (
@@ -9,4 +9,4 @@ class Button extends Component {
   }
 }
 
-export default Button
+export default ButtonMain
