@@ -50,7 +50,7 @@ export default function Actions (knex) {
     addAction: (action) => {
       return knex('actions')
         .insert(action)
-        .then(() => knex('actions').max('id'))
+        .then(() => knex('actions').max('id as new_id').then((rows) => rows[0].new_id))
     }
 
   }
@@ -58,7 +58,6 @@ export default function Actions (knex) {
   function addCommentsToActions (actions) {
     return Promise.all(actions.map((action) => selectComments(action.id)))
       .then((comments) => {
-        // console.log('actions.addCommentsToActions found comments', comments)
         for (let i = 0; i < actions.length; i++) {
           actions[i].comments = comments[i]
         }
