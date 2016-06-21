@@ -96,6 +96,8 @@ export default function reducer (state = INITIAL_STATE, reduxAction) {
       break
 
     case 'ADD_ACTION_FROM_CLIENT' :
+      break
+
     case 'ADD_ACTION_FROM_SERVER' :
       newState.actions[reduxAction.action.id] = reduxAction.action
       break

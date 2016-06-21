@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
 import * as actionCreators from '../../redux/action-creators'
 import { connect } from 'react-redux'
 import { Button, Row, Col, FormGroup, ControlLabel, FormControl, Panel } from 'react-bootstrap'
@@ -17,44 +18,63 @@ class AddAction extends Component {
     super(props)
   }
 
+  handleSubmit(e) {
+    e.preventDefault()
+    console.log('FORM INFO: ', ReactDOM.findDOMNode(this.refs['title']).value)
+    let formData = {
+      image_url: ReactDOM.findDOMNode(this.refs['image_url']).value,
+      title: ReactDOM.findDOMNode(this.refs['title']).value,
+      what: ReactDOM.findDOMNode(this.refs['what']).value,
+      when: ReactDOM.findDOMNode(this.refs['when']).value,
+      where: ReactDOM.findDOMNode(this.refs['where']).value,
+      who: ReactDOM.findDOMNode(this.refs['who']).value,
+      why: ReactDOM.findDOMNode(this.refs['why']).value
+    }
+    this.props.addActionFromClient(formData)
+  }
+
   render() {
     return (
       <Row className=''>
         <Col sm={12}>
           <Panel>
             <h1>Add Action</h1>
-            <form>
+            <form onSubmit={ this.handleSubmit.bind(this)} >
               <FormGroup controlId="formControlsText">
                 <ControlLabel>Title</ControlLabel>
-                <FormControl type="text" placeholder="Please enter title" />
+                <FormControl type="text" placeholder="Please enter title" ref="title"/>
               </FormGroup>            
               <FormGroup controlId="formControlsUrl">
                 <ControlLabel>Image Url</ControlLabel>
-                <FormControl type="text" placeholder="Please enter image URL" />
+                <FormControl type="text" placeholder="Please enter image URL" ref="image_url" />
               </FormGroup>            
               <FormGroup controlId="formControlsText">
                 <ControlLabel>Who</ControlLabel>
-                <FormControl type="text" placeholder="Please enter who you are" />
+                <FormControl type="text" placeholder="Please enter who you are" ref="who"/>
               </FormGroup>            
               <FormGroup controlId="formControlsText">
                 <ControlLabel>What</ControlLabel>
-                <FormControl type="text" placeholder="Please enter what you are doing" />
+                <FormControl type="text" placeholder="Please enter what you are doing" ref="what"/>
               </FormGroup>            
               <FormGroup controlId="formControlsText">
                 <ControlLabel>Where</ControlLabel>
-                <FormControl type="text" placeholder="Please enter where the volunteer event will be" />
+                <FormControl type="text" placeholder="Please enter where the volunteer event will be" ref="where"/>
               </FormGroup>            
               <FormGroup controlId="formControlsText">
                 <ControlLabel>Date</ControlLabel>
-                <FormControl type="text" placeholder="Please enter the date of the event" />
+                <FormControl type="text" placeholder="Please enter the date of the event" ref="when"/>
               </FormGroup>            
               <FormGroup controlId="formControlsText">
                 <ControlLabel>Why</ControlLabel>
-                <FormControl type="text" placeholder="Please enter why you are seeking volunteers" />
+                <FormControl type="text" placeholder="Please enter why you are seeking volunteers" ref="why"/>
               </FormGroup>
               <FormGroup controlId="formControlsEmail">
                 <ControlLabel>Email address</ControlLabel>
                 <FormControl type="email" placeholder="Enter email" />
+              </FormGroup>
+              <FormGroup controlId="formControlsSubmit">
+                <ControlLabel></ControlLabel>
+                <FormControl type="submit" />
               </FormGroup>
             </form>
           </Panel>
@@ -64,4 +84,13 @@ class AddAction extends Component {
   }
 }
 
-export default AddAction
+function mapStateToProps(state) {
+  return {
+    userName: state.user ? state.user.name : 'Guest',
+  }
+}
+
+export const AddActionContainer = connect(
+  mapStateToProps,
+  actionCreators
+)(AddAction)
