@@ -5,7 +5,6 @@ import MainContainer from './main-container.jsx'
 import NoneContainer from './none-container.jsx'
 import Spinner from '../spinner.jsx'
 import { Row, Panel, Button, Navbar } from 'react-bootstrap'
-import { Row, Panel, Button } from 'react-bootstrap'
 import { RouteTransition } from 'react-router-transition'
 
 class MainPage extends Component {
