@@ -52,7 +52,11 @@ class MainPage extends Component {
               ? <div>
                 {
                   (Object.keys(this.props.actions).length > 0)
-                    ? <MainContainer title='This is the title of ALL the actions' action={ action }/>
+                    ? <MainContainer 
+                        title='This is the title of ALL the actions' 
+                        action={ action }
+                        handleLeftSwipe={ this.props.incrementDisplayedAction }
+                        handleRightSwipe={ this.joinDisplayedAction.bind(this) } />
                     : <NoneContainer />
                 }
                 </div>
