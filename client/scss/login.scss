@@ -14,6 +14,10 @@ body {
   justify-content: center;
 }
 
+a {
+  color: #1e90ff;
+}
+
 #app {
   height: 100%; 
 }
@@ -47,10 +51,10 @@ body {
     justify-content: center;
     flex-direction: column;
   
-  h2 {
+  h4 {
     color: white;
     font-family: 'Patua One', cursive;
-    font-size: 2.2em;
+    font-size: 1.5em;
     }
   }
 }
