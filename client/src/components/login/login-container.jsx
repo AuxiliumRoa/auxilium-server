@@ -14,8 +14,8 @@ const iconArray = [
     link: "/auth/twitter"
   },
   {
-    icon: 'fa fa-google-plus-square fa-3x',
-    key: 'google',
+    icon: 'fa fa-linkedin-square fa-3x',
+    key: 'linkedin',
     link: "/auth/linkedin"
   }
 ]
