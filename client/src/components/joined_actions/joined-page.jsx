@@ -25,15 +25,17 @@ import { Row, Col, Button } from 'react-bootstrap'
 class JoinedPage extends Component {
   render() {
     return (
-      <Row>
-        <Col sm={12}>
-          <JoinedContainer 
-            actions={ this.props.joinedActions } 
-            setDisplay={ this.props.setDisplayedJoinedAction }
-            setNav={ this.props.setNavIcons }
-            unjoinAction={ this.props.unjoinAction } />
-        </Col>
-      </Row>
+      <div className='paddingtop'>
+        <Row>
+          <Col sm={12}>
+            <JoinedContainer 
+              actions={ this.props.joinedActions } 
+              setDisplay={ this.props.setDisplayedJoinedAction }
+              setNav={ this.props.setNavIcons }
+              unjoinAction={ this.props.unjoinAction } />
+          </Col>
+        </Row>
+      </div>
     )
   }
 }

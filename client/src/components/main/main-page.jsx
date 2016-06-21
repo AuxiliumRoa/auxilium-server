@@ -44,7 +44,7 @@ class MainPage extends Component {
     let action = this.props.actions[Object.keys(this.props.actions)[this.props.displayedActionIndex]]
     console.log('ACTIONS', this.props.actions)
     return (
-      <div>
+      <div className='paddingtopbottom'>
         <Panel>
           <div>
             {
@@ -65,7 +65,7 @@ class MainPage extends Component {
           </div>
         </Panel>
           <div>
-            <Navbar>
+            <Navbar fixedBottom clear>
               <Row className='btnRow'>
                 <Button bsStyle="warning" className='btn btn-default' onClick={ this.props.incrementDisplayedAction }>PASS</Button> 
                 <Button bsStyle="success" className='btn btn-default' onClick={ this.joinDisplayedAction.bind(this) }>JOIN</Button>

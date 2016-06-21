@@ -11,7 +11,7 @@ class ActionChatContainer extends Component {
 	render () {
 		return (
 			<div>
-            <SmallTitle title='ChatBox'/>
+            <SmallTitle title='Talk to others involved:'/>
             {
               (this.props.action.fetchedComments && (this.props.action.comments.length > 0))
                 ? <div>
