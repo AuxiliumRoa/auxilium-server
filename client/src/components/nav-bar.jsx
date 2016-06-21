@@ -6,37 +6,37 @@ import { Navbar, Nav } from 'react-bootstrap'
 
 const icons = {
   settings: {
-    icon: 'fa fa-cog fa-3x',
+    icon: 'fa fa-cog fa-lg',
     key: 'settings',
     link: '/settings',
     reset: [null, 'forwardMain'] 
   }, 
   joinedList: {
-    icon: 'fa fa-list fa-3x',
+    icon: 'fa fa-list fa-lg',
     key: 'joined',
     link: '/joined-actions',
     reset: ['backMain', null]
   }, 
   backMain: {
-    icon: 'fa fa-angle-left fa-3x',
+    icon: 'fa fa-angle-left fa-lg',
     key: 'back',
     link: '/',
     reset: ['settings', 'joinedList']
   }, 
   backJoined: {
-    icon: 'fa fa-angle-left fa-3x',
+    icon: 'fa fa-angle-left fa-lg',
     key: 'back',
     link: '/joined-actions',
     reset: ['backMain', null]
   },
   forwardSettings: {
-    icon: 'fa fa-angle-right fa-3x',
+    icon: 'fa fa-angle-right fa-lg',
     key: 'forward',
     link: '/settings',
     reset: [null, 'forwardMain']
   },
   forwardMain: {
-    icon: 'fa fa-angle-right fa-3x',
+    icon: 'fa fa-angle-right fa-lg',
     key: 'forward',
     link: '/',
     reset: ['settings', 'joinedList']
@@ -58,12 +58,11 @@ class NavBar extends Component {
     let leftIcon = icons[this.props.icons.right].reset[0]
     let rightIcon = icons[this.props.icons.right].reset[1]
     this.props.setNavIcons(leftIcon, rightIcon)
-    console.log('ICONS: ', leftIcon, rightIcon)
   }
 
   render() {
     return (
-      <Navbar >
+      <Navbar fixedTop>
         <Nav>
         {
           (this.props.icons.left) 
