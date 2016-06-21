@@ -15,19 +15,19 @@ import io from 'socket.io-client'
 const socket = io()
 const store = configureReduxStore(socket)
 
-console.log('store', store.getState())
+// console.log('store', store.getState())
 
-store.subscribe(() => {
-	console.log('store', store.getState())
-})
-
-store.dispatch(populateUser())
-store.dispatch(populateActions())
-store.dispatch(populateJoinedActions())
+// store.subscribe(() => {
+// 	console.log('store', store.getState())
+// })
 
 socket.on('action', (action) => {
   store.dispatch(action)
 })
+
+socket.emit('request-user', {})
+socket.emit('request-actions', {})
+socket.emit('request-joined-actions', {})
 
 const router = (
   <Router history={ browserHistory }>    

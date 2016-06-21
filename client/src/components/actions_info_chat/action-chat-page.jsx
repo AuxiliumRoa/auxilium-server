@@ -4,30 +4,19 @@ import { connect } from 'react-redux'
 import MainContainer from '../main/main-container.jsx'
 import ActionChatContainer from './action-chat-container.jsx'
 import Spinner from '../spinner.jsx'
-
-// const iconArray = [
-//   {
-//     icon: 'fa fa-angle-left fa-3x',
-//     provider: 'back',
-//     link: '/joined-actions'
-//   },
-//   {
-//     icon: 'fa fa-sign-language fa-3x',
-//     provider: 'logo',
-//     link: ''
-//   },
-//   {
-//     icon: 'fa fa-home fa-3x',
-//     provider: 'home',
-//     link: '/'
-//   }
-// ]
+import { RouteTransition } from 'react-router-transition'
 
 class ActionChatPage extends Component {
 		render() {
       let action = this.props.joinedActions[this.props.displayedJoinedAction]
 			return(
-				<div>
+				<RouteTransition
+            pathname={this.props.location.pathname}
+            atEnter={{ translateX: 100 }}
+            atLeave={{ translateX: -100 }}
+            atActive={{ translateX: 0 }}
+            mapStyles={styles => ({ transform: `translateX(${styles.translateX}%)` })}
+            >
           {
             (action) 
              ? <div>
@@ -39,7 +28,7 @@ class ActionChatPage extends Component {
               </div>
             : <Spinner />
           }
-				</div>
+				</RouteTransition>
 			)
 		}
 }
