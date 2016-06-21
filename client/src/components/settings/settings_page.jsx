@@ -40,7 +40,9 @@ class SettingsPage extends Component {
           </Link>
             </Col>
           </Row>
-          <Button onClick={ this.handleLogout.bind(this) }>Logout</Button>
+          <Link to={ '/auth/logout'}>
+            <Button onClick={ this.handleLogout.bind(this) }>Logout</Button>
+          </Link>
         </Panel>
       </RouteTransition>
       )
