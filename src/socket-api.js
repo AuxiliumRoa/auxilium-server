@@ -91,7 +91,6 @@ export default function configureSocketAPI (io, model) {
 					case 'ADD_ACTION_FROM_CLIENT' :
 						model.actions.addAction(reduxAction.action)
 							.then((actionID) => {
-								console.log('ADD AN ACTION HEREE LOOK HERE', actionID)
 								reduxAction.action.id = actionID
 								io.emit('action', {
 									type: 'ADD_ACTION_FROM_SERVER',

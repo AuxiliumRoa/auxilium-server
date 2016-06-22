@@ -32,14 +32,14 @@ class SettingsPage extends Component {
         <Panel>
         <Row className=''>
             <Col sm={12}>
-          <Link to={ '/add-action' }>
+          <Link to='/add-action'>
             <Button onClick={ this.handleClick.bind(this) }>Add Action</Button>
           </Link>
             </Col>
           </Row>
-          <Link to={ '/auth/logout' }>
+          <a href='/auth/logout'>
             <Button>Logout</Button>
-          </Link>
+          </a>
         </Panel>
       </RouteTransition>
       )
