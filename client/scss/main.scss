@@ -111,9 +111,6 @@ ul.nav.navbar-nav {
   margin-top: 6em;
 }
 
-.joinedcontainer {
-}
-
 .joinedIndAction {
   display: flex;
   flex-direction: row;
@@ -126,7 +123,18 @@ ul.nav.navbar-nav {
   float: right;
 }
 
-.likeNoLike {
-  display: fixed;
-  bottom: 0;
+.likenolike {
+  display: flex;
+  justify-content: center;
+  align-content: space-around;
+  
+  .navbar-nav {
+      margin: 0px;
+  }
+}
+
+.actionDetails {
+  position: fixed;
+  margin-top: 20px;
+  width: 100%;
 }

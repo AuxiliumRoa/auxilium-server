@@ -10,7 +10,7 @@ class NoneContainer extends Component {
       <Panel>
         <div className='none-container'>
           <BigTitle name="Good job! You've joined all the things!" />
-          <SmallTitle id='none-container-text' title='Click the icon in the top right corner to view the causes you have joined' />
+          <SmallTitle id='none-container-text' title='Click the icon in the top right corner to view the actions you have joined' />
         </div>
       </Panel>
     )
