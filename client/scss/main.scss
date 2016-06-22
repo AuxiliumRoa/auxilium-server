@@ -81,8 +81,10 @@ i.fa {
 
 .btnRow {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  min-width: 300px;
+  width: 100%;
   
   .btn {
     margin-right: 1em;
