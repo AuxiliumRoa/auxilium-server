@@ -21,7 +21,6 @@ class AddAction extends Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    console.log('FORM INFO: ', ReactDOM.findDOMNode(this.refs['title']).value)
     let formData = {
       image_url: ReactDOM.findDOMNode(this.refs['image_url']).value,
       title: ReactDOM.findDOMNode(this.refs['title']).value,

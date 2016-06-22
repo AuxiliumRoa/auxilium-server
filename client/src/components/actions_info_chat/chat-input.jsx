@@ -4,7 +4,6 @@ import { Navbar, Nav } from 'react-bootstrap'
 class ChatInput extends Component {
 
   handleChange(e) {
-    console.log('The input: ', e.target.value)
     this.props.setCurrentComment(this.props.actionID, e.target.value)
   }
 
