@@ -92,8 +92,12 @@ export default function configureSocketAPI (io, model) {
 						model.actions.addAction(reduxAction.action)
 							.then((actionID) => {
 								reduxAction.action.id = actionID
-								io.emit('action', {
+								socket.broadcast.emit('action', {
 									type: 'ADD_ACTION_FROM_SERVER',
+									action: reduxAction.action
+								})
+								socket.emit('action', {
+									type: 'ADD_CLIENT_ACTION_FROM_SERVER',
 									action: reduxAction.action
 								})
 							})

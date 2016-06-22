@@ -21,7 +21,6 @@ class AddAction extends Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    console.log('FORM INFO: ', ReactDOM.findDOMNode(this.refs['title']).value)
     let formData = {
       image_url: ReactDOM.findDOMNode(this.refs['image_url']).value,
       title: ReactDOM.findDOMNode(this.refs['title']).value,
@@ -89,10 +88,6 @@ class AddAction extends Component {
                 <FormGroup controlId="formControlsText">
                   <ControlLabel>Why</ControlLabel>
                   <FormControl type="text" placeholder="Please enter why you are seeking volunteers" ref="why"/>
-                </FormGroup>
-                <FormGroup controlId="formControlsEmail">
-                  <ControlLabel>Email address</ControlLabel>
-                  <FormControl type="email" placeholder="Enter email" />
                 </FormGroup>
                 <FormGroup controlId="formControlsSubmit">
                   <ControlLabel></ControlLabel>
