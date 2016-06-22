@@ -94,10 +94,6 @@ class AddAction extends Component {
                     <ControlLabel>Why</ControlLabel>
                     <FormControl type="text" placeholder="Please enter why you are seeking volunteers" ref="why"/>
                   </FormGroup>
-                  <FormGroup controlId="formControlsEmail">
-                    <ControlLabel>Email address</ControlLabel>
-                    <FormControl type="email" placeholder="Enter email" />
-                  </FormGroup>
                   <FormGroup controlId="formControlsSubmit">
                     <ControlLabel></ControlLabel>
                     <FormControl type="submit" />
