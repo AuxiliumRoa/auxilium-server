@@ -9,7 +9,7 @@ exports.seed = function(knex, Promise) {
     	where: 'Lyall Bay (meet on the road outside Maranui Cafe)',
     	when: 'Saturday 25th of June, 9am',
     	why: 'Because we love our beach!',
-    	image_url: 'http://www.rowansims.com/wp-content/uploads/2014/03/maranui-cafe-lyall-bay-sunrise.jpg'
+    	image_url: 'http://fryphone.com/nzblog/wp-content/uploads/2009/12/img-55391.jpg'
     }),
     knex('actions').insert({
     	title: 'New Downhill Mountain Biking Single Track',
@@ -18,7 +18,7 @@ exports.seed = function(knex, Promise) {
     	where: 'Brooklyn Wind Turbine',
     	when: 'Sunday 26th of June, 10am',
     	why: 'New intermediate trail running below the existing Carparts line.',
-    	image_url: 'http://www.wmtbc.org.nz/Resources/Pictures/newsletterphotos/clinical.jpg'
+    	image_url: 'https://www.mtbproject.com/photos/mtb/13/65/3001365_medium_0b2a401372869908.jpg'
     }),
     knex('actions').insert({
     	title: 'Track Clearing in Zealandia',
@@ -27,7 +27,7 @@ exports.seed = function(knex, Promise) {
     	where: 'Zealandia (meet inside main entrance)',
     	when: 'Sunday 26th of June, 9am',
     	why: 'Some trails are becoming overgrown.',
-    	image_url: 'https://upload.wikimedia.org/wikipedia/commons/5/54/Prosthemadera_novaeseelandiae_-Karori_Wildlife_Sanctuary,_Wellington,_New_Zealand-8.jpg'
+    	image_url: 'http://www.radionz.co.nz/assets/galleries/2268/full_IMG_0113.jpg?1325218395'
     })
   )
 }
