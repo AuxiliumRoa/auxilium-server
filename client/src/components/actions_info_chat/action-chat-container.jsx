@@ -20,6 +20,8 @@ class ActionChatContainer extends Component {
     let differenceInMinutes = ((nowTime[0] - thenTime[0]) * 60) + (nowTime[1] - thenTime[1])
     if (differenceInMinutes >= 60) {
       return 'Today ' + ((thenTime[0] % 12) + ((thenTime[0] > 11) ? 'pm' : 'am')).replace('0', '12')
+    } else if (differenceInMinutes < 2) {
+      return 'now'
     } else {
       return differenceInMinutes + ' minutes ago'
     }
