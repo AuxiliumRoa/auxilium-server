@@ -11,7 +11,7 @@ class SettingsPage extends Component {
   }
 
   handleClick() {
-    this.props.setNavIcons(null, 'forwardSettings')
+    this.props.setNavIcons('ghost', 'forwardSettings')
   }
 
   componentWillUnmount() {
