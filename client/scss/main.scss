@@ -55,9 +55,9 @@ div#main-nav {
     font-family: $headerfont;
   }
 
-  p {
-    margin-top: 1em;
-  }
+  // p {
+  //   // margin-top: 1em;
+  // }
 
   img {
     align-items: center;
@@ -154,9 +154,9 @@ ul.nav.navbar-nav {
   margin-top: 7px;
 }
 
-.main.container {
-  padding: -2px;
-}
+// .main.container {
+//   padding: -2px;
+// }
 
 form {
     width: 95%;
@@ -165,6 +165,31 @@ form {
     width: 100%;
     padding: 0.5em;
   }
+}
+
+a { 
+  .media-body {
+    color: black;
+  }
+}
+
+h6 {
+  .media-body {
+    margin-top: 0px;
+  }
+}
+
+p {
+  .media-body {
+    margin: 0px;
+  }
+  .boldheader {
+    font-weight: bold;
+  }
+}
+
+#app {
+  width: 100%;
 }
 
 .settings-btn {

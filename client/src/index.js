@@ -15,11 +15,11 @@ import io from 'socket.io-client'
 const socket = io()
 const store = configureReduxStore(socket)
 
-// console.log('store', store.getState())
+console.log('store', store.getState())
 
-// store.subscribe(() => {
-// 	console.log('store', store.getState())
-// })
+store.subscribe(() => {
+	console.log('store', store.getState())
+})
 
 socket.on('action', (action) => {
   store.dispatch(action)
