@@ -6,13 +6,21 @@ import { Row, Col, Button } from 'react-bootstrap'
 import { RouteTransition } from 'react-router-transition'
 
 class JoinedPage extends Component {
+
+  componentWillUnmount() {
+    this.props.updatePreviousPage(this.props.location.pathname)
+  }
+
   render() {
+    let transitionParams = (this.props.previousPage === '/single-action')
+      ? [{translateX: -100}, {translateX: 100}]
+      : [{translateX: 100}, {translateX: -100}]
     return (
 
       <RouteTransition
             pathname={this.props.location.pathname}
-            atEnter={{ translateX: 100 }}
-            atLeave={{ translateX: -100 }}
+            atEnter={transitionParams[0]}
+            atLeave={transitionParams[1]}
             atActive={{ translateX: 0 }}
             mapStyles={styles => ({ transform: `translateX(${styles.translateX}%)` })}
             >
@@ -34,7 +42,8 @@ class JoinedPage extends Component {
 
 function mapStateToProps(state) {
   return {
-    joinedActions: state.joinedActions
+    joinedActions: state.joinedActions,
+    previousPage: state.previousPage
   }
 }
 
