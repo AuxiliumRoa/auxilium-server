@@ -13,7 +13,12 @@ class ActionChatPage extends Component {
       let action = this.props.joinedActions[this.props.displayedJoinedAction]
 			return(
         <div>
-  				<RouteTransition
+          <PanelGroup defaultActiveKey='0' accordion>
+            <Panel className='paddingtop' header={ action.title } eventKey='1'>
+    					<MainContainer action={ action } />
+            </Panel>
+          </PanelGroup>
+          <RouteTransition
               pathname={this.props.location.pathname}
               atEnter={{ translateX: 100 }}
               atLeave={{ translateX: -100 }}
@@ -23,11 +28,6 @@ class ActionChatPage extends Component {
             {
               (action) 
                ? <div>
-                  <PanelGroup defaultActiveKey='0' accordion>
-                    <Panel className='paddingtop' header={ action.title } eventKey='1'>
-            					<MainContainer action={ action } />
-                    </Panel>
-                  </PanelGroup>
                     <Panel header='Chat' >
                       <ActionChatContainer 
                       action={ action } />
