@@ -9,7 +9,7 @@ class JoinedContainer extends Component {
   render() {
     return (
     <div>
-          <MediumTitle title='Actions you have joined:' />
+          <MediumTitle id='joined-title' title='Actions you have joined:' />
           {
             (Object.keys(this.props.actions).length > 0)
               ? Object.keys(this.props.actions).map((key, i) => {

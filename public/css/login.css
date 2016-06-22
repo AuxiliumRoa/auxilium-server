@@ -58,7 +58,11 @@ a {
 
 #login-icons {
   display: flex;
-  justify-content: space-around; }
+  justify-content: space-between; }
+
+#login-container {
+  min-width: 180px;
+  text-align: center; }
 
 .heroTitle {
   font-family: 'Patua One', cursive; }
