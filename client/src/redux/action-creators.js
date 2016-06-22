@@ -4,6 +4,12 @@ export function setNavIcons (left, right) {
 		icons: { left, right }
 	}
 }
+export function updatePreviousPage(url) {
+	return {
+		type: 'UPDATE_PREVIOUS_PAGE',
+		url
+	}
+}
 
 export function incrementDisplayedAction () {
 	return {

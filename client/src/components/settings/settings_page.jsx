@@ -14,12 +14,19 @@ class SettingsPage extends Component {
     this.props.setNavIcons(null, 'forwardSettings')
   }
 
+  componentWillUnmount() {
+    this.props.updatePreviousPage(this.props.location.pathname)
+  }
+
   render() {
+    let transitionParams = (this.props.previousPage === '/')
+      ? [{translateX: -100}, {translateX: 100}]
+      : [{translateX: 100}, {translateX: -100}]
     return (
       <RouteTransition
             pathname={this.props.location.pathname}
-            atEnter={{ translateX: -100 }}
-            atLeave={{ translateX: 100 }}
+            atEnter={transitionParams[0]}
+            atLeave={transitionParams[1]}
             atActive={{ translateX: 0 }}
             mapStyles={styles => ({ transform: `translateX(${styles.translateX}%)` })}
             >
@@ -49,6 +56,7 @@ class SettingsPage extends Component {
 function mapStateToProps(state) {
   return {
     userName: state.user ? state.user.name : 'Guest',
+    previousPage: state.previousPage
   }
 }
 

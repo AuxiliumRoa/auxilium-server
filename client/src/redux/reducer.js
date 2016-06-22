@@ -12,7 +12,8 @@ const INITIAL_STATE = {
   navIcons: {
     left: 'settings',
     right: 'joinedList'
-  }
+  },
+  previousPage: ''
 }
 
 export default function reducer (state = INITIAL_STATE, reduxAction) {
@@ -24,6 +25,9 @@ export default function reducer (state = INITIAL_STATE, reduxAction) {
     case 'SET_NAV_ICONS' :
       newState.navIcons = reduxAction.icons
       break
+
+    case 'UPDATE_PREVIOUS_PAGE' :
+      newState.previousPage = reduxAction.url
 
     case 'POPULATE_USER' : 
       newState.user = reduxAction.user

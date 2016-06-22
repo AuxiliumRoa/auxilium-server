@@ -9,6 +9,11 @@ import { RouteTransition } from 'react-router-transition'
 import { Panel, PanelGroup, Row } from 'react-bootstrap'
 
 class ActionChatPage extends Component {
+
+  componentWillUnmount() {
+    this.props.updatePreviousPage(this.props.location.pathname)
+  }
+
 		render() {
       let action = this.props.joinedActions[this.props.displayedJoinedAction]
 			return(
@@ -49,7 +54,8 @@ class ActionChatPage extends Component {
 function mapStateToProps(state) {
   return {
     joinedActions: state.joinedActions,
-    displayedJoinedAction: state.displayedJoinedAction
+    displayedJoinedAction: state.displayedJoinedAction,
+    previousPage: state.previousPage
   }
 }
 
