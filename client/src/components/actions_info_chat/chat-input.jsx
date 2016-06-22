@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
+import { Navbar, Nav } from 'react-bootstrap'
 
 class ChatInput extends Component {
 
   handleChange(e) {
-    console.log('The input: ', e.target.value)
     this.props.setCurrentComment(this.props.actionID, e.target.value)
   }
 
@@ -14,13 +14,19 @@ class ChatInput extends Component {
 
   render () {
     return (
-      <form onSubmit={ this.handleSubmit.bind(this)} >
-        <input 
-          type='text' 
-          placeholder='enter message' 
-          value={ this.props.currentComment } 
-          onChange={ this.handleChange.bind(this) } />
-      </form>
+      <div>
+        <Navbar fixedBottom>
+          <Nav>
+            <form onSubmit={ this.handleSubmit.bind(this)} >
+              <input className='chatInput' 
+                type='text' 
+                placeholder='enter message' 
+                value={ this.props.currentComment } 
+                onChange={ this.handleChange.bind(this) } />
+            </form>
+          </Nav>
+        </Navbar>
+      </div>
     )
   }
 }

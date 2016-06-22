@@ -109,6 +109,12 @@ export default function reducer (state = INITIAL_STATE, reduxAction) {
       newState.actions[reduxAction.action.id] = reduxAction.action
       break
 
+    case 'ADD_CLIENT_ACTION_FROM_SERVER' :
+      newState.actions[reduxAction.action.id] = reduxAction.action
+      newState.displayedActionIndex = Object.keys(newState.actions).indexOf(reduxAction.action.id + '')
+      newState.fetchedActions = true
+      break
+
   }
 
   return newState
