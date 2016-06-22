@@ -76,4 +76,11 @@ export default function configurePassport (app, model) {
     
   })
 
+  app.get('/auth/logout', (req, res, next) => {
+    req.session.destroy((err) => {
+      console.log('Server error:', err)
+    })
+    res.redirect('/')
+  })
+
 }
