@@ -72,6 +72,7 @@ class NavBar extends Component {
                     handleClick={ this.handleClickLeft.bind(this) } />
             : null
         }
+        <img className='nav-logo' src='/images/pitch-in-logo-spade.png'/>
         {
           (this.props.icons.right)
             ? <Icon key={ icons[this.props.icons.right].key + '-icon' } 
