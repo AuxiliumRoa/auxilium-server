@@ -111,8 +111,8 @@ class AddAction extends Component {
                       <ControlLabel></ControlLabel>
                       <FormControl type="submit" />
                     </FormGroup>
-                </Form>
-                  </form>
+                  </Form>
+                </form>
               </Panel>
         </div>
         </Col>
