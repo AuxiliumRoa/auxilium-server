@@ -6,7 +6,7 @@ class ActionBox extends Component {
 
   handleClick() {
     this.props.setDisplay(this.props.id)
-    this.props.setNav('backJoined', null)
+    this.props.setNav('backJoined', 'ghost')
   }
 
   handleUnjoin() {
