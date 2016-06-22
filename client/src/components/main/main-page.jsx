@@ -6,7 +6,7 @@ import NoneContainer from './none-container.jsx'
 import Spinner from '../spinner.jsx'
 import { Row, Panel, Button, Navbar, Nav } from 'react-bootstrap'
 import { RouteTransition } from 'react-router-transition'
-import LikeNoLike from './likenolike'
+import LikeNoLike from './likenolike.jsx'
 
 class MainPage extends Component {
   constructor(props) {

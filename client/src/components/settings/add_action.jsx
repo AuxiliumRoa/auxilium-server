@@ -60,18 +60,16 @@ class AddAction extends Component {
             atActive={{ translateX: 0 }}
             mapStyles={styles => ({ transform: `translateX(${styles.translateX}%)` })}
             >
+        <Row>
+        <Col sm={12}>
         <div className='paddingtop'>
               <Panel className='addActionPanel'>
                 <h3>Add Action</h3>
                   <form onSubmit={ this.handleSubmit.bind(this)} >
                 <Form>
-                    <FormGroup controlId="formHorizontalText">
-                      <Col componentClass={ControlLabel} sm={2}>
-                        Title
-                      </Col>
-                      <Col sm={10}>
-                        <FormControl type="text" placeholder="Please enter title" ref="title"/>
-                      </Col>
+                    <FormGroup controlId="formControlsText">
+                        <ControlLabel>Title</ControlLabel>
+                        <FormControl type="text" placeholder="Please enter title" ref="title"/>        
                     </FormGroup> 
 
                     <FormGroup controlId="formControlsUrl">
@@ -117,6 +115,8 @@ class AddAction extends Component {
                   </form>
               </Panel>
         </div>
+        </Col>
+      </Row>
       </RouteTransition>
       )
   }

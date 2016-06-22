@@ -55,9 +55,9 @@ div#main-nav {
     font-family: $headerfont;
   }
 
-  p {
-    margin-top: 1em;
-  }
+  // p {
+  //   // margin-top: 1em;
+  // }
 
   img {
     align-items: center;
@@ -165,6 +165,21 @@ form {
   }
 }
 
-// .addActionPanel.panel-body {
-//   min-width: 90%;
-// }
+a { 
+  .media-body {
+      color: black;
+  }
+}
+
+p {
+  .media-body {
+    margin: 0px;
+  }
+  .boldheader {
+    font-weight: bold;
+  }
+}
+
+#app {
+  width: 100%;
+}

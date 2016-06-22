@@ -20,11 +20,11 @@ class ActionBox extends Component {
           <div className='joinedcontainer'>
             <Link to='/single-action' className='action-box' onClick={ this.handleClick.bind(this)}>
                 <Media>
-                  <Media.Left align='middle'>
+                  <Media.Left align='top'>
                     <Image className='small-action' width={64} height={64} src={ this.props.src } alt='Image' />
                   </Media.Left>
                   <Media.Body>
-                    <p>{ this.props.title }</p>
+                    <h6>{ this.props.title }</h6>
                     <p>{ this.props.who }</p>
                   </Media.Body>
                 </Media>
