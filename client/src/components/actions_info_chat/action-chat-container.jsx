@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import SmallTitle from '../small-title.jsx'
 import ActionChat from './action-chat.jsx'
-import ChatInput from './chat-input.jsx'
 import Spinner from '../spinner.jsx'
 
 class ActionChatContainer extends Component {
@@ -20,11 +19,6 @@ class ActionChatContainer extends Component {
                   </div>
                 : <Spinner />
             }
-          <ChatInput 
-            currentComment={ this.props.action.currentComment } 
-            setCurrentComment={ this.props.setCurrentComment } 
-            addComment={ this.props.addComment } 
-            actionID={ this.props.action.id } />
       </div>
 		)
 	}
