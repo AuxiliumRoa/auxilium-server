@@ -169,7 +169,13 @@ form {
 
 a { 
   .media-body {
-      color: black;
+    color: black;
+  }
+}
+
+h6 {
+  .media-body {
+    margin-top: 0px;
   }
 }
 
