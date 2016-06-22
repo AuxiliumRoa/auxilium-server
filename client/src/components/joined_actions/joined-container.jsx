@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import ActionBox from './action-box.jsx'
-import SmallTitle from '../small-title.jsx'
+import MediumTitle from '../medium-title.jsx'
 import { Panel, Media } from 'react-bootstrap'
 
 class JoinedContainer extends Component {
@@ -9,7 +9,7 @@ class JoinedContainer extends Component {
   render() {
     return (
     <div>
-          <SmallTitle title='Actions you have joined:' />
+          <MediumTitle title='Actions you have joined:' />
           {
             (Object.keys(this.props.actions).length > 0)
               ? Object.keys(this.props.actions).map((key, i) => {
