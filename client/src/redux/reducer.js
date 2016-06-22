@@ -64,7 +64,6 @@ export default function reducer (state = INITIAL_STATE, reduxAction) {
       break
 
     case 'POPULATE_COMMENTS' :
-      console.log('POPULATE COMMENTS IN REDUCER', reduxAction)
       newState.joinedActions[reduxAction.action.id].comments = reduxAction.action.comments
       newState.joinedActions[reduxAction.action.id].fetchedComments = true
       break

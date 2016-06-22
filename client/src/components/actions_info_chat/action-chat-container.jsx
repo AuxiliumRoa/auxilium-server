@@ -19,6 +19,9 @@ class ActionChatContainer extends Component {
                     this.props.action.comments.map((e) => {
                       console.log('COMMENTS', this.props.action, 'COMMENT (e)', e)
                       return <ActionChat userName={ e.user_name } comment={ e.comment } createdAt={ e.created_at.toString() }/>
+                    this.props.action.comments.map((e, i) => {
+                      return <ActionChat key={e.user_name + i} userName={ e.user_name } comment={ e.comment } />
+
                     })
                   }
                   </div>
