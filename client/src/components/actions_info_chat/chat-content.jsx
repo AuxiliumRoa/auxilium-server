@@ -3,7 +3,10 @@ import React, { Component } from 'react'
 class ChatContent extends Component {
 	render () {
 		return(
-			<p className='chat-message'>{ this.props.comment }</p> 
+      <div>
+        <span className='titleSpan'>{this.props.user }:</span>
+  			<p className='chat-message'>{ this.props.comment }</p> 
+      </div>
 		)
 	}
 }
