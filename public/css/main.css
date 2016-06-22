@@ -40,8 +40,6 @@ div#main-nav {
   .main-container h2 {
     color: black;
     font-family: "Lalezar", cursive; }
-  .main-container p {
-    margin-top: 1em; }
   .main-container img {
     align-items: center;
     align-content: stretch;
@@ -58,8 +56,10 @@ i.fa {
 
 .btnRow {
   display: flex;
-  justify-content: center;
-  align-items: center; }
+  justify-content: space-between;
+  align-items: center;
+  min-width: 300px;
+  width: 100%; }
   .btnRow .btn {
     margin-right: 1em;
     margin-top: 1em;
@@ -113,11 +113,35 @@ ul.nav.navbar-nav {
   height: 2.5em;
   margin-top: 7px; }
 
-.main.container {
-  padding: -2px; }
-
 form {
   width: 95%; }
   form input.chatInput {
     width: 100%;
     padding: 0.5em; }
+
+a .media-body {
+  color: black; }
+
+h6 .media-body {
+  margin-top: 0px; }
+
+p .media-body {
+  margin: 0px; }
+
+p .boldheader {
+  font-weight: bold; }
+
+#app {
+  width: 100%; }
+
+.settings-btn {
+  margin: 1em 0; }
+
+#add-action-btn {
+  margin-top: 3em; }
+
+#logout-btn {
+  background-color: tomato; }
+
+.fa-hand-lizard-o {
+  opacity: 0; }
