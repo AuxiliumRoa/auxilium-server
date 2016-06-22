@@ -1,7 +1,5 @@
 export default function configureSocketAPI (io, model) {
-  var dt = new Date();
-  var utcDate = dt.toUTCString();
-
+   
 	io.on('connection', (socket) => {
 		console.log('SOCKET connection')
 
@@ -80,10 +78,11 @@ export default function configureSocketAPI (io, model) {
 							comment: {
 								comment: reduxAction.comment.comment,
 								user_id: socket.request.session.passport.user.id,
-								user_name: socket.request.session.passport.user.name
+								user_name: socket.request.session.passport.user.name,
+								created_at: reduxAction.comment.created_at
 							}
 						})
-						model.actions.addComment(reduxAction.action.id, socket.request.session.passport.user.id, reduxAction.comment.comment, utcDate)
+						model.actions.addComment(reduxAction.action.id, socket.request.session.passport.user.id, reduxAction.comment.comment, reduxAction.comment.created_at )
 							.catch((error) => {
 								handleError(socket, error)
 							})

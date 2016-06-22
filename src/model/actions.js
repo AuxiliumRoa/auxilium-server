@@ -1,5 +1,5 @@
 export default function Actions (knex) {
-
+var dt =new Date()
   return {
 
     getNotJoined: (userID) => {
@@ -38,13 +38,13 @@ export default function Actions (knex) {
         .del()
     },
 
-    addComment: (actionID, userID, comment, timestamp) => {
+    addComment: (actionID, userID, comment, created_at) => {
       return knex('comments')
         .insert({
           action_id: actionID,
           user_id: userID,
           comment: comment,
-          created_at: timestamp
+          created_at: created_at
         })
     },
 
@@ -70,7 +70,7 @@ export default function Actions (knex) {
     return knex('comments')
       .where('action_id', actionID)
       .join('users', 'comments.user_id', 'users.id')
-      .select('users.id as user_id', 'users.name as user_name', 'comments.comment')
+      .select('users.id as user_id', 'users.name as user_name', 'comments.comment', 'comments.created_at')
   }
 
 }
