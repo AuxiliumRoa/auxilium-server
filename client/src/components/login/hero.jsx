@@ -7,7 +7,7 @@ class Hero extends Component {
   render() {
     return (
       <div className='heroTitle'>
-        <Image id='logo' src='/css/pitch-in-logo-spade-white.png' responsive />
+        <Image id='logo' src='/images/pitch-in-logo-spade-white.png' responsive />
         <BigTitle name='pitch in' />
       </div>
      )

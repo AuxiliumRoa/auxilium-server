@@ -8,7 +8,7 @@ exports.seed = function(knex, Promise) {
       where: 'Fraser Park Hockey Stadium, Lower Hutt',
       when: 'Saturday 2nd of July 2016, 8am',
       why: 'Because we love sossages, Samoans and hockey!',
-      image_url: 'http://www.ratastreet.school.nz/DataStore/Pages/PAGE_1/Docs/Documents/IMG_0754.JPG'
+      image_url: 'http://www.wikihow.com/images/7/72/Grill-Sausage-Step-9-Version-2.jpg'
     }),
     knex('actions').insert({
       title: 'Plant Native Trees',
@@ -17,7 +17,7 @@ exports.seed = function(knex, Promise) {
       where: 'Meet near the cenotaph, outside Parliament Grounds, Wellington.',
       when: 'Sunday 21 August 2016, 2pm',
       why: 'We want more greenery to displace concrete in our cities.',
-      image_url: 'http://www.guerrillagardening.org/guerrillagardening/ggorphaned.jpg'
+      image_url: 'http://www.pattfoundation.org/wp-content/uploads/2015/04/Earth-Day-and-planting-trees-with-the-Village-Educational-Center-3.jpg'
     }),
     knex('actions').insert({
       title: 'Redux MVC Community Mural',
@@ -26,7 +26,7 @@ exports.seed = function(knex, Promise) {
       where: 'Top of Cuba Stree, EDA site, Wellington',
       when: 'Saturday 23rd June, 8am',
       why: 'This will be a tangible way of seeing what the hell is going on with Redux!',
-      image_url: 'http://hackers.weareimpero.com/content/images/2016/02/MVC.jpg'
+      image_url: 'http://static1.squarespace.com/static/53596095e4b0ed47acce7231/t/55cf7a1ae4b0e15e438cec2a/1439674892494/'
     }),
     knex('actions').insert({
       title: 'Build a rock climbing wall.',
@@ -35,7 +35,7 @@ exports.seed = function(knex, Promise) {
       where: 'Levin RSA, Main Street, Levin',
       when: 'July 14th, meet at the retunda, Main Street.',
       why: 'Increasing mobility in our Returned Service Men is important to us. Rock climbing seems like a good idea, right?',
-      image_url: 'http://www.rockandice.com/Article-Images/News-Photos/Sept-2014/ChrisBoningtonOldManOfHoy.jpg'
+      image_url: 'https://cdn-images-1.medium.com/max/800/1*QhzCdt2HZGSgcaIcMfsjLA.jpeg'
     }),
     knex('actions').insert({
       title: 'Dig Holes with Us!',
@@ -44,7 +44,7 @@ exports.seed = function(knex, Promise) {
       where: 'Wakefield Park, Island Bay, Wellington',
       when: 'Tuesday 12 July, 2:30am',
       why: 'We habitually love digging holes for the sake of digging holes. Scratch that itch.',
-      image_url: 'http://cdn2.caninejournal.com/wp-content/uploads/dog-digging-hole.jpg'
+      image_url: 'https://lgoodman222.files.wordpress.com/2015/08/hole-in-the-ground.jpg?w=800&h=600&crop=1'
     }),
     knex('actions').insert({
       title: 'Feed hungry people',
@@ -53,7 +53,7 @@ exports.seed = function(knex, Promise) {
       where: 'Meet at Stratford New World, Main street, Stratford',
       when: '12 August 2016, 11am.',
       why: 'We like feeding people.',
-      image_url: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcS4fQpR1ULTyqDU71c-tSIMLYJ6pzqJxNBFL_n7K5_3yUYlnppJ8Q'
+      image_url: 'http://mediad.publicbroadcasting.net/p/wabe/files/styles/medium/public/hoseafeeds_070715.jpg'
     })
   )
 }
