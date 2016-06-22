@@ -69,7 +69,7 @@ function mapStateToProps(state) {
     actions: state.actions,
     fetchedActions: state.fetchedActions,
     displayedActionIndex: state.displayedActionIndex,
-    previousPage: state.previousPage
+    previousPage: state.previousPage,
     incrementDisplayedAction: state.incrementDisplayedAction
   }
 }
