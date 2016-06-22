@@ -9,13 +9,13 @@ const icons = {
     icon: 'fa fa-cog fa-lg',
     key: 'settings',
     link: '/settings',
-    reset: [null, 'forwardMain'] 
+    reset: ['ghost', 'forwardMain'] 
   }, 
   joinedList: {
     icon: 'fa fa-list fa-lg',
     key: 'joined',
     link: '/joined-actions',
-    reset: ['backMain', null]
+    reset: ['backMain', 'ghost']
   }, 
   backMain: {
     icon: 'fa fa-angle-left fa-lg',
@@ -27,17 +27,23 @@ const icons = {
     icon: 'fa fa-angle-left fa-lg',
     key: 'back',
     link: '/joined-actions',
-    reset: ['backMain', null]
+    reset: ['backMain', 'ghost']
   },
   forwardSettings: {
     icon: 'fa fa-angle-right fa-lg',
     key: 'forward',
     link: '/settings',
-    reset: [null, 'forwardMain']
+    reset: ['ghost', 'forwardMain']
   },
   forwardMain: {
     icon: 'fa fa-angle-right fa-lg',
     key: 'forward',
+    link: '/',
+    reset: ['settings', 'joinedList']
+  },
+  ghost: {
+    icon: 'fa fa-hand-lizard-o fa-lg',
+    key: 'ghost',
     link: '/',
     reset: ['settings', 'joinedList']
   }
@@ -48,16 +54,30 @@ class NavBar extends Component {
     super(props)
   }
 
-  handleClickLeft() {
-    let leftIcon = icons[this.props.icons.left].reset[0]
-    let rightIcon = icons[this.props.icons.left].reset[1]
-    this.props.setNavIcons(leftIcon, rightIcon)
+  handleClickLeft(e) {
+    if (e.target.className === 'fa fa-hand-lizard-o fa-lg') {
+      console.log('THIS IS THE GHOST OF THE HAND LIZARD')
+      let leftIcon = icons[this.props.icons.left].reset[0]
+      let rightIcon = icons[this.props.icons.left].reset[1]
+      this.props.setNavIcons(leftIcon, rightIcon)
+    } else {
+      let leftIcon = icons[this.props.icons.left].reset[0]
+      let rightIcon = icons[this.props.icons.left].reset[1]
+      this.props.setNavIcons(leftIcon, rightIcon)
+    }
   }
 
-  handleClickRight() {
-    let leftIcon = icons[this.props.icons.right].reset[0]
-    let rightIcon = icons[this.props.icons.right].reset[1]
-    this.props.setNavIcons(leftIcon, rightIcon)
+  handleClickRight(e) {
+    if (e.target.className === 'fa fa-hand-lizard-o fa-lg') {
+      console.log('THIS IS THE GHOST OF THE HAND LIZARD')
+      let leftIcon = icons[this.props.icons.right].reset[0]
+      let rightIcon = icons[this.props.icons.right].reset[1]
+      this.props.setNavIcons(leftIcon, rightIcon)
+    } else {
+      let leftIcon = icons[this.props.icons.right].reset[0]
+      let rightIcon = icons[this.props.icons.right].reset[1]
+      this.props.setNavIcons(leftIcon, rightIcon)
+    }
   }
 
   render() {

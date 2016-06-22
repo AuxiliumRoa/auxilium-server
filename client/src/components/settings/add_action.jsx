@@ -6,14 +6,6 @@ import { Button, Row, Col, FormGroup, ControlLabel, FormControl, Panel } from 'r
 import { Link } from 'react-router'
 import { RouteTransition } from 'react-router-transition'
 
-const iconArray = [
-  {
-    icon: 'fa fa-home fa-3x',
-    key: 'home',
-    link: '/'
-  }
-]
-
 class AddAction extends Component {
   constructor(props) {
     super(props)

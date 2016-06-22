@@ -11,7 +11,7 @@ class SettingsPage extends Component {
   }
 
   handleClick() {
-    this.props.setNavIcons(null, 'forwardSettings')
+    this.props.setNavIcons('ghost', 'forwardSettings')
   }
 
   componentWillUnmount() {
@@ -30,24 +30,22 @@ class SettingsPage extends Component {
             atActive={{ translateX: 0 }}
             mapStyles={styles => ({ transform: `translateX(${styles.translateX}%)` })}
             >
-          <Row className=''>
+          <Row className='' id='settings-heading'>
             <Col sm={12}>
               <h1>Settings</h1>
               <h4>Hi {this.props.userName}!</h4>
             </Col>
           </Row>
-        <Panel>
         <Row className=''>
             <Col sm={12}>
           <Link to='/add-action'>
-            <Button onClick={ this.handleClick.bind(this) }>Add Action</Button>
+            <Button onClick={ this.handleClick.bind(this) } id='add-action-btn' className='settings-btn'>Add Action</Button>
           </Link>
             </Col>
           </Row>
           <a href='/auth/logout'>
-            <Button>Logout</Button>
+            <Button className='settings-btn' id='logout-btn'>Logout</Button>
           </a>
-        </Panel>
       </RouteTransition>
       )
   }
