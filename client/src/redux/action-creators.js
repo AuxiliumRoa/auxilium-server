@@ -39,7 +39,10 @@ export function addCommentFromClient (actionID, commentText) {
 		type: 'ADD_COMMENT_FROM_CLIENT',
 		sendToServerOverSocket: true,
 		action: { id: actionID },
-		comment: { comment: commentText }
+		comment: {
+			comment: commentText,
+			created_at: (new Date()).toString()
+		}
 	}
 }
 

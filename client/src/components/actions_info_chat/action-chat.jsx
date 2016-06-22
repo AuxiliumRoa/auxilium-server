@@ -6,7 +6,7 @@ class ActionChat extends Component {
 	render () {
 		return (
 			<div>
-				<ChatContent comment={ this.props.userName + ': ' + this.props.comment }/>
+				<ChatContent comment={ this.props.userName + ': ' + this.props.comment + ' - ' + this.props.createdAt }/>
 			</div>
 		)
 	}
