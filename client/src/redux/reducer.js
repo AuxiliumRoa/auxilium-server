@@ -20,6 +20,8 @@ export default function reducer (state = INITIAL_STATE, reduxAction) {
 
   let newState = clone (state)
 
+  // console.log('reducer', reduxAction.type)
+
   switch (reduxAction.type) {
 
     case 'SET_NAV_ICONS' :
@@ -28,6 +30,7 @@ export default function reducer (state = INITIAL_STATE, reduxAction) {
 
     case 'UPDATE_PREVIOUS_PAGE' :
       newState.previousPage = reduxAction.url
+      break
 
     case 'POPULATE_USER' : 
       newState.user = reduxAction.user
