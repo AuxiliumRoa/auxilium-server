@@ -19,13 +19,20 @@ class MainPage extends Component {
     } else {return}
   }
 
+  componentWillUnmount() {
+    this.props.updatePreviousPage(this.props.location.pathname)
+  }
+
   render() {
     let action = this.props.actions[Object.keys(this.props.actions)[this.props.displayedActionIndex]]
+    let transitionParams = (this.props.previousPage === '/joined-actions')
+      ? [{translateX: -100}, {translateX: 100}]
+      : [{translateX: 100}, {translateX: -100}]
     return (
       <RouteTransition
             pathname={this.props.location.pathname}
-            atEnter={{ translateX: 100 }}
-            atLeave={{ translateX: -100 }}
+            atEnter={transitionParams[0]}
+            atLeave={transitionParams[1]}
             atActive={{ translateX: 0 }}
             mapStyles={styles => ({ transform: `translateX(${styles.translateX}%)` })}
             >
@@ -67,7 +74,8 @@ function mapStateToProps(state) {
   return {
     actions: state.actions,
     fetchedActions: state.fetchedActions,
-    displayedActionIndex: state.displayedActionIndex
+    displayedActionIndex: state.displayedActionIndex,
+    previousPage: state.previousPage
   }
 }
 

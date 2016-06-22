@@ -48,6 +48,10 @@ class AddAction extends Component {
     ReactDOM.findDOMNode(this.refs['why']).value = ''
   }
 
+  componentWillUnmount() {
+    this.props.updatePreviousPage(this.props.location.pathname)
+  }
+
   render() {
     return (
       <RouteTransition
