@@ -28,7 +28,7 @@ class ActionChatPage extends Component {
             {
               (action) 
                ? <div>
-                    <Panel header='Chat' >
+                    <Panel className='paddingbottom'>
                       <ActionChatContainer 
                       action={ action } />
                     </Panel>

@@ -107,8 +107,16 @@ ul.nav.navbar-nav {
   margin: 6em 0;
 }
 
+.paddingbottom {
+  margin-bottom: 6em;
+}
+
 .paddingtop {
   margin-top: 6em;
+}
+
+.panel-group {
+  margin-bottom: 0px;
 }
 
 .joinedIndAction {
@@ -141,5 +149,18 @@ ul.nav.navbar-nav {
 
 .nav-logo {
   height: 2.5em;
-  margin-top: 5px;
+  margin-top: 7px;
+}
+
+.main.container {
+  padding: -2px;
+}
+
+form {
+    width: 95%;
+
+  input.chatInput {
+    width: 100%;
+    padding: 0.5em;
+  }
 }
