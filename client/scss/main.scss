@@ -7,7 +7,7 @@ html {
 
 body {
   background-color: $mainbackgroundcolor;
-  // background-image: url('https://s-media-cache-ak0.pinimg.com/736x/8c/37/2a/8c372a3ab8429583096bc996d25dcacb.jpg');
+   // background-image: url('https://s-media-cache-ak0.pinimg.com/736x/8c/37/2a/8c372a3ab8429583096bc996d25dcacb.jpg');
   min-height: 100%;
   display: flex;
   align-items: center;
@@ -137,4 +137,9 @@ ul.nav.navbar-nav {
   position: fixed;
   margin-top: 20px;
   width: 100%;
+}
+
+.nav-logo {
+  height: 2.5em;
+  margin-top: 5px;
 }
