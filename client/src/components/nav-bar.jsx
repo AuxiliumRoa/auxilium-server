@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import * as actionCreators from '../redux/action-creators'
 import { connect } from 'react-redux'
 import Icon from './icon.jsx'
+import { Link } from 'react-router'
 import { Navbar, Nav } from 'react-bootstrap'
 
 const icons = {
@@ -18,25 +19,25 @@ const icons = {
     reset: ['backMain', 'ghost']
   }, 
   backMain: {
-    icon: 'fa fa-angle-left fa-lg',
+    icon: 'fa fa-angle-left fa-2x',
     key: 'back',
     link: '/',
     reset: ['settings', 'joinedList']
   }, 
   backJoined: {
-    icon: 'fa fa-angle-left fa-lg',
+    icon: 'fa fa-angle-left fa-2x',
     key: 'back',
     link: '/joined-actions',
     reset: ['backMain', 'ghost']
   },
   forwardSettings: {
-    icon: 'fa fa-angle-right fa-lg',
+    icon: 'fa fa-angle-right fa-2x',
     key: 'forward',
     link: '/settings',
     reset: ['ghost', 'forwardMain']
   },
   forwardMain: {
-    icon: 'fa fa-angle-right fa-lg',
+    icon: 'fa fa-angle-right fa-2x',
     key: 'forward',
     link: '/',
     reset: ['settings', 'joinedList']
@@ -80,6 +81,12 @@ class NavBar extends Component {
     }
   }
 
+  handleClick() {
+    let leftIcon = icons[this.props.icons.right].reset[0]
+    let rightIcon = icons[this.props.icons.right].reset[1]
+    this.props.setNavIcons(leftIcon, rightIcon)
+  }
+
   render() {
     return (
       <Navbar fixedTop>
@@ -92,7 +99,7 @@ class NavBar extends Component {
                     handleClick={ this.handleClickLeft.bind(this) } />
             : null
         }
-        <img className='nav-logo' src='/images/pitch-in-logo-spade.png'/>
+        <Link to='/'><img onClick={ this.handleClick.bind(this) } className='nav-logo' src='/images/pitch-in-logo-spade.png'/></Link>
         {
           (this.props.icons.right)
             ? <Icon key={ icons[this.props.icons.right].key + '-icon' } 
