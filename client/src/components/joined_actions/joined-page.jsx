@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import * as actionCreators from '../../redux/action-creators'
 import { connect } from 'react-redux'
 import JoinedContainer from './joined-container.jsx'
-import { Row, Col, Button } from 'react-bootstrap'
+import { Panel, PanelGroup, Row, Col, Button } from 'react-bootstrap'
 import { RouteTransition } from 'react-router-transition'
 
 class JoinedPage extends Component {
@@ -27,11 +27,18 @@ class JoinedPage extends Component {
         <div className='paddingtop'>
           <Row>
             <Col sm={12}>
-              <JoinedContainer 
-                actions={ this.props.joinedActions } 
-                setDisplay={ this.props.setDisplayedJoinedAction }
-                setNav={ this.props.setNavIcons }
-                unjoinAction={ this.props.unjoinAction } />
+              <PanelGroup>
+                <Panel collapsible className='paddingtop' header='Owned Actions'>
+                  <p>HEY HEY</p>
+                </Panel>
+                <Panel collapsible defaultExpanded className='paddingtop' header='Joined Actions'>
+                  <JoinedContainer 
+                    actions={ this.props.joinedActions } 
+                    setDisplay={ this.props.setDisplayedJoinedAction }
+                    setNav={ this.props.setNavIcons }
+                    unjoinAction={ this.props.unjoinAction } />
+                </Panel>
+              </PanelGroup>
             </Col>
           </Row>
         </div>
