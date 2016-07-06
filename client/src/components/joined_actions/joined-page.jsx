@@ -29,7 +29,11 @@ class JoinedPage extends Component {
             <Col sm={12}>
               <PanelGroup>
                 <Panel collapsible className='paddingtop' header='Owned Actions'>
-                  <p>HEY HEY</p>
+                  <JoinedContainer 
+                    actions={ this.props.joinedActions } 
+                    setDisplay={ this.props.setDisplayedJoinedAction }
+                    setNav={ this.props.setNavIcons }
+                    unjoinAction={ this.props.unjoinAction } />
                 </Panel>
                 <Panel collapsible defaultExpanded className='paddingtop' header='Joined Actions'>
                   <JoinedContainer 
@@ -49,6 +53,7 @@ class JoinedPage extends Component {
 
 function mapStateToProps(state) {
   return {
+    userId: state.user.id,
     joinedActions: state.joinedActions,
     previousPage: state.previousPage
   }
