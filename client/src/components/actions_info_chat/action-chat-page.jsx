@@ -18,11 +18,6 @@ class ActionChatPage extends Component {
       let action = this.props.joinedActions[this.props.displayedJoinedAction]
 			return(
         <div>
-          <PanelGroup defaultActiveKey='0' accordion>
-            <Panel className='paddingtop' header={ action.title } eventKey='1'>
-    					<MainContainer action={ action } />
-            </Panel>
-          </PanelGroup>
           <RouteTransition
               pathname={this.props.location.pathname}
               atEnter={{ translateX: 100 }}
@@ -30,6 +25,11 @@ class ActionChatPage extends Component {
               atActive={{ translateX: 0 }}
               mapStyles={styles => ({ transform: `translateX(${styles.translateX}%)` })}
               >
+            <PanelGroup defaultActiveKey='0' accordion>
+              <Panel className='paddingtop' header={ action.title } eventKey='1'>
+      					<MainContainer action={ action } />
+              </Panel>
+            </PanelGroup>
             {
               (action) 
                ? <div>
