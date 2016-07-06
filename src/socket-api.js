@@ -92,6 +92,7 @@ export default function configureSocketAPI (io, model) {
             reduxAction.action.owner_id = socket.request.session.passport.user.id
             model.actions.addAction(reduxAction.action)
               .then((actionID) => {
+                model.actions.joinAction(socket.request.session.passport.user.id, actionID)
                 reduxAction.action.id = actionID
                 socket.broadcast.emit('action', {
                   type: 'ADD_ACTION_FROM_SERVER',

@@ -105,7 +105,7 @@ export default function reducer (state = INITIAL_STATE, reduxAction) {
       break
 
     case 'ADD_ACTION_FROM_CLIENT' :
-      newState.fetchedActions = false
+      // newState.fetchedActions = false
       break
 
     case 'ADD_ACTION_FROM_SERVER' :
@@ -113,9 +113,9 @@ export default function reducer (state = INITIAL_STATE, reduxAction) {
       break
 
     case 'ADD_CLIENT_ACTION_FROM_SERVER' :
-      newState.actions[reduxAction.action.id] = reduxAction.action
-      newState.displayedActionIndex = Object.keys(newState.actions).indexOf(reduxAction.action.id + '')
-      newState.fetchedActions = true
+      newState.joinedActions[reduxAction.action.id] = reduxAction.action
+      // newState.displayedActionIndex = Object.keys(newState.actions).indexOf(reduxAction.action.id + '')
+      // newState.fetchedActions = true
       break
 
   }
