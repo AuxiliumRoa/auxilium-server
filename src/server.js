@@ -17,7 +17,7 @@ const port = process.env.PORT || 3000
 const model = Model(process.env.NODE_ENV)
 
 const session = Session({
-	secret: 'Auxilium Roa',
+  secret: 'Auxilium Roa',
   saveUninitialized: true,
   resave: true
 })
@@ -34,17 +34,17 @@ configurePassport(app, model)
 configureSocketAPI(io, model)
 
 app.get('*', (req, res, next) => {
-	if (req.session.passport && req.session.passport.user) {
-		console.log('GET * serving main.html')
-		res.sendFile(path.join(__dirname, '../public/main.html'))
-	} else {
-		console.log('GET * serving login.html')
-		res.sendFile(path.join(__dirname, '../public/login.html'))
-	}
+  if (req.session.passport && req.session.passport.user) {
+    console.log('GET * serving main.html')
+    res.sendFile(path.join(__dirname, '../public/main.html'))
+  } else {
+    console.log('GET * serving login.html')
+    res.sendFile(path.join(__dirname, '../public/login.html'))
+  }
 })
 
 export default function startServer() {
-	server.listen(port, () => {
-		console.log('Auxilium Server Application is listening on port', port)
-	})
+  server.listen(port, () => {
+    console.log('Auxilium Server Application is listening on port', port)
+  })
 }
