@@ -1,5 +1,5 @@
 export default function Actions (knex) {
-var dt =new Date()
+  
   return {
 
     getNotJoined: (userID) => {
