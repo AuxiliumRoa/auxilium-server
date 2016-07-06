@@ -89,6 +89,7 @@ export default function configureSocketAPI (io, model) {
             break
 
           case 'ADD_ACTION_FROM_CLIENT' :
+            reduxAction.action.owner_id = socket.request.session.passport.user.id
             model.actions.addAction(reduxAction.action)
               .then((actionID) => {
                 reduxAction.action.id = actionID
